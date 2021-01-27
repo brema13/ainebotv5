@@ -1247,6 +1247,31 @@ client.on('group-participants-update', async (anu) => {
 					buffer = await getBuffer(me.imgUrl)
 					client.sendMessage(from, buffer, image, {caption: teks, contextInfo:{mentionedJid: [me.jid]}})
 					break
+		case 'lpr':
+					const bug = body.slice(5)
+					if (pesan.length > 300) return client.sendMessage(from, 'Maaf Teks Terlalu Panjang, Maksimal 300 Teks', msgType.text, {quoted: mek})
+					var nomor = mek.participant
+					teks1 = `*[LAPORAN]*\nNomor : @${nomor.split("@s.whatsapp.net")[0]}\nPesan : ${bug}`
+					var options = {
+					text: teks1,
+					contextInfo: {mentionedJid: [nomor]},
+					}
+					client.sendMessage('62895330379186@s.whatsapp.net', options, text, {quoted: mek})
+					reply('Masalah telah di laporkan ke owner AINEBOT, Laporan palsu atau main² tidak akan ditanggapi.')
+					break
+		case 'request':
+					const cfrr = body.slice(8)
+					if (cfrr.length > 300) return client.sendMessage(from, 'Maaf Teks Terlalu Panjang, Maksimal 300 Teks', msgType.text, {quoted: mek})
+					var nomor = mek.participant
+					const ress = `*[REQUEST VITUR]*\nNomor : @${nomor.split("@s.whatsapp.net")[0]}\nPesan : ${cfrr}`
+							var options = {
+							text: ress,
+                         				contextInfo: {mentionedJid: [nomor]},
+                     			}
+					client.sendMessage('62895330379186@s.whatsapp.net', options, text, {quoted: mek})
+					client.sendMessage('6285156459328@s.whatsapp.net', options, text, {quoted: mek})
+					reply('REQUEST ANDA TELAH SAMPAI KE OWNER AINEBOT, Requests palsu atau main² tidak akan ditanggapi.')
+					break
 		case 'blocklist': 
 					teks = '*This is list of blocked number* :\n'
 					for (let block of blocked) {
