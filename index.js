@@ -751,13 +751,13 @@ client.on('group-participants-update', async (anu) => {
 				reply(ind.wait())
 				if (args.length < 1) return reply('Urlnya mana kak?')
 				if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(ind.stikga())
-				anu = await fetchJson(`https://arugaz.my.id/api/media/ytmus?url=${args[0]}`, {method: 'get'})
+				anu = await fetchJson(`api.zeks.xyz/api/ytmp3?url=${args[0]}&apikey=apivinz`, {method: 'get'})
 				if (anu.error) return reply(anu.error)
-				teks = `❏ *Title* : ${anu.titleInfo}\n\n❏ *Tunggu Bentar Ya Kak, Audionya Lagi Di Kirim...*`
-				thumb = await getBuffer(anu.getImages)
+				teks = `❏ *Title* : ${anu.title}\n❏ *Ukuran* : ${anu.size}\n\n❏ *Tunggu Bentar Ya Kak, Audionya Lagi Di Kirim...*`
+				thumb = await getBuffer(anu.thumbnail)
 				client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
-				buffer = await getBuffer(anu.getAudio)
-				client.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.titleInfo}.mp3`, quoted: mek})
+				buffer = await getBuffer(anu.url_audio)
+				client.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
 				await limitAdd(sender)
 				break
 		case 'ytmp4':
@@ -766,13 +766,13 @@ client.on('group-participants-update', async (anu) => {
 				reply(ind.wait())
 				if (args.length < 1) return reply('Urlnya mana kak?')
 				if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(ind.stikga())
-				anu = await fetchJson(`https://arugaz.my.id/api/media/ytvid?url=${args[0]}`, {method: 'get'})
+				anu = await fetchJson(`https://api.zeks.xyz/api/ytmp4?url=${args[0]}&apikey=apivinz`, {method: 'get'})
 				if (anu.error) return reply(anu.error)
-				teks = `❏ *Title* : ${anu.titleInfo}\n\n❏ *Tunggu Bentar Ya Kak, Vidoenya Lagi Di Kirim...*`
-				thumb = await getBuffer(anu.getImages)
+				teks = `❏ *Title* : ${anu.title}\n❏ *Ukuran* : ${anu.size}\n\n❏ *Tunggu Bentar Ya Kak, Vidoenya Lagi Di Kirim...*`
+				thumb = await getBuffer(anu.thumbnail)
 				client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
-				buffer = await getBuffer(anu.getVideo)
-				client.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.titleInfo}.mp4`, quoted: mek})
+				buffer = await getBuffer(anu.url_video)
+				client.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.title}.mp4`, quoted: mek})
 				await limitAdd(sender)
 				break
 		case 'play':   
