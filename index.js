@@ -814,7 +814,7 @@ client.on('group-participants-update', async (anu) => {
 				reply(ind.wait())
 				if (args.length < 1) return reply('Urlnya mana kak?')
 				if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(ind.stikga())
-				anu = await fetchJson(`api.zeks.xyz/api/ytmp3?url=${args[0]}&apikey=apivinz`, {method: 'get'})
+				anu = await fetchJson(`https://api.zeks.xyz/api/ytmp3?url=${args[0]}&apikey=apivinz`, {method: 'get'})
 				if (anu.error) return reply(anu.error)
 				teks = `❏ *Title* : ${anu.result.title}\n❏ *Ukuran* : ${anu.result.size}\n\n❏ *Tunggu Bentar Ya Kak, Audionya Lagi Di Kirim...*`
 				thumb = await getBuffer(anu.result.thumbnail)
