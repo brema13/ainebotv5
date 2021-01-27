@@ -1009,6 +1009,26 @@ client.on('group-participants-update', async (anu) => {
 					reply(hasil)
 					await limitAdd(sender)
 					break 
+		case 'infogempa':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/infogempa?apikey=BotWeA`, {method: 'get'})
+					if (anu.error) return reply(anu.error)
+					buff = await getBuffer(anu.map)
+					hasil = `*Potensi*\n${anu.potensi}\n*Lokasi*\n${anu.lokasi}\n*Magnitude*\n${anu.magnitude}\n*Koordinat*\n${anu.koordinat}\n*Kedalaman*\n${anu.kedalaman}\n*Waktu*\n${anu.waktu}\n*Map*\n${anu.map}`
+					client.sendMessage(from, buff, image, {quoted: mek, caption: hasil})
+					await limitAdd(sender)
+					break
+		case 'infocuaca':
+					tels = body.slice(11)
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/cuaca?wilayah=${tels}&apikey=BotWeA`, {method: 'get'})
+					if (anu.error) return reply(anu.error)
+					hasil = `*Tempat* : ${anu.result.tempat}\n*Cuaca* : ${anu.result.cuaca}\n*Angin* : ${anu.result.angin}\n*Suhu* : ${anu.result.suhu}\n*Kelembapan* : ${anu.result.kelembapan}`
+					client.sendMessage(from, hasil, text, {quoted: mek})
+					await limitAdd(sender)
+					break
                 case 'slap':
 					kapankah = body.slice(1)
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
