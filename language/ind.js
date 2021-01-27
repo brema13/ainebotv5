@@ -117,6 +117,7 @@ exports.reglevelahf = (command, pushname, getLevelingLevel, sender, ahf) => {
 exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku) => { 
 	return `
 「 *AINE BOT* 」
+
 ◪ *INFO DEVELOPER*
   ❏ Nama: Muhammad Ridwan Reynaldy
   ❏ Wa: wa.me/62895330379186
