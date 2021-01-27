@@ -1845,6 +1845,18 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, quran, text, {quoted: mek})
 					await limitAdd(sender)
 					break
+                case 'neonime':
+				        if (!isRegistered) return reply(ind.noregis())
+				        if (isLimit(sender)) return reply(ind.limitend(pusname))
+					client.updatePresence(from, Presence.composing) 
+					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/neonime_lastest`, {method: 'get'})
+					teks = '################\n'
+					for (let i of data.result) {
+						teks += `*Title* : ${i.judul}\n*link* : ${i.link}\n*rilis* : ${i.rilis}\n###############\n`
+					}
+					reply(teks.trim())
+					await limitAdd(sender)
+					break
 		case 'ocr': 
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
