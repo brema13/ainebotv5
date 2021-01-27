@@ -2043,6 +2043,22 @@ client.on('group-participants-update', async (anu) => {
 		case 'bot':
 					client.sendMessage(from, 'Iya kak? \nJangan lupa daftar iya kak ^_^"\nJika sudah silahkan berarti sudah terdaftar kak ^_^"',MessageType.text, { quoted: mek} )
 					break
+
+		case 'wa.me':
+		case 'wame':
+  					if (!isRegistered) return reply(ind.noregis())
+  					if (isLimit(sender)) return reply(ind.limitend(pusname))
+  					client.updatePresence(from, Presence.composing) 
+  					options = {
+  					text: `「 *SELF WHATSAPP* 」\n\n_Request by_ : *@${sender.split("@s.whatsapp.net")[0]}\n\nYour link WhatsApp : *https://wa.me/${sender.split("@s.whatsapp.net")[0]}*\n*Or ( / )*\n*https://api.whatsapp.com/send?phone=${sender.split("@")[0]}*`,
+  					contextInfo: { mentionedJid: [sender] }
+  					}
+  					client.sendMessage(from, options, text, { quoted: mek } )
+  					break
+  					if (data.error) return reply(data.error)
+  					reply(data.result)
+					await limitAdd(sender)
+  					break
 		case 'tagall':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
