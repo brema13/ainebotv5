@@ -1000,14 +1000,21 @@ client.on('group-participants-update', async (anu) => {
 					reply(anu.quotes)
 					await limitAdd(sender)
 					break	
+                case 'twichquotes':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/twichquote`, {method: 'get'})
+					reply(anu.result)
+					await limitAdd(sender)
+					break	
 		case 'quotes':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 					data = await fetchJson(`https://mhankbarbar.tech/api/randomquotes`)
-					ez = `_${data.quotes}_\n\n_${data.author}_`
-					reply(ez)
+					cop = `_${data.quotes}_\n\n_${data.author}_`
+					reply(cop)
 					await limitAdd(sender)
-					break	
+					break
 		case 'infonomor':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
