@@ -210,6 +210,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}pantun
   ├─ ❏ ${prefix}quotes
   ├─ ❏ ${prefix}animequotes
+  ├─ ❏ ${prefix}twichquotes
   └─ ❏ ${prefix}artinama [teks]
 ◪ *KERANG AJAIB*
   │
