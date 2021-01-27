@@ -23,19 +23,19 @@ exports.lvlnoon = () => {
 }
 
 exports.noregis = () => {
-	return`*「 BELUM DAFTAR 」*\n\n*cara daftar ${prefix}daftar nama|umur* \n*contoh ${prefix}daftar affis|17*`
+	return`*「 BELUM DAFTAR 」*\n\n*cara daftar ${prefix}daftar nama|umur* \n*contoh ${prefix}daftar aine|22*`
 }
 
 exports.rediregis = () => {
-	return`*「 SUDAH DAFTAR 」*\n\n*kamu sudah terdaftar di database bot*`
+	return`*「 SUDAH DAFTAR 」*\n\n*Kamu sudah terdaftar di database bot*`
 }
 
 exports.stikga = () => {
-	return`*yah gagal coba ulangi beberapa saat lagi*`
+	return`*Yah gagal coba ulangi beberapa saat lagi*`
 }
 
 exports.linkga = () => {
-	return`*maaf link tidak valid*`
+	return`*Maaf link tidak valid*`
 }
 
 exports.groupo = () => {
@@ -59,27 +59,27 @@ exports.badmin = () => {
 }
 
 exports.nsfwoff = () => {
-	return`*NSFW GAK AKTIF*`
+	return`*NSFW TIDAK AKTIF*`
 }
 
 exports.bug = () => {
-	return`*Masalah telah di laporkan ke owner BOT, laporan palsu/main2 tidak akan ditanggapi*`
+	return`*Masalah telah di laporkan ke owner AINEBOT, Laporan palsu atau main² tidak akan ditanggapi.*`
 }
 
 exports.wrongf = () => {
-	return`*format salah/text kosong*`
+	return`*Format salah/text kosong*`
 }
 
 exports.clears = () => {
-	return`*clear all Success*`
+	return`*Clear all Success*`
 }
 
 exports.pc = () => {
-	return`*「 REGISTRASI 」*\n\nuntuk mengetahui apa kamu sudah terdaftar silahkah check message yang saya kirim \n\nNOTE:\n*jika kamu belum mendapatkan pesan. berarti kamu belum menyimpan nomer bot*`
+	return`*「 REGISTRASI 」*\n\nUntuk mengetahui apa kamu sudah terdaftar silahkah check message yang saya kirim \n\nNOTE:\n*Jika kamu belum mendapatkan pesan. berarti kamu belum menyimpan nomer bot*`
 }
 
 exports.registered = (namaUser, umurUser, serialUser, time, sender) => {
-	return`*「 DATA NEGARA 」*\n\nkamu sudah terdaftar dengan data \n\n┏━⊱nama\n┗⊱${namaUser}\n┏━⊱nomer\n┗⊱wa.me/${sender.split("@")[0]}\n┏━⊱umur\n┗⊱${umurUser}\n┏━⊱waktu pendaftaran\n┗⊱${time}\n\n┏━❉ *NS* ❉━\n┣⊱${serialUser}\n┗⊱NOTE : jangan sampai lupa nomer ini karena ini penting:v`
+	return`*「 DATA NEGARA 」*\n\nkamu sudah terdaftar dengan data \n\n┏━⊱nama\n┗⊱${namaUser}\n┏━⊱nomer\n┗⊱wa.me/${sender.split("@")[0]}\n┏━⊱umur\n┗⊱${umurUser}\n┏━⊱waktu pendaftaran\n┗⊱${time}\n\n┏━❉ *NS* ❉━\n┣⊱${serialUser}\n┗⊱NOTE : jangan sampai lupa nomer ini karena ini penting!`
 }
 
 exports.cmdnf = (prefix, command) => {
@@ -87,7 +87,7 @@ exports.cmdnf = (prefix, command) => {
 }
 
 exports.owneresce = (pushname) => {
-	return`*maaf tapi ${pushname} bukan owner script*`
+	return`*Maaf tapi ${pushname} bukan owner script*`
 }
 
 exports.reglevelaha = (command, pushname, getLevelingLevel, sender, aha) => {
@@ -116,141 +116,276 @@ exports.reglevelahf = (command, pushname, getLevelingLevel, sender, ahf) => {
 
 exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku) => { 
 	return `
-┏━━━⊱  *ABOUT USER*  ⊰━━┓
-┣⊱ *Nama* : ${pushname}
-┣⊱ *Nomer* : wa.me/${sender.split("@")[0]}
-┣⊱ *Uang mu* : Rp${uangku}
-┣⊱ *XP* : ${getLevelingXp(sender)}/${reqXp}
-┣⊱ *Level* : ${getLevelingLevel(sender)}
-┣⊱ *User register* : ${_registered.length}
-┗━━━⊱  ⸨ *AFFIS* ⸩  ⊰━━━━┛
-
-
-┏━━⊱ *MAKER MENU* ⊰━━┓
-┣⊱ *${prefix}sticker*
-┣⊱ *${prefix}vinta*
-┣⊱ *${prefix}avengers*
-┣⊱ *${prefix}summer*
-┣⊱ *${prefix}sandwrite*
-┣⊱ *${prefix}metaldark*
-┣⊱ *${prefix}dropwater*
-┣⊱ *${prefix}greenneon*
-┣⊱ *${prefix}neontext*
-┣⊱ *${prefix}sumery*
-┣⊱ *${prefix}blood*
-┣⊱ *${prefix}firework*
-┣⊱ *${prefix}lava*
-┣⊱ *${prefix}qrcode*
-┣⊱ *${prefix}ninjalogo*
-┣⊱ *${prefix}glitch*
-┣⊱ *${prefix}wolflogo*
-┣⊱ *${prefix}lionlogo*
-┣⊱ *${prefix}jokerlogo*
-┣━━⊱  *FUN MENU*  ⊰━━━┫
-┣⊱ *${prefix}mining*
-┣⊱ *${prefix}bisakah*
-┣⊱ *${prefix}kapankah*
-┣⊱ *${prefix}apakah*
-┣⊱ *${prefix}rate*
-┣⊱ *${prefix}slap*
-┣⊱ *${prefix}tampar*
-┣⊱ *${prefix}moddroid*
-┣⊱ *${prefix}happymod*
-┣⊱ *${prefix}nangis*
-┣⊱ *${prefix}cium*
-┣⊱ *${prefix}peluk*
-┣━━⊱ *MUTUAL* ⊰━━━━━┫
-┣⊱ *${prefix}mutual*
-┣⊱ *${prefix}next*
-┣━━⊱ *MEDIA MENU* ⊰━━┫
-┣⊱ *${prefix}toxic*
-┣⊱ *${prefix}quotes*
-┣⊱ *${prefix}beritahoax*
-┣⊱ *${prefix}brainly*
-┣⊱ *${prefix}pinterest*
-┣⊱ *${prefix}resepmasakan*
-┣⊱ *${prefix}igstalk*
-┣⊱ *${prefix}bitly*
-┣━━⊱ *YT & SONG* ⊰━━━┫
-┣⊱ *${prefix}ytmp3*
-┣⊱ *${prefix}ytmp4*
-┣⊱ *${prefix}joox*
-┣━━⊱  *NSFW MENU*  ⊰━┫
-┣⊱ *${prefix}pokemon*
-┣⊱ *${prefix}anjing*
-┣⊱ *${prefix}blowjob*
-┣⊱ *${prefix}nekonime*
-┣⊱ *${prefix}kpop*
-┣⊱ *${prefix}husbu*
-┣⊱ *${prefix}shota*
-┣⊱ *${prefix}ranime*
-┣━━⊱ *LIMIT & UANG* ⊰━┫
-┣⊱ *${prefix}limit*
-┣⊱ *${prefix}buylimit*
-┣⊱ *${prefix}transfer*
-┣⊱ *${prefix}dompet*
-┣━━⊱ *GROUP MENU* ⊰━┫
-┣⊱ *${prefix}hidetag*
-┣⊱ *${prefix}grouplist*
-┣⊱ *${prefix}level*
-┣⊱ *${prefix}linkgc*
-┣⊱ *${prefix}tagall*
-┣⊱ *${prefix}setpp*
-┣⊱ *${prefix}add*
-┣⊱ *${prefix}kick*
-┣⊱ *${prefix}setname*
-┣⊱ *${prefix}setdesc*
-┣⊱ *${prefix}demote*
-┣⊱ *${prefix}promote*
-┣⊱ *${prefix}listadmin*
-┣⊱ *${prefix}group* [buka/tutup]
-┣⊱ *${prefix}leveling* [enable/disable]
-┣⊱ *${prefix}nsfw* [1/0]
-┣⊱ *${prefix}simih* [1/0]
-┣⊱ *${prefix}welcome* [1/0]
-┣━━⊱ *OWNER MENU* ⊰━┫
-┣⊱ *${prefix}bc*
-┣⊱ *${prefix}bcgc*
-┣⊱ *${prefix}kickall*
-┣⊱ *${prefix}setreply*
-┣⊱ *${prefix}setprefix*
-┣⊱ *${prefix}clearall*
-┣⊱ *${prefix}block*
-┣⊱ *${prefix}unblock*
-┣⊱ *${prefix}leave*
-┣⊱ *${prefix}event* [1/0]
-┣⊱ *${prefix}clone*
-┣⊱ *${prefix}setppbot*
-┣━━⊱ *THANGKS TO* ⊰━┫
-┃
-┣⊱ *AFFIS JUNIANTO*
-┣⊱ *FADHIL GRAPHY*
-┣⊱ *MHANKBARBARS*
-┣⊱ *MYBOT TEAM*
-┣⊱ *AGUNG(XPTN)*
-┣⊱ *BRYAN(SUHU)*
-┣⊱ *TOBZ*
-┣⊱ *ARUGAZ*
-┃
-┣⊱ NOTE : TQTO DI HAPUS
-┃ GW GAK UP LAGI OKE
-┃
-┗━━⊱  ⸨ *AFFIS* ⸩  ⊰━━━┛
+「 *AINE BOT* 」
+◪ *INFO DEVELOPER*
+  ❏ Nama: Muhammad Ridwan Reynaldy
+  ❏ Wa: wa.me/62895330379186
+  ❏ Ig: https://instagram.com/anemio999
+  ❏ Fb: https://facebook.com/ridwan228
+  ----------------------------------
+◪ *INFO AINEBOT*
+  ❏ Nama: AINEBOT 
+  ❏ Nomor: wa.me/12022926988
+  ❏ Fb: https://facebook.com/ainneboot
+  ----------------------------------
+◪ *YOUR INFO*
+  ❏ Prefix: 「  ${prefix}  」
+  ❏ Nama: ${pushname}
+  ❏ Uang mu : Rp${uangku}
+  ❏ Nomer: ${sender.split("@")[0]}
+  ❏ XP: ${getLevelingXp(sender)}/${reqXp}
+  ❏ Level: ${getLevelingLevel(sender)}
+  ❏ User register : ${_registered.length}
+            *Rules* - *Simple*
+▬▭▬▭▬▭▬▭▬▭▬▭▬
+  ❏ *Spam : Auto Block!*
+  ❏ *Beri Jeda 5detik Saat Menggunakannya!!*
+  ❏ *Bug/Error Harap Cht Owner!*
+  ❏ *Untuk Memastikan Bot Off Atau On*
+  ❏ *Ketik ${prefix}bot*
+  ❏ *Harap Sabar Dengan Bug²nya!*
+  ❏ *Gunakan Bot Sebaik-baiknya!*
+▬▭▬▭▬▭▬▭▬▭▬▭▬
+◪ *ABOUT*
+  │
+  ├─ ❏ ${prefix}info
+  ├─ ❏ ${prefix}snk
+  ├─ ❏ ${prefix}lpr 
+  ├─ ❏ ${prefix}request
+  ├─ ❏ ${prefix}blocklist
+  ├─ ❏ ${prefix}ping
+  └─ ❏ ${prefix}gcainebot
+◪ *MAKER*
+  │
+  ├─ ❏ ${prefix}nulis
+  ├─ ❏ ${prefix}sticker
+  ├─ ❏ ${prefix}stickergif
+  ├─ ❏ ${prefix}toimg
+  ├─ ❏ ${prefix}bplogo
+  ├─ ❏ ${prefix}sandwrite
+  ├─ ❏ ${prefix}swlogo2
+  ├─ ❏ ${prefix}text3d
+  ├─ ❏ ${prefix}thunder
+  ├─ ❏ ${prefix}glitch
+  ├─ ❏ ${prefix}cloudsky
+  ├─ ❏ ${prefix}quotemaker
+  ├─ ❏ ${prefix}blood
+  ├─ ❏ ${prefix}realcloud
+  ├─ ❏ ${prefix}metaldark
+  ├─ ❏ ${prefix}dropwater
+  ├─ ❏ ${prefix}phlogo
+  ├─ ❏ ${prefix}grenneon
+  ├─ ❏ ${prefix}neontext
+  ├─ ❏ ${prefix}toxic
+  ├─ ❏ ${prefix}sumery
+  ├─ ❏ ${prefix}firework
+  ├─ ❏ ${prefix}lava
+  ├─ ❏ ${prefix}vinta
+  ├─ ❏ ${prefix}avengers
+  ├─ ❏ ${prefix}wolflogo
+  ├─ ❏ ${prefix}lionlogo
+  ├─ ❏ ${prefix}ninjalogo
+  ├─ ❏ ${prefix}jokerlogo
+  ├─ ❏ ${prefix}sumery
+  └─ ❏ ${prefix}summer
+◪ *MEDIA*
+  │
+  ├─ ❏ ${prefix}beritahoax
+  └─ ❏ ${prefix}trendtwit
+◪ *OTHER FITUR*
+  │
+  ├─ ❏ ${prefix}ssweb
+  ├─ ❏ ${prefix}hilih [teks]
+  ├─ ❏ ${prefix}alay [teks]
+  ├─ ❏ ${prefix}wiki [teks]
+  ├─ ❏ ${prefix}kbbi [teks]
+  ├─ ❏ ${prefix}map [teks]
+  ├─ ❏ ${prefix}fml
+  ├─ ❏ ${prefix}lirik [teks]
+  ├─ ❏ ${prefix}brainly [teks]
+  ├─ ❏ ${prefix}bitly
+  ├─ ❏ ${prefix}chord [teks]
+  ├─ ❏ ${prefix}katacinta
+  ├─ ❏ ${prefix}pantun
+  ├─ ❏ ${prefix}quotes
+  ├─ ❏ ${prefix}animequotes
+  └─ ❏ ${prefix}artinama [teks]
+◪ *KERANG AJAIB*
+  │
+  ├─ ❏ ${prefix}gantengcek
+  ├─ ❏ ${prefix}cantikcek
+  ├─ ❏ ${prefix}watak
+  ├─ ❏ ${prefix}hobby
+  ├─ ❏ ${prefix}apakah
+  ├─ ❏ ${prefix}kapankah
+  ├─ ❏ ${prefix}bisakah
+  └─ ❏ ${prefix}rate
+◪ *DOWNLOADER*
+  │
+  ├─ ❏ ${prefix}pinterest [teks]
+  ├─ ❏ ${prefix}ytmp3 [link]
+  ├─ ❏ ${prefix}ytmp4 [link]
+  ├─ ❏ ${prefix}fototiktok
+  └─ ❏ ${prefix}joox [teks]
+◪ *MEME*
+  │
+  ├─ ❏ ${prefix}meme ❌
+  └─ ❏ ${prefix}memeindo ❌
+◪ *FIND TARGET*
+  │
+  ├─ ❏ ${prefix}mutual
+  └─ ❏ ${prefix}next
+◪ *RANDOM PICTUE*
+  │ *ANIME*
+  ├─ ❏ ${prefix}loli
+  ├─ ❏ ${prefix}neko
+  ├─ ❏ ${prefix}waifu
+  ├─ ❏ ${prefix}animecry
+  ├─ ❏ ${prefix}animehug
+  ├─ ❏ ${prefix}osakana
+  ├─ ❏ ${prefix}naruto
+  ├─ ❏ ${prefix}anime
+  ├─ ❏ ${prefix}husbu
+  ├─ ❏ ${prefix}animegirl
+  ├─ ❏ ${prefix}animeboy
+  ├─ ❏ ${prefix}nekonime
+  │
+  │ *RANDOM KPOP*
+  ├─ ❏ ${prefix}randomkpop
+  │
+  │ *CARTOON*
+  ├─ ❏ ${prefix}doraemon
+  ├─ ❏ ${prefix}pokemon
+  │
+  │ *ANIMAL*
+  ├─ ❏ ${prefix}anjing
+  ├─ ❏ ${prefix}kucing
+  ├─ ❏ ${prefix}hamster
+  ├─ ❏ ${prefix}kelinci
+  │
+  │ *TRANSPORT*
+  ├─ ❏ ${prefix}mobil
+  ├─ ❏ ${prefix}motor
+  ├─ ❏ ${prefix}sepeda
+  │
+  │ *AESTHETIC*
+  ├─ ❏ ${prefix}aesthetic
+  ├─ ❏ ${prefix}bluesky
+  ├─ ❏ ${prefix}flower
+  ├─ ❏ ${prefix}icecream
+  ├─ ❏ ${prefix}pemandangan
+  │
+  │ *QUOTES*
+  ├─ ❏ ${prefix}quotesid
+  ├─ ❏ ${prefix}quotesen
+  ├─ ❏ ${prefix}katakata
+  ├─ ❏ ${prefix}motivasi
+  ├─ ❏ ${prefix}kehidupan
+  └─ ❏ ${prefix}islami
+◪ *LIMIT & UANG*
+  │
+  ├─ ❏ ${prefix}limit
+  ├─ ❏ ${prefix}buylimit
+  ├─ ❏ ${prefix}transfer
+  └─ ❏ ${prefix}dompet
+◪ *GROUP*
+  │
+  ├─ ❏ ${prefix}promote [@tag]
+  ├─ ❏ ${prefix}demote [@tag]
+  ├─ ❏ ${prefix}tagall
+  ├─ ❏ ${prefix}hidetag
+  ├─ ❏ ${prefix}grouplist
+  ├─ ❏ ${prefix}add [62]
+  ├─ ❏ ${prefix}kick [@tag]
+  ├─ ❏ ${prefix}setname
+  ├─ ❏ ${prefix}setdesc
+  ├─ ❏ ${prefix}setpp
+  ├─ ❏ ${prefix}listadmin
+  ├─ ❏ ${prefix}linkgc
+  ├─ ❏ ${prefix}leave
+  ├─ ❏ ${prefix}mining
+  ├─ ❏ ${prefix}level
+  ├─ ❏ ${prefix}grup [buka/tutup)
+  ├─ ❏ ${prefix}welcome [1/0]
+  ├─ ❏ ${prefix}nsfw [1/0]
+  ├─ ❏ ${prefix}leveling [1/0]
+  └─ ❏ ${prefix}simih [1/0]
+◪ *SOUND*
+  │
+  ├─ ❏ ${prefix}play [teks]
+  └─ ❏ ${prefix}tts
+◪ *ISLAM*
+  │
+  └─ ❏ ${prefix}quran
+◪ *STALK*
+  │
+  ├─ ❏ ${prefix}tiktokstalk
+  └─ ❏ ${prefix}igstalk
+◪ *WIBU*
+  │
+  ├─ ❏ ${prefix}neonime
+  └─ ❏ ${prefix}wait
+◪ *APK*
+  ├─ ❏ ${prefix}apkpure [teks]
+  ├─ ❏ ${prefix}happymod [teks]
+  ├─ ❏ ${prefix}moddroid [teks]
+◪ *18+ Nsfw*
+  |
+  ├─ ❏ ${prefix}blowjob
+  ├─ ❏ ${prefix}randomhentai
+  └─ ❏ ${prefix}nsfwneko
+◪ *FUN*
+  │
+  ├─ ❏ ${prefix}truth
+  ├─ ❏ ${prefix}dare
+  ├─ ❏ ${prefix}slap
+  ├─ ❏ ${prefix}tampar
+  ├─ ❏ ${prefix}nangis
+  ├─ ❏ ${prefix}cium
+  └─ ❏ ${prefix}simi
+◪ *INFORMATION*
+  │
+  ├─ ❏ ${prefix}bahasa
+  ├─ ❏ ${prefix}kodenegara
+  ├─ ❏ ${prefix}infogempa
+  ├─ ❏ ${prefix}infocuaca
+  ├─ ❏ ${prefix}infonomor
+  └─ ❏ ${prefix}covid ❌
+◪ *OWNER*
+  │
+  ├─ ❏ ${prefix}setprefix
+  ├─ ❏ ${prefix}setreply
+  ├─ ❏ ${prefix}setppbot
+  ├─ ❏ ${prefix}block
+  ├─ ❏ ${prefix}unblock
+  ├─ ❏ ${prefix}setprefix
+  ├─ ❏ ${prefix}leave
+  ├─ ❏ ${prefix}kickall
+  ├─ ❏ ${prefix}event [1/0]
+  ├─ ❏ ${prefix}bc
+  ├─ ❏ ${prefix}bcgc
+  ├─ ❏ ${prefix}clone
+  └─ ❏ ${prefix}clearall
+◪ *OTHER*
+  │
+  ├─ ❏ ${prefix}wame
+  ├─ ❏ ${prefix}qrcode
+  └─ ❏ ${prefix}afk
+◪ *POWERED BY AINEBOT*
 `
 }
 
 exports.levelup = (pushname, sender, getLevelingXp,  getLevel, getLevelingLevel) => {
 	return`
 *「 SELAMAT 」*
-┏⊱ *Nama* : ${pushname}
-┣⊱ *Nomer* : wa.me/${sender.split("@")[0]}
-┣⊱ *Xp* : ${getLevelingXp(sender)}
-┣⊱ *Limit* = +3
-┗⊱ *Level* : ${getLevel} ⊱ ${getLevelingLevel(sender)}
+  ❏ Nama : ${pushname}
+  ❏ Nomer : ${sender.split("@")[0]}
+  ❏ Xp : ${getLevelingXp(sender)}
+  ❏ Level : ${getLevel} ⊱ ${getLevelingLevel(sender)}
 `}
  
 exports.limitend = (pushname) => {
-	return`*maaf ${pushname} limit hari ini habis*\n*limit di reset setiap jam 24:00*`
+	return`*Maaf ${pushname} limit hari ini habis*\n*Hubungi kami* : wa.me/62895330379186`
 }
 
 exports.limitcount = (limitCounts) => {
@@ -258,13 +393,13 @@ exports.limitcount = (limitCounts) => {
 *「 LIMIT COUNT 」*
 sisa limit anda : ${limitCounts}
 
-NOTE : untuk mendapatkan limit. bisa lewat naik level atau buylimit`
-}
+NOTE : Untuk mendapatkan limit. Bisa lewat naik level melalui group atau buylimit.
+`}
 
 exports.satukos = () => {
 	return`*Tambah parameter 1/enable atau 0/disable`
 }
 
 exports.uangkau = (pushname, sender, uangkau) => {
-	return`*┏⊱ 「 ATM 」⊰━┓*\n┣⊱ *Nama* : ${pushname}\n┣⊱ *Nomer* : ${sender.split("@")[0]}\n┣⊱ *Uang* : ${uangkau}\n┗━━━━━━━━━━`
-}
+	return`◪ *「 ATM 」*\n  ├─ ❏ *Name* : ${pushname}\n  ├─ ❏ *Nomor* : ${sender.split("@")[0]}\n  └─ ❏ *Uang* : ${uangkau}
+`}
