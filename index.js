@@ -1469,6 +1469,20 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, options, text)
 					await limitAdd(sender)
 					break
+
+                case 'afk':
+				if (!isRegistered) return reply(ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+                                tels = body.slice(4)
+                                if (args.length < 1) return reply('Kakak afk karena apa?')
+                                var nom = mek.participant
+                                const tag = {
+                                                text: `@${nom.split("@s.whatsapp.net")[0]} *SEDANG AFK ${tels} JANGAN GANGGU YA*`,
+                                                contextInfo: { mentionedJid: [nom] }
+                                        }
+                                        client.sendMessage(from, tag, text, {quoted: mek})
+					await limitAdd(sender)
+                                        break
                 case 'quotemaker':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
