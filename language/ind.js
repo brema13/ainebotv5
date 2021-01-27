@@ -232,7 +232,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
 ◪ *MEME*
   │
   ├─ ❏ ${prefix}meme ❌
-  └─ ❏ ${prefix}memeindo ❌
+  └─ ❏ ${prefix}memeindo
 ◪ *FIND TARGET*
   │
   ├─ ❏ ${prefix}mutual
