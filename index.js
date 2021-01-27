@@ -1449,6 +1449,16 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, buff, image, {quoted: mek})
 					await limitAdd(sender)
 					break
+		case 'loli':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+                                        gatauda = body.slice(6)
+					reply(ind.wait())
+                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomloli?apikey=BotWeA`, {method: 'get'})
+                                        buffer = await getBuffer(anu.result)
+                                        client.sendMessage(from, buffer, image, {quoted: mek})
+					await limitAdd(sender)
+                                        break
 		case 'pokemon':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
