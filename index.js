@@ -1837,6 +1837,14 @@ client.on('group-participants-update', async (anu) => {
 					reply('Menurut nama:\n\n'+anu.result)
 					await limitAdd(sender)
 					break
+		case 'quran':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					anu = await fetchJson(`https://api.banghasan.com/quran/format/json/acak`, {method: 'get'})
+					quran = `${anu.acak.ar.teks}\n\n${anu.acak.id.teks}\nQ.S ${anu.surat.nama} ayat ${anu.acak.id.ayat}`
+					client.sendMessage(from, quran, text, {quoted: mek})
+					await limitAdd(sender)
+					break
 		case 'ocr': 
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
