@@ -1,7 +1,7 @@
 {
-  "name": "XBOT",
+  "name": "AINEBOT",
   "version": "1.0.0",
-  "description": "Xbot for whatsapp online with termux",
+  "description": "Aine for whatsapp online with termux",
   "main": "index.js",
   "directories": {
     "lib": "lib"
@@ -13,15 +13,15 @@
   "keywords": [
     "k"
   ],
-  "author": "affis junianto",
+  "author": "Muhammad Ridwan Reynaldy",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/affisjunianto/botwasapv2.git"
+    "url": "git+https://github.com/anemio/ainebotv5.git"
   },
   "bugs": {
-    "url": "https://github.com/affisjunianto/botwasapv2/issues"
+    "url": "https://github.com/anemio/ainebotv5/issues"
   },
-"homepage": "https://github.com/affisjunianto/botwasapv2/readme",
+"homepage": "https://github.com/anemio/ainebotv5/readme",
 "license": "ISC",
 "dependencies": {
     "@adiwajshing/baileys": "^3.3.0",
