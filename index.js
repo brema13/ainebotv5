@@ -1002,6 +1002,17 @@ client.on('group-participants-update', async (anu) => {
 					reply(teks.trim())
 					await limitAdd(sender)
 					break 
+		case 'trendtwit':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/trendingtwitter`, {method: 'get'})
+					teks = '=================\n'
+					for (let i of data.result) {
+						teks += `*Hastag* : ${i.hastag}\n*link* : ${i.link}\n*rank* : ${i.rank}\n*Tweet* : ${i.tweet}\n=================\n`
+					}
+					reply(teks.trim())
+					await limitAdd(sender)
+					break
 		case 'setppbot':
 					if (!isOwner) return reply(ind.ownerb())
 					client.updatePresence(from, Presence.composing) 
