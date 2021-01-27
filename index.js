@@ -1067,6 +1067,73 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, pok, image, { quoted: mek, caption: `*PINTEREST*`})
 					await limitAdd(sender)
 					break 
+		case 'lirik':
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					if (!isRegistered) return reply(ind.noregis())
+					if (args.length < 1) return reply('Lirik lagunya mana kak?')
+					tels = body.slice(7)
+					anu = await fetchJson(`https://scrap.terhambar.com/lirik?word=${tels}`, {method: 'get'})
+					reply('*Lirik lagu* 🎶'+tels+' 🎶 :\n\n\n'+anu.result.lirik)
+					await limitAdd(sender)
+					break
+		case 'hilih': 
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					if (!isRegistered) return reply(ind.noregis())
+					if (args.length < 1) return reply('kasih teks lah^_^!!!')
+					anu = await fetchJson(`https://api.zeks.xyz/api/hilihmaker?text=${body.slice(7)}&apikey=apivinz`, {method: 'get'})
+					reply(anu.result)
+					await limitAdd(sender)
+					break
+		case 'alay':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					if (args.length < 1) return reply('kasih teks lah^_^!!!')
+					data = await fetchJson(`https://api.zeks.xyz/api/alaymaker?kata=${body.slice(6)}&apikey=apivinz`)
+					reply(data.result)
+				        await limitAdd(sender)
+					break
+		case 'wiki':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					if (args.length < 1) return reply('masukan kata kunci kak')
+					tels = body.slice(6)					
+					anu = await fetchJson(`https://api.zeks.xyz/api/wiki?q=${tels}&apikey=apivinz`, {method: 'get'})
+					reply(anu.result.result)
+					await limitAdd(sender)
+					break
+		case 'fml':				
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/fml`)
+					hasil = data.result.fml
+					reply(hasil)
+					await limitAdd(sender)
+					break	
+		case 'chord':
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					if (!isRegistered) return reply(ind.noregis())
+					if (args.length < 1) return reply('Judul lagunya mana kak')
+					tels = body.slice(7)					
+					anu = await fetchJson(`api.zeks.xyz/api/chord?q=${tels}&apikey=apivinz`, {method: 'get'})
+					reply(anu.result)
+					await limitAdd(sender)
+					break
+		case 'katacinta':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					gatauda = body.slice(8)
+					anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/katacinta`, {method: 'get'})
+					reply(anu.result)
+					await limitAdd(sender)
+					break
+		case 'pantun':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					gatauda = body.slice(8)					
+					anu = await fetchJson(`https://api.zeks.xyz/api/pantun?apikey=apivinz`, {method: 'get'})
+					reply(anu.result.pantun)
+					await limitAdd(sender)
+					break
 		case 'resepmasakan':
 					if (!isRegistered) return reply(ind.noregis())
 					anu = await fetchJson(`https://mnazria.herokuapp.com/api/resep?key=${body.slice(14)}`, {method: 'get'})
