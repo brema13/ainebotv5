@@ -766,6 +766,16 @@ client.on('group-participants-update', async (anu) => {
 				client.sendMessage(from, buffer, image, {quoted: mek})
 				await limitAdd(sender)
 				break
+                case 'memeindo':
+				if (!isRegistered) return reply(ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				gatauda = body.slice(8)
+				reply(ind.wait())
+				anu = await fetchJson(`https://api.zeks.xyz/api/memeindo?apikey=apivinz`, {method: 'get'})
+				buffer = await getBuffer(anu.result)
+				client.sendMessage(from, buffer, image, {quoted: mek})
+				await limitAdd(sender)
+				break
 		case 'randomkpop':
 				gatauda = body.slice(10)
 				if (!isRegistered) return reply(ind.noregis())
