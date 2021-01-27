@@ -668,6 +668,16 @@ client.on('group-participants-update', async (anu) => {
 				client.sendMessage(from, buffer, image, {quoted: mek})
 				await limitAdd(sender)
 				break
+		case 'nulis':
+				if (!isRegistered) return reply(ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (args.length < 1) return reply(ind.wrongf())
+				aruga = body.slice(7)
+				reply(ind.wait())
+				aruga = await getBuffer(`https://api.zeks.xyz/api/nulis?text=${aruga}&apikey=apivinz`)
+				client.sendMessage(from, aruga, image, {caption: 'Nih kak udah jadi..', quoted: mek})
+				await limitAdd(sender)
+				break
                 case 'nekonime':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
