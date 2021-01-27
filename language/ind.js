@@ -187,7 +187,8 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}ninjalogo
   ├─ ❏ ${prefix}jokerlogo
   ├─ ❏ ${prefix}sumery
-  └─ ❏ ${prefix}summer
+  ├─ ❏ ${prefix}summer
+  └─ ❏ ${prefix}hartatata
 ◪ *MEDIA*
   │
   ├─ ❏ ${prefix}beritahoax
