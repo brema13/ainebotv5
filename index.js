@@ -2346,22 +2346,22 @@ client.on('group-participants-update', async (anu) => {
 						reply(ind.satukos())
 					}
 					break
-                case 'leveling':
-                if (!isGroup) return reply(ind.groupo())
-                if (!isGroupAdmins) return reply(ind.admin())
-                if (args.length < 1) return reply('Mengaktifkan tekan 1, Menonaktif tekan 0')
-                if (args[0] === '1') {
-                    if (isLevelingOn) return reply('*Fitur level sudah aktif sebelum nya')
-                    _leveling.push(from)
-                    fs.writeFileSync('./database/group/leveling.json', JSON.stringify(_leveling))
-                     reply(ind.lvlon())
-                } else if (args[0] === '0') {
-                    _leveling.splice(from, 1)
-                    fs.writeFileSync('./database/group/leveling.json', JSON.stringify(_leveling))
-                     reply(ind.lvloff())
-                } else {
-                    reply(ind.satukos())
-                }
+			case 'leveling':
+					if (!isGroup) return reply(ind.groupo())
+					if (!isGroupAdmins) return reply(ind.admin())
+					if (args.length < 1) return reply('Mengaktifkan tekan 1, Menonaktif tekan 0')
+					if (args[0] === '1') {
+					if (isLevelingOn) return reply('*Fitur level sudah aktif sebelum nya*')
+					_leveling.push(from)
+					fs.writeFileSync('./database/group/leveling.json', JSON.stringify(_leveling))
+					reply(ind.lvlon())
+					} else if (args[0] === '0') {
+					_leveling.splice(from, 1)
+						fs.writeFileSync('./database/group/leveling.json', JSON.stringify(_leveling))
+						reply(ind.lvloff())
+					} else {
+						reply(ind.satukos())
+					}
 					break
 				case 'welcome':
 					if (!isGroup) return reply(ind.groupo())
