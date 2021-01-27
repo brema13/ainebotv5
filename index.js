@@ -816,11 +816,11 @@ client.on('group-participants-update', async (anu) => {
 				if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(ind.stikga())
 				anu = await fetchJson(`api.zeks.xyz/api/ytmp3?url=${args[0]}&apikey=apivinz`, {method: 'get'})
 				if (anu.error) return reply(anu.error)
-				teks = `❏ *Title* : ${anu.title}\n❏ *Ukuran* : ${anu.size}\n\n❏ *Tunggu Bentar Ya Kak, Audionya Lagi Di Kirim...*`
-				thumb = await getBuffer(anu.thumbnail)
+				teks = `❏ *Title* : ${anu.result.title}\n❏ *Ukuran* : ${anu.result.size}\n\n❏ *Tunggu Bentar Ya Kak, Audionya Lagi Di Kirim...*`
+				thumb = await getBuffer(anu.result.thumbnail)
 				client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
-				buffer = await getBuffer(anu.url_audio)
-				client.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
+				buffer = await getBuffer(anu.result.url_audio)
+				client.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.result.title}.mp3`, quoted: mek})
 				await limitAdd(sender)
 				break
 		case 'ytmp4':
@@ -831,11 +831,11 @@ client.on('group-participants-update', async (anu) => {
 				if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(ind.stikga())
 				anu = await fetchJson(`https://api.zeks.xyz/api/ytmp4?url=${args[0]}&apikey=apivinz`, {method: 'get'})
 				if (anu.error) return reply(anu.error)
-				teks = `❏ *Title* : ${anu.title}\n❏ *Ukuran* : ${anu.size}\n\n❏ *Tunggu Bentar Ya Kak, Vidoenya Lagi Di Kirim...*`
-				thumb = await getBuffer(anu.thumbnail)
+				teks = `❏ *Title* : ${anu.result.title}\n❏ *Ukuran* : ${anu.result.size}\n\n❏ *Tunggu Bentar Ya Kak, Vidoenya Lagi Di Kirim...*`
+				thumb = await getBuffer(anu.result.thumbnail)
 				client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
-				buffer = await getBuffer(anu.url_video)
-				client.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.title}.mp4`, quoted: mek})
+				buffer = await getBuffer(anu.result.url_video)
+				client.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.result.title}.mp4`, quoted: mek})
 				await limitAdd(sender)
 				break
 		case 'play':   
@@ -847,9 +847,9 @@ client.on('group-participants-update', async (anu) => {
 				if (anu.error) return reply(anu.error)
 				infomp3 = `*Lagu Ditemukan!!!*\nJudul : ${anu.result.title}\nSource : ${anu.result.source}\nUkuran : ${anu.result.size}\n\n*TUNGGU SEBENTAR LAGI DIKIRIM MOHON JANGAN SPAM YA SAYANG*`
 				buffer = await getBuffer(anu.result.thumbnail)
-				lagu = await getBuffer(anu.result.url_audio)
 				client.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3})
-				client.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
+				lagu = await getBuffer(anu.result.url_audio)
+				client.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', filename: `${anu.result.title}.mp3`, quoted: mek})
 				await limitAdd(sender)
 				break
 		case 'limit':
