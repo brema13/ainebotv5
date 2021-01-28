@@ -1544,7 +1544,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'quotes1':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-					const quotes =['']
+					const quotes =['Setiap perbuatan yang membahagiakan sesama adalah suatu sikap yang mencerminkan pribadi yang mulia.','Jarang yang sadar kalau kegagalan juga merupakan kesempatan emas untuk menuju kesuksesan.','Lebih baik bekerja keras dalam kediamnya kesunyian, Biarkan nanti sukses mu yang berbicara.','Belajar dari kesalahan masa lalu merupakan salah satu langkah awal untuk maju.']
 					const quo = quotes[Math.floor(Math.random() * quotes.length)]
 					crot = await getBuffer(`https://i.ibb.co/HHKjWBj/IMG-20210129-WA0018.jpg`)
 					client.sendMessage(from, crot, image, { quoted: mek, caption: '*Quotes*\n\n'+ quo })
