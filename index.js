@@ -707,7 +707,7 @@ client.on('group-participants-update', async (anu) => {
 				if (args.length < 1) return reply(ind.wrongf())
 				bh = body.slice(11)
 				reply(ind.wait())
-				bh = await getBuffer(`api.zeks.xyz/api/hartatahta?text=${bh}&apikey=apivinz`)
+				bh = await getBuffer(`https://api.zeks.xyz/api/hartatahta?text=${bh}&apikey=apivinz`)
 				client.sendMessage(from, bh, image, {caption: 'Nih kak udah jadi..', quoted: mek})
 				await limitAdd(sender)
 				break
@@ -715,7 +715,7 @@ client.on('group-participants-update', async (anu) => {
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				reply(ind.wait())
-				anu = await fetchJson(`hhttps://tobz-api.herokuapp.com/api/nekonime?apikey=BotWeA`, {method: 'get'})
+				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nekonime?apikey=BotWeA`, {method: 'get'})
 				if (anu.error) return reply(anu.error)
 				buffer = await getBuffer(anu.image)
 				randomkpop = `*${anu.desc}`
