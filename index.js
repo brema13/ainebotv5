@@ -718,7 +718,7 @@ client.on('group-participants-update', async (anu) => {
 				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nekonime?apikey=BotWeA`, {method: 'get'})
 				if (anu.error) return reply(anu.error)
 				buffer = await getBuffer(anu.image)
-				randomkpop = `*${anu.desc}`
+				randomkpop = `*${anu.result}`
 				client.sendMessage(from, buffer, image, {quoted: mek, caption: randomkpop})
 				await limitAdd(sender)
 				break
