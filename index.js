@@ -1540,6 +1540,15 @@ client.on('group-participants-update', async (anu) => {
 					tod = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
 					client.sendMessage(from, tod, image, { quoted: mek, caption: '*Dare*\n\n'+ der })
 					await limitAdd(sender)
+					break
+		case 'quotes1':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					const quotes =['']
+					const quo = quotes[Math.floor(Math.random() * quotes.length)]
+					crot = await getBuffer(`https://i.ibb.co/HHKjWBj/IMG-20210129-WA0018.jpg`)
+					client.sendMessage(from, crot, image, { quoted: mek, caption: '*Quotes*\n\n'+ quo })
+					await limitAdd(sender)
 					break				
 		case 'ssweb':
 					if (!isRegistered) return reply(ind.noregis())
