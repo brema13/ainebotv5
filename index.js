@@ -698,7 +698,7 @@ client.on('group-participants-update', async (anu) => {
 				ct = body.slice(7)
 				reply(ind.wait())
 				ct = await getBuffer(`https://api.zeks.xyz/api/nulis?text=${ct}&apikey=apivinz`)
-				client.sendMessage(from, aruga, image, {caption: 'Nih kak udah jadi..', quoted: mek})
+				client.sendMessage(from, ct, image, {caption: 'Nih kak udah jadi..', quoted: mek})
 				await limitAdd(sender)
 				break
 		case 'hartatata':
@@ -708,7 +708,7 @@ client.on('group-participants-update', async (anu) => {
 				bh = body.slice(11)
 				reply(ind.wait())
 				bh = await getBuffer(`api.zeks.xyz/api/hartatahta?text=${bh}&apikey=apivinz`)
-				client.sendMessage(from, aruga, image, {caption: 'Nih kak udah jadi..', quoted: mek})
+				client.sendMessage(from, bh, image, {caption: 'Nih kak udah jadi..', quoted: mek})
 				await limitAdd(sender)
 				break
                 case 'nekonime':
