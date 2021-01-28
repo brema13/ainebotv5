@@ -1006,7 +1006,7 @@ client.on('group-participants-update', async (anu) => {
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 					anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/quotesnime/random`, {method: 'get'})
-					reply(anu.quotes)
+					reply(anu.data.quote)
 					await limitAdd(sender)
 					break	
                 case 'twichquotes':
@@ -1186,8 +1186,8 @@ client.on('group-participants-update', async (anu) => {
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 					if (args.length < 1) return reply('masukan kata kunci kak')
 					tels = body.slice(6)					
-					anu = await fetchJson(`https://api.zeks.xyz/api/wiki?q=${tels}&apikey=apivinz`, {method: 'get'})
-					reply(anu.result.result)
+					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/wiki?q=${tels}&apikey=BotWeA`, {method: 'get'})
+					reply(anu.result)
 					await limitAdd(sender)
 					break
 		case 'fml':				
@@ -1203,7 +1203,7 @@ client.on('group-participants-update', async (anu) => {
 					if (!isRegistered) return reply(ind.noregis())
 					if (args.length < 1) return reply('Judul lagunya mana kak')
 					tels = body.slice(7)					
-					anu = await fetchJson(`api.zeks.xyz/api/chord?q=${tels}&apikey=apivinz`, {method: 'get'})
+					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/chord?q=${tels}&apikey=BotWeA`, {method: 'get'})
 					reply(anu.result)
 					await limitAdd(sender)
 					break
@@ -1299,12 +1299,12 @@ client.on('group-participants-update', async (anu) => {
 		case 'mining':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pushname))
-					if (!isEventon) return reply(`maaf ${pushname} event mining tidak di aktifkan oleh owner`)
+					if (!isEventon) return reply(`Maaf ${pushname} event mining tidak di aktifkan oleh owner`)
 					if (isOwner) {
-					const one = 999999999
+					const one = 99999
 					addLevelingXp(sender, one)
 					addLevelingLevel(sender, 99)
-					reply(`Anda mendapatkan pengiriman dari developer kami ${one}Xp untuk anda`)
+					reply(`Kamu adalah developer aku, aku akan berikan sebanyak ${one}Xp untuk anda`)
                  					     }else{
 					const mining = Math.ceil(Math.random() * 10000)
 					addLevelingXp(sender, mining)
@@ -1384,8 +1384,8 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, 'Pertanyaan : *'+hobby+'*\n\nJawaban : '+ by, text, { quoted: mek })
 					await limitAdd(sender)
 					break
-		case 'speed':
-		case 'ping':
+		case 'speed5':
+		case 'ping3':
 					if (!isRegistered) return reply(ind.noregis())
 					await client.sendMessage(from, `Pong!!!!\nSpeed: ${processTime(time, moment())} _Second_`)
 					break
@@ -1967,6 +1967,7 @@ client.on('group-participants-update', async (anu) => {
 			case 'stiker': 
 			case 'sticker':
 			case 's':
+				if (!isRegistered) return reply(ind.noregis())
 				    if (isLimit(sender)) return reply(ind.limitend(pusname))
 					await limitAdd(sender)
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
@@ -2082,6 +2083,9 @@ client.on('group-participants-update', async (anu) => {
 					break
 		case 'bot':
 					client.sendMessage(from, 'Iya kak? \nJangan lupa daftar iya kak ^_^"\nJika sudah silahkan berarti sudah terdaftar kak ^_^"',MessageType.text, { quoted: mek} )
+					break
+		case 'test':
+					client.sendMessage(from, 'Active',MessageType.text, { quoted: mek} )
 					break
 
 		case 'wa.me':
@@ -2391,7 +2395,7 @@ client.on('group-participants-update', async (anu) => {
 					} else if (Number(args[0]) === 0) {
 						event.splice(from, 1)
 						fs.writeFileSync('./database/bot/event.json', JSON.stringify(event))
-						reply('❬ SUCCSESS ❭ menonaktifkan fitur event di group ini*')
+						reply('❬ SUCCSESS ❭ menonaktifkan fitur event di group ini')
 					} else {
 						reply(ind.satukos())
 					}
