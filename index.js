@@ -711,17 +711,16 @@ client.on('group-participants-update', async (anu) => {
 				client.sendMessage(from, bh, image, {caption: 'Nih kak udah jadi..', quoted: mek})
 				await limitAdd(sender)
 				break
-                case 'nekonime':
-				if (!isRegistered) return reply(ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				reply(ind.wait())
-				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nekonime?apikey=BotWeA`, {method: 'get'})
-				if (anu.error) return reply(anu.error)
-				buffer = await getBuffer(anu.image)
-				randomkpop = `*${anu.result}`
-				client.sendMessage(from, buffer, image, {quoted: mek, caption: randomkpop})
-				await limitAdd(sender)
-				break
+		case 'nekonime':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+                                        gatauda = body.slice(8)
+					reply(ind.wait())
+                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nekonime?apikey=BotWeA`, {method: 'get'})
+                                        buffer = await getBuffer(anu.result)
+                                        client.sendMessage(from, buffer, image, {quoted: mek})
+					await limitAdd(sender)
+                                        break
 		case 'husbu':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
