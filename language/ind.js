@@ -290,28 +290,6 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}buylimit
   ├─ ❏ ${prefix}transfer
   └─ ❏ ${prefix}dompet
-◪ *GROUP*
-  │
-  ├─ ❏ ${prefix}promote [@tag]
-  ├─ ❏ ${prefix}demote [@tag]
-  ├─ ❏ ${prefix}tagall
-  ├─ ❏ ${prefix}hidetag
-  ├─ ❏ ${prefix}grouplist
-  ├─ ❏ ${prefix}add [62]
-  ├─ ❏ ${prefix}kick [@tag]
-  ├─ ❏ ${prefix}setname
-  ├─ ❏ ${prefix}setdesc
-  ├─ ❏ ${prefix}setpp
-  ├─ ❏ ${prefix}listadmin
-  ├─ ❏ ${prefix}linkgc
-  ├─ ❏ ${prefix}leave
-  ├─ ❏ ${prefix}mining
-  ├─ ❏ ${prefix}level
-  ├─ ❏ ${prefix}grup [buka/tutup)
-  ├─ ❏ ${prefix}welcome [1/0]
-  ├─ ❏ ${prefix}nsfw [1/0]
-  ├─ ❏ ${prefix}leveling [1/0]
-  └─ ❏ ${prefix}simih [1/0]
 ◪ *SOUND*
   │
   ├─ ❏ ${prefix}play [teks]
@@ -353,6 +331,18 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}infocuaca
   ├─ ❏ ${prefix}infonomor
   └─ ❏ ${prefix}covid ❌
+◪ *GROUP*
+  │
+  ├─ ❏ ${prefix}tagall
+  ├─ ❏ ${prefix}listadmin
+  ├─ ❏ ${prefix}linkgc
+  ├─ ❏ ${prefix}mining
+  ├─ ❏ ${prefix}level
+  ├─ ❏ ${prefix}grup [buka/tutup)
+  ├─ ❏ ${prefix}welcome [1/0]
+  ├─ ❏ ${prefix}nsfw [1/0]
+  ├─ ❏ ${prefix}leveling [1/0]
+  └─ ❏ ${prefix}simih [1/0]
 ◪ *OWNER*
   │
   ├─ ❏ ${prefix}setprefix
@@ -361,11 +351,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}block
   ├─ ❏ ${prefix}unblock
   ├─ ❏ ${prefix}setprefix
-  ├─ ❏ ${prefix}leave
-  ├─ ❏ ${prefix}kickall
   ├─ ❏ ${prefix}event [1/0]
-  ├─ ❏ ${prefix}bc
-  ├─ ❏ ${prefix}bcgc
   ├─ ❏ ${prefix}clone
   └─ ❏ ${prefix}clearall
 ◪ *OTHER*
