@@ -207,10 +207,9 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}bitly
   ├─ ❏ ${prefix}chord [teks]
   ├─ ❏ ${prefix}katacinta
+  ├─ ❏ ${prefix}katabijak
+  ├─ ❏ ${prefix}faktaunik
   ├─ ❏ ${prefix}pantun
-  ├─ ❏ ${prefix}quotes
-  ├─ ❏ ${prefix}animequotes
-  ├─ ❏ ${prefix}twichquotes
   └─ ❏ ${prefix}artinama [teks]
 ◪ *KERANG AJAIB*
   │
@@ -277,13 +276,22 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}icecream
   ├─ ❏ ${prefix}pemandangan
   │
-  │ *QUOTES*
+  │ *QUOTES PICTURE*
   ├─ ❏ ${prefix}quotesid
   ├─ ❏ ${prefix}quotesen
   ├─ ❏ ${prefix}katakata
   ├─ ❏ ${prefix}motivasi
   ├─ ❏ ${prefix}kehidupan
   └─ ❏ ${prefix}islami
+◪ *QUOTES*
+  │
+  ├─ ❏ ${prefix}quotes
+  ├─ ❏ ${prefix}quoteskehidupan
+  ├─ ❏ ${prefix}quotesislami
+  ├─ ❏ ${prefix}quotesnasehat
+  ├─ ❏ ${prefix}quotescinta ❌
+  ├─ ❏ ${prefix}animequotes
+  └─ ❏ ${prefix}twichquotes
 ◪ *LIMIT & UANG*
   │
   ├─ ❏ ${prefix}limit
@@ -296,6 +304,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   └─ ❏ ${prefix}tts
 ◪ *ISLAM*
   │
+  ├─ ❏ ${prefix}jadwalsholat [teks]
   └─ ❏ ${prefix}quran
 ◪ *STALK*
   │
