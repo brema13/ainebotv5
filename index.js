@@ -1016,6 +1016,20 @@ client.on('group-participants-update', async (anu) => {
 					reply(anu.result)
 					await limitAdd(sender)
 					break	
+                case 'faktaunik':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					anu = await fetchJson(`https://api.arugaz.my.id/api/random/text/faktaunik`, {method: 'get'})
+					reply(anu.result)
+					await limitAdd(sender)
+					break	
+                case 'katabijak':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					anu = await fetchJson(`https://api.arugaz.my.id/api/random/text/katabijak`, {method: 'get'})
+					reply(anu.result)
+					await limitAdd(sender)
+					break	
 		case 'quotes':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -1937,6 +1951,14 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, quran, text, {quoted: mek})
 					await limitAdd(sender)
 					break
+		case 'jadwalsholat':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/jadwalshalat?q=${body.slice(14)}&apikey=BotWeA`, {method: 'get'})
+					sholat = `Ashar : ${anu.result.ashar}\nDzuhur : ${anu.result.dzuhur}\nMagrib : ${anu.result.maghrib}\nIsha : ${anu.result.isha}\nSubuh : ${anu.result.subuh}`
+					client.sendMessage(from, sholat, text, {quoted: mek})
+					await limitAdd(sender)
+					break
                 case 'neonime':
 				        if (!isRegistered) return reply(ind.noregis())
 				        if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -2094,6 +2116,9 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, 'Iya kak? \nJangan lupa daftar iya kak ^_^"\nJika sudah silahkan berarti sudah terdaftar kak ^_^"',MessageType.text, { quoted: mek} )
 					break
 		case 'test':
+					client.sendMessage(from, 'Active',MessageType.text, { quoted: mek} )
+					break
+		case 'ping':
 					client.sendMessage(from, 'Active',MessageType.text, { quoted: mek} )
 					break
 
