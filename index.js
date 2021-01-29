@@ -1549,16 +1549,7 @@ client.on('group-participants-update', async (anu) => {
 					crot = await getBuffer(`https://i.ibb.co/HHKjWBj/IMG-20210129-WA0018.jpg`)
 					client.sendMessage(from, crot, image, { quoted: mek, caption: '*Quotes Kehidupan*\n\n'+ quo })
 					await limitAdd(sender)
-					break	
-		case 'pantun':
-					if (!isRegistered) return reply(ind.noregis())
-					if (isLimit(sender)) return reply(ind.limitend(pusname))
-					const pantun =['']
-					const tun = pantun[Math.floor(Math.random() * pantun.length)]
-					crotah = await getBuffer(`https://i.ibb.co/xJx1m8Q/pantun-2.jpg`)
-					client.sendMessage(from, crotah, image, { quoted: mek, caption: '*Quotes Kehidupan*\n\n'+ tun })
-					await limitAdd(sender)
-					break				
+					break			
 		case 'ssweb':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
