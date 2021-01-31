@@ -41,7 +41,7 @@ const vcard = 'BEGIN:VCARD\n'
             + 'END:VCARD'
 prefix = '#'
 blocked = []   
-limitawal = 100
+limitawal = 10
 memberlimit = 2
 cr = '*AINEBOT THIS IS ALREADY VERIFIED*'
 
@@ -367,7 +367,7 @@ client.on('group-participants-update', async (anu) => {
             const checkId = getLevelingId(sender)
             try {
                 if (currentLevel === undefined && checkId === undefined) addLevelingId(sender)
-                const amountXp = Math.floor(Math.random() * 10) + 500
+                const amountXp = Math.floor(Math.random() * 10) + 100
                 const requiredXp = 5000 * (Math.pow(2, currentLevel) - 1)
                 const getLevel = getLevelingLevel(sender)
                 addLevelingXp(sender, amountXp)
@@ -504,7 +504,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'buylimit':
 				if (!isRegistered) return reply(ind.noregis())
 				payout = body.slice(10)
-				const koinPerlimit = 300
+				const koinPerlimit = 1000
 				const total = koinPerlimit * payout
 				if ( checkATMuser(sender) <= total) return reply(`Maaf uang kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
 				if ( checkATMuser(sender) >= total ) {
@@ -1054,9 +1054,9 @@ client.on('group-participants-update', async (anu) => {
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/infogempa?apikey=BotWeA`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
-					buff = await getBuffer(anu.map)
+					buffer= await getBuffer(anu.map)
 					hasil = `*Potensi*\n${anu.potensi}\n*Lokasi*\n${anu.lokasi}\n*Magnitude*\n${anu.magnitude}\n*Koordinat*\n${anu.koordinat}\n*Kedalaman*\n${anu.kedalaman}\n*Waktu*\n${anu.waktu}\n*Map*\n${anu.map}`
-					client.sendMessage(from, buff, image, {quoted: mek, caption: hasil})
+					client.sendMessage(from, buffer, image, {quoted: mek, caption: hasil})
 					await limitAdd(sender)
 					break
 		case 'infocuaca':
@@ -1241,9 +1241,9 @@ client.on('group-participants-update', async (anu) => {
 					if (!isRegistered) return reply(ind.noregis())
 					anu = await fetchJson(`https://mnazria.herokuapp.com/api/resep?key=${body.slice(14)}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
-					buff = await getBuffer(anu.thumb_item)
+					buffer = await getBuffer(anu.thumb_item)
 					hasil = `*title* \n ${anu.title} *item_name* \n ${anu.item_name} *ingredient* \n${anu.ingredient} *step* \n${anu.step}`
-					client.sendMessage(from, buff, image, {quoted: mek, caption: hasil})
+					client.sendMessage(from, buffer, image, {quoted: mek, caption: hasil})
 					await limitAdd(sender)
 					break 
 		case 'igstalk':
@@ -1598,8 +1598,8 @@ client.on('group-participants-update', async (anu) => {
 					teks = body.slice(7)
 					reply(ind.wait())
 					anu = await fetchJson(`https://mnazria.herokuapp.com/api/screenshotweb?url=${teks}`)
-					buff = await getBuffer(anu.gambar)
-					client.sendMessage(from, buff, image, {quoted: mek})
+					buffer = await getBuffer(anu.gambar)
+					client.sendMessage(from, buffer, image, {quoted: mek})
 					await limitAdd(sender)
 					break
 		case 'loli':
@@ -1933,8 +1933,8 @@ client.on('group-participants-update', async (anu) => {
 					if (args.length < 1) return reply('teksnya mana kak?')
 					teks = `${body.slice(8)}`
 					if (teks.length > 10) return client.sendMessage(from, 'Teksnya kepanjangan, Maksimal 10 kalimat', text, {quoted: mek})
-					buff = await getBuffer(`https://docs-jojo.herokuapp.com/api/text3d?text=${teks}`, {method: 'get'})
-					client.sendMessage(from, buff, image, {quoted: mek, caption: `${teks}`})
+					buffer = await getBuffer(`https://docs-jojo.herokuapp.com/api/text3d?text=${teks}`, {method: 'get'})
+					client.sendMessage(from, buffer, image, {quoted: mek, caption: `${teks}`})
 					await limitAdd(sender)
 					break
 		case 'fototiktok':
@@ -1942,8 +1942,8 @@ client.on('group-participants-update', async (anu) => {
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 					gatauda = body.slice(12)
 					anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/tiktokpp?user=${gatauda}` , {method: 'get'})
-					buff = await getBuffer(anu.result)
-					reply(buff)
+					buffer = await getBuffer(anu.result)
+					reply(buffer)
 					await limitAdd(sender)
 					break
 		case 'map':
@@ -2097,9 +2097,9 @@ client.on('group-participants-update', async (anu) => {
 					: gtts.save(ranm, dtt, function() {
 						exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
 							fs.unlinkSync(ranm)
-							buff = fs.readFileSync(rano)
+							buffer = fs.readFileSync(rano)
 							if (err) return reply(ind.stikga())
-							client.sendMessage(from, buff, audio, {quoted: mek, ptt:true})
+							client.sendMessage(from, buffer, audio, {quoted: mek, ptt:true})
 							fs.unlinkSync(rano)
 						})
 					})
