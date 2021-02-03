@@ -565,8 +565,8 @@ client.on('group-participants-update', async (anu) => {
 				try {
 				for (let i = 0; i < 10; i++) {
 					nom++
-					leaderboardlvl += `*[${nom}]* ${_level[i].id.replace('@s.whatsapp.net', '')}\n◪  *XP*: ${_level[i].xp}\n◪ *Level*: ${_level[i].level}\n`
-					leaderboarduang += `*[${nom}]* ${uang[i].id.replace('@s.whatsapp.net', '')}\n◪  *Uang*: _Rp${uang[i].uang}_\n◪ *Limit*: ${limitawal - _limit[i].limit}\n`
+					leaderboardlvl += `*[${nom}]* ${_level[i].id.replace('@s.whatsapp.net', '')}\n◪  *XP*: ${_level[i].xp}\n◪  *Level*: ${_level[i].level}\n`
+					leaderboarduang += `*[${nom}]* ${uang[i].id.replace('@s.whatsapp.net', '')}\n◪  *Uang*: _Rp${uang[i].uang}_\n◪  *Limit*: ${limitawal - _limit[i].limit}\n`
 				}
 				await reply(leaderboardlvl)
 				await reply(leaderboarduang)
@@ -736,6 +736,18 @@ client.on('group-participants-update', async (anu) => {
 				client.sendMessage(from, buff, image, {quoted: mek})
 				await limitAdd(sender)
 				break
+		case 'text3d':
+				if (!isRegistered) return reply(ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (args.length < 1) return reply('Teksnya mana kak?')
+				teks = `${body.slice(8)}`
+				if (teks.length > 10) return client.sendMessage(from, 'Teksnya kepanjangan, Maksimal 10 kalimat', text, {quoted: mek})
+				reply(ind.wait())
+				anu = await fetchJson(`https://api.zeks.xyz/api/text3d?text=${teks}&apikey=apivinz`, {method: 'get'})
+				buffer = await getBuffer(anu.result)
+				client.sendMessage(from, buffer, image, {caption: 'Nih kak udah jadi..', quoted: mek})
+			     	await limitAdd(sender)
+				break
                 case 'glitch':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -744,9 +756,9 @@ client.on('group-participants-update', async (anu) => {
 				var tels4 = gh.split("|")[1];
 				if (args.length < 1) return reply(ind.wrongf())
 				reply(ind.wait())
-				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=glitch&text1=${tels3}&text2=${tels4}&apikey=BotWeA`, {method: 'get'})
+				anu = await fetchJson(`https://api.zeks.xyz/api/gtext?text1=${tels3}&text2=${tels4}&apikey=apivinz`, {method: 'get'})
 				buffer = await getBuffer(anu.result)
-				client.sendMessage(from, buffer, image, {quoted: mek})
+				client.sendMessage(from, buffer, image, {caption: 'Nih kak udah jadi..', quoted: mek})
 				await limitAdd(sender)
 				break
                 case 'wolflogo':
@@ -759,20 +771,20 @@ client.on('group-participants-update', async (anu) => {
 				reply(ind.wait())
 				anu = await fetchJson(`https://api.zeks.xyz/api/wolflogo?apikey=apivinz&text1=${zeks1}&text2=${zeks2}`, {method: 'get'})
 				buffer = await getBuffer(anu.result)
-				client.sendMessage(from, buffer, image, {quoted: mek})
+				client.sendMessage(from, buffer, image, {caption: 'Nih kak udah jadi..', quoted: mek})
 				await limitAdd(sender)
 				break
                 case 'phlogo':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (args.length < 1) return reply('Teks nya mana?')
-				gh = body.slice(9)
+				gh = body.slice(8)
 				zeks10 = gh.split("|")[0];
 				zeks20 = gh.split("|")[1];
 				reply(ind.wait())
 				anu = await fetchJson(`https://api.zeks.xyz/api/phlogo?text1=${zeks10}&text2=${zeks20}&apikey=apivinz`, {method: 'get'})
 				buffer = await getBuffer(anu.result)
-				client.sendMessage(from, buffer, image, {quoted: mek})
+				client.sendMessage(from, buffer, image, {caption: 'Nih kak udah jadi..', quoted: mek})
 				await limitAdd(sender)
 				break
                 case 'lionlogo':
@@ -798,14 +810,61 @@ client.on('group-participants-update', async (anu) => {
 				client.sendMessage(from, ct, image, {caption: 'Nih kak udah jadi..', quoted: mek})
 				await limitAdd(sender)
 				break
+		case 'bplogo':
+				if (!isRegistered) return reply(ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (args.length < 1) return reply(ind.wrongf())
+				vinz = body.slice(8)
+				if (teks.length > 5) return client.sendMessage(from, 'Teksnya kepanjangan, Maksimal 5 kalimat', text, {quoted: mek})
+				reply(ind.wait())
+				anu = await fetchJson(`https://api.zeks.xyz/api/logobp?text=${vinz}&apikey=apivinz`)
+				buffer = await getBuffer(anu.result)
+				client.sendMessage(from, buffer, image, {caption: 'Nih kak udah jadi..', quoted: mek})
+				await limitAdd(sender)
+				break
 		case 'hartatata':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (args.length < 1) return reply(ind.wrongf())
 				bh = body.slice(11)
+				if (teks.length > 7) return client.sendMessage(from, 'Teksnya kepanjangan, Maksimal 7 kalimat', text, {quoted: mek})
 				reply(ind.wait())
 				bh = await getBuffer(`https://api.zeks.xyz/api/hartatahta?text=${bh}&apikey=apivinz`)
 				client.sendMessage(from, bh, image, {caption: 'Nih kak udah jadi..', quoted: mek})
+				await limitAdd(sender)
+				break
+		case 'thunder':
+				if (!isRegistered) return reply(ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (args.length < 1) return reply(ind.wrongf())
+				bhaine = body.slice(9)
+				if (teks.length > 5) return client.sendMessage(from, 'Teksnya kepanjangan, Maksimal 5 kalimat', text, {quoted: mek})
+				reply(ind.wait())
+				anu = await fetchJson(`https://api.zeks.xyz/api/thundertext?text=${bhaine}&apikey=apivinz`)
+				buffer = await getBuffer(anu.result)
+				client.sendMessage(from, buffer, image, {caption: 'Nih kak udah jadi..', quoted: mek})
+				await limitAdd(sender)
+				break
+		case 'imgmaker':
+				if (!isRegistered) return reply(ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (args.length < 1) return reply('Url png/jpg mana kak')
+				ainez = body.slice(10)
+				reply(ind.wait())
+				anu = await fetchJson(`https://api.zeks.xyz/api/cloudy?img=${ainez}&apikey=apivinz`, {method: 'get'})
+				buffer = await getBuffer(anu.result)
+				client.sendMessage(from, buffer, image, {caption: 'Nih kak udah jadi..', quoted: mek})
+				await limitAdd(sender)
+				break
+		case 'calendermaker':
+				if (!isRegistered) return reply(ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (args.length < 1) return reply('Url png/jpg mana kak')
+				ainez2 = body.slice(15)
+				reply(ind.wait())
+				anu = await fetchJson(`https://api.zeks.xyz/api/calendar?img=${ainez2}&apikey=apivinz`, {method: 'get'})
+				buffer = await getBuffer(anu.result)
+				client.sendMessage(from, buffer, image, {caption: 'Nih kak udah jadi..', quoted: mek})
 				await limitAdd(sender)
 				break
 		case 'nekonime':
@@ -1145,6 +1204,14 @@ client.on('group-participants-update', async (anu) => {
 					reply(cop)
 					await limitAdd(sender)
 					break
+		case 'covid':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					data = await fetchJson(`https://api.kawalcorona.com/indonesia`)
+					cop = `Positif : ${data.positif}\nSembuh : ${data.sembuh}\nMeninggal : ${data.meninggal}\nDirawat : ${data.dirawat}`
+					reply(cop)
+					await limitAdd(sender)
+					break
 		case 'infonomor':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -1424,7 +1491,7 @@ client.on('group-participants-update', async (anu) => {
 					if (isOwner) {
 					const one = Math.ceil(Math.random() * 10000000)
 					addLevelingXp(sender, one)
-					await reply(`Kamu adalah developer aku, aku akan berikan sebanyak *${one}Xp* untuk anda`)
+					await reply(`Kamu adalah developer, aku akan berikan sebanyak *${one}Xp* untuk anda`)
                  					     }else{
 					const mining = Math.ceil(Math.random() * 10000)
 					addLevelingXp(sender, mining)
@@ -2033,16 +2100,6 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, pok, image, { quoted: mek })
 					await limitAdd(sender)
 					break
-		case 'text3d':
-					if (!isRegistered) return reply(ind.noregis())
-					if (isLimit(sender)) return reply(ind.limitend(pusname))
-					if (args.length < 1) return reply('teksnya mana kak?')
-					teks = `${body.slice(8)}`
-					if (teks.length > 10) return client.sendMessage(from, 'Teksnya kepanjangan, Maksimal 10 kalimat', text, {quoted: mek})
-					buffer = await getBuffer(`https://docs-jojo.herokuapp.com/api/text3d?text=${teks}`, {method: 'get'})
-					client.sendMessage(from, buffer, image, {quoted: mek, caption: `${teks}`})
-					await limitAdd(sender)
-					break
 		case 'fototiktok':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -2430,7 +2487,7 @@ client.on('group-participants-update', async (anu) => {
 						client.groupMakeAdmin(from, mentioned)
 					}
 					break	
-			     	case 'kick':
+		case 'kick':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (!isBotGroupAdmins) return reply(ind.badmin())
@@ -2449,7 +2506,7 @@ client.on('group-participants-update', async (anu) => {
 						client.groupRemove(from, mentioned)
 					}
 					break
-				case 'listadmin':
+		case 'listadmin':
 					if (!isGroup) return reply(ind.groupo())
 					teks = `List admin of group *${groupMetadata.subject}*\nTotal : ${groupAdmins.length}\n\n`
 					no = 0
@@ -2459,7 +2516,7 @@ client.on('group-participants-update', async (anu) => {
 					}
 					mentions(teks, groupAdmins, true)
 					break
-				case 'toimg':
+		case 'toimg':
 				if (!isRegistered) return reply(ind.noregis())
 				if (!isQuotedSticker) return reply('*Reply/Tag sticker!*')
 					reply(ind.wait())
@@ -2482,7 +2539,7 @@ client.on('group-participants-update', async (anu) => {
 					//if (anu.error) return reply('Simi ga tau kak')
 					reply(anu)
 					break
-				case 'simih':
+		case 'simih':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (args.length < 1) return reply('Mengaktifkan tekan 1, Menonaktif tekan 0')
@@ -2499,7 +2556,7 @@ client.on('group-participants-update', async (anu) => {
 						reply(ind.satukos())
 					}
 					break
-				case 'nsfw':
+		case 'nsfw':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (args.length < 1) return reply('Mengaktifkan tekan 1, Menonaktif tekan ')
@@ -2516,7 +2573,7 @@ client.on('group-participants-update', async (anu) => {
 						reply(ind.satukos())
 					}
 					break
-			case 'leveling':
+		case 'leveling':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (args.length < 1) return reply('Mengaktifkan tekan 1, Menonaktif tekan 0')
@@ -2533,7 +2590,7 @@ client.on('group-participants-update', async (anu) => {
 						reply(ind.satukos())
 					}
 					break
-				case 'welcome':
+		case 'welcome':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (args.length < 1) return reply('Mengaktifkan tekan 1, Menonaktif tekan 0')
@@ -2567,7 +2624,7 @@ client.on('group-participants-update', async (anu) => {
 						reply(ind.satukos())
 					}
 					break
-				case 'clone':
+		case 'clone':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isOwner) return reply(ind.ownerg()) 
 					if (args.length < 1) return reply(' *TAG YANG MAU DI CLONE!!!* ')
