@@ -114,7 +114,7 @@ exports.reglevelahf = (command, pushname, getLevelingLevel, sender, ahf) => {
 	return`*Maaf ${pushname} level mu belum mencukupi*\n\n*┏⊱level mu : ${getLevelingLevel(sender)}*\n*┣⊱jenis command : ${command}*\n*┗⊱syarat level : ${ahf}*\n\n_NOTE : CHAT/SELALU ON UNTUK MENDAPATKAN XP_`
 }
 
-exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku, role, limitCounts) => { 
+exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku, role) => { 
 	return `「 *AINE BOT* 」
 
 ◪ *INFO DEVELOPER*
@@ -125,6 +125,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ----------------------------------
 ◪ *INFO AINEBOT*
   ❏ Nama: AINEBOT 
+  ❏ Nomor: wa.me/12195159558
   ❏ Fb: https://facebook.com/ainneboot
   ----------------------------------
 ◪ *YOUR INFO*
@@ -133,7 +134,6 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ❏ Uang mu : Rp${uangku}
   ❏ Nomer: ${sender.split("@")[0]}
   ❏ XP: ${getLevelingXp(sender)}/${reqXp}
-  ❏ Limit: ${limitCounts}
   ❏ Role : ${role}
   ❏ Level: ${getLevelingLevel(sender)}
   ❏ User register : ${_registered.length}
