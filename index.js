@@ -1688,10 +1688,10 @@ client.on('group-participants-update', async (anu) => {
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
                                 tels = body.slice(4)
                                 if (args.length < 1) return reply('Kakak afk karena apa?')
-                                var nom = mek.participant
+                                var ain = mek.participant
                                 const tag = {
                                                 text: `@${nom.split("@s.whatsapp.net")[0]} *SEDANG AFK ${tels} JANGAN GANGGU YA*`,
-                                                contextInfo: { mentionedJid: [nom] }
+                                                contextInfo: { mentionedJid: [ain] }
                                         }
                                         client.sendMessage(from, tag, text, {quoted: mek})
 					await limitAdd(sender)
