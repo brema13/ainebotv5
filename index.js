@@ -359,7 +359,60 @@ client.on('group-participants-update', async (anu) => {
 		    }
 	        /*****************END SCURITY FEATURE ********/
 			
-			
+		//role level
+        const levelRole = getLevelingLevel(sender)
+        var role = 'Copper ✰'
+        if (levelRole <= 2) {
+            role = 'Copper ✰✰'
+        } else if (levelRole <= 4) {
+            role = 'Copper ✰✰✰'
+        } else if (levelRole <= 6) {
+            role = 'Copper ✰✰✰✰'
+        } else if (levelRole <= 8) {
+            role = 'Copper ✰✰✰✰✰'
+        } else if (levelRole <= 10) {
+            role = 'Silver ✩'
+        } else if (levelRole <= 12) {
+            role = 'Silver ✩✩'
+        } else if (levelRole <= 14) {
+            role = 'Silver ✩✩✩'
+        } else if (levelRole <= 16) {
+            role = 'Silver ✩✩✩✩'
+        } else if (levelRole <= 18) {
+            role = 'Silver ✩✩✩✩'
+        } else if (levelRole <= 20) {
+            role = 'Gold ✯'
+        } else if (levelRole <= 22) {
+            role = 'Gold ✯✯'
+        } else if (levelRole <= 24) {
+            role = 'Gold ✯✯✯'
+        } else if (levelRole <= 26) {
+            role = 'Gold ✯✯✯✯'
+        } else if (levelRole <= 28) {
+            role = 'Gold ✯✯✯✯✯'
+        } else if (levelRole <= 30) {
+            role = 'Platinum ✬'
+        } else if (levelRole <= 32) {
+            role = 'Platinum ✬✬'
+        } else if (levelRole <= 34) {
+            role = 'Platinum ✬✬✬'
+        } else if (levelRole <= 36) {
+            role = 'Platinum ✬✬✬✬'
+        } else if (levelRole <= 38) {
+            role = 'Platinum ✬✬✬✬✬'
+        } else if (levelRole <= 40) {
+            role = 'Diamond ✪'
+        } else if (levelRole <= 42) {
+            role = 'Diamond ✪✪'
+        } else if (levelRole <= 44) {
+            role = 'Diamond ✪✪✪'
+        } else if (levelRole <= 46) {
+            role = 'Diamond ✪✪✪✪'
+        } else if (levelRole <= 48) {
+            role = 'Diamond ✪✪✪✪✪'
+        } else if (levelRole <= 50) {
+            role = 'General ❂'
+        }	
 			
 	        //function leveling
             if (isGroup && isRegistered && isLevelingOn) {
@@ -374,7 +427,7 @@ client.on('group-participants-update', async (anu) => {
                 if (requiredXp <= getLevelingXp(sender)) {
                     addLevelingLevel(sender, 1)
                     bayarLimit(sender, 3)
-                    await reply(ind.levelup(pushname, sender, getLevelingXp,  getLevel, getLevelingLevel))
+                    await reply(ind.levelup(pushname, sender, getLevelingXp,  getLevel, getLevelingLevel, role))
                 }
             } catch (err) {
                 console.error(err)
@@ -487,7 +540,7 @@ client.on('group-participants-update', async (anu) => {
 				if (!q.includes('|')) return  reply(ind.wrongf())
 				const tujuan = q.substring(0, q.indexOf('|') - 1)
 				const jumblah = q.substring(q.lastIndexOf('|') + 1)
-				if (checkATMuser(sender) < jumblah) return reply(`uang mu tidak mencukupi untuk melakukan transfer`)
+				if (checkATMuser(sender) < jumblah) return reply(`Uang mu tidak mencukupi untuk melakukan transfer`)
 				const tujuantf = `${tujuan.replace("@", '')}@s.whatsapp.net`
 				fee = 0.005 *  jumblah
 				hasiltf = jumblah - fee
@@ -495,6 +548,27 @@ client.on('group-participants-update', async (anu) => {
 				confirmATM(sender, jumblah)
 				addKoinUser('62895330379186@s.whatsapp.net', fee)
 				reply(`*「 SUKSES 」*\n\nPengiriman uang telah sukses\nDari : +${sender.split("@")[0]}\nKe : +${tujuan}\nJumlah transfer : ${jumblah}\npajak : ${fee}`)
+				break
+
+		case 'leaderboard':
+		case 'lb':
+				_level.sort((a, b) => (a.xp < b.xp) ? 1 : -1)
+				uang.sort((a, b) => (a.uang < b.uang) ? 1 : -1)
+				let leaderboardlvl = '-----[ *LEADERBOARD LEVEL* ]----\n\n'
+				let leaderboarduang = '-----[ *LEADERBOARD UANG* ]----\n\n'
+				let nom = 0
+				try {
+				for (let i = 0; i < 10; i++) {
+					nom++
+					leaderboardlvl += `*[${nom}]* wa.me/${_level[i].id.replace('@s.whatsapp.net', '')}\n┗⊱ *XP*: ${_level[i].xp} *Level*: ${_level[i].level}\n`
+					leaderboarduang += `*[${nom}]* wa.me/${uang[i].id.replace('@s.whatsapp.net', '')}\n┣⊱ *Uang*: _Rp${uang[i].uang}_\n┗⊱ *Limit*: ${limitawal - _limit[i].limit}\n`
+				}
+				await reply(leaderboardlvl)
+				await reply(leaderboarduang)
+				} catch (err) {
+				console.error(err)
+				await reply(`minimal 10 user untuk bisa mengakses database`)
+				}
 				break
 		case 'dompet':
 				if (!isRegistered) return reply(ind.noregis())
@@ -1408,7 +1482,7 @@ client.on('group-participants-update', async (anu) => {
 					if (!isRegistered) return reply(ind.noregis())
 					const reqXp  = 5000 * (Math.pow(2, getLevelingLevel(sender)) - 1)
 					const uangku = checkATMuser(sender)
-					await costum(ind.menu(pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku), text, tescuk, cr)
+					await costum(ind.menu(pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku, role), text, tescuk, cr)
 					break
 		case 'donasi':
 		case 'donate':
