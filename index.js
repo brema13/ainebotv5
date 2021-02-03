@@ -30,9 +30,14 @@ const { wait, simih, getBuffer, h2k, generateMessageID, getGroupAdmins, getRando
 const tiktod = require('tiktok-scraper')
 const brainly = require('brainly-scraper')
 const ffmpeg = require('fluent-ffmpeg')
+const path = require('path')
+const ms = require('parse-ms')
+const toMs = require('ms')
 const cd = 4.32e+7
 const { removeBackgroundFromImageFile } = require('remove.bg')
 const { ind } = require('./language')
+
+/********** MENU SETTING **********/
 const vcard = 'BEGIN:VCARD\n' 
             + 'VERSION:3.0\n' 
             + 'FN:Admin Ainebot\n' 
@@ -42,7 +47,7 @@ const vcard = 'BEGIN:VCARD\n'
 prefix = '#'
 blocked = []   
 limitawal = 10
-memberlimit = 2
+memberlimit = 30
 cr = '*AINEBOT THIS IS ALREADY VERIFIED*'
 
 /******** OWNER NUMBER**********/
@@ -560,8 +565,8 @@ client.on('group-participants-update', async (anu) => {
 				try {
 				for (let i = 0; i < 10; i++) {
 					nom++
-					leaderboardlvl += `*[${nom}]* wa.me/${_level[i].id.replace('@s.whatsapp.net', '')}\n┗⊱ *XP*: ${_level[i].xp} *Level*: ${_level[i].level}\n`
-					leaderboarduang += `*[${nom}]* wa.me/${uang[i].id.replace('@s.whatsapp.net', '')}\n┣⊱ *Uang*: _Rp${uang[i].uang}_\n┗⊱ *Limit*: ${limitawal - _limit[i].limit}\n`
+					leaderboardlvl += `*[${nom}]* ${_level[i].id.replace('@s.whatsapp.net', '')}\n◪  *XP*: ${_level[i].xp}\n◪ *Level*: ${_level[i].level}\n`
+					leaderboarduang += `*[${nom}]* ${uang[i].id.replace('@s.whatsapp.net', '')}\n◪  *Uang*: _Rp${uang[i].uang}_\n◪ *Limit*: ${limitawal - _limit[i].limit}\n`
 				}
 				await reply(leaderboardlvl)
 				await reply(leaderboarduang)
@@ -586,6 +591,11 @@ client.on('group-participants-update', async (anu) => {
 					bayarLimit(sender, payout)
 					await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga limit* : ${koinPerlimit}/limit\n*Sisa uang mu* : ${checkATMuser(sender)}\n\nProses berhasil dengan nomer pembayaran\n${createSerial(15)}`)
 				} 
+				break
+		case 'ttp':
+				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/ttp?text=${body.slice(5)}&apikey=BotWeA`)
+				res = await getBase64(anu.base64)
+				client.sendMessage(from, res, sticker, {quoted:mek})
 				break
                 case 'moddroid':
 				if (!isRegistered) return reply(ind.noregis())
@@ -832,9 +842,19 @@ client.on('group-participants-update', async (anu) => {
                 case 'anime':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				gatauda = body.slice(8)
+				gatauda = body.slice(5)
 				reply(ind.wait())
 				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomanime?apikey=BotWeA`, {method: 'get'})
+				buffer = await getBuffer(anu.result)
+				client.sendMessage(from, buffer, image, {quoted: mek})
+				await limitAdd(sender)
+				break
+                case 'loli':
+				if (!isRegistered) return reply(ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				gatauda = body.slice(5)
+				reply(ind.wait())
+				anu = await fetchJson(`https://alfians-api.herokuapp.com/api/nekonime`, {method: 'get'})
 				buffer = await getBuffer(anu.result)
 				client.sendMessage(from, buffer, image, {quoted: mek})
 				await limitAdd(sender)
@@ -1389,10 +1409,9 @@ client.on('group-participants-update', async (anu) => {
 					if (isLimit(sender)) return reply(ind.limitend(pushname))
 					if (!isEventon) return reply(`Maaf ${pushname} event mining tidak di aktifkan oleh owner`)
 					if (isOwner) {
-					const one = 99999
+					const one = Math.ceil(Math.random() * 10000000)
 					addLevelingXp(sender, one)
-					addLevelingLevel(sender, 99)
-					reply(`Kamu adalah developer aku, aku akan berikan sebanyak ${one}Xp untuk anda`)
+					await reply(`Kamu adalah developer aku, aku akan berikan sebanyak *${one}Xp* untuk anda`)
                  					     }else{
 					const mining = Math.ceil(Math.random() * 10000)
 					addLevelingXp(sender, mining)
