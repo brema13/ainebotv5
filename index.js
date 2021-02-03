@@ -753,11 +753,24 @@ client.on('group-participants-update', async (anu) => {
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (args.length < 1) return reply('Teks nya mana?')
-				gh = body.slice(9)
-				gl1 = gh.split("|")[0];
-				gl2 = gh.split("|")[1];
+				gh = body.slice(10)
+				zeks1 = gh.split("|")[0];
+				zeks2 = gh.split("|")[1];
 				reply(ind.wait())
-				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=wolflogo1&text1=${gl1}&text2=${gl2}&apikey=BotWea`, {method: 'get'})
+				anu = await fetchJson(`https://api.zeks.xyz/api/wolflogo?apikey=apivinz&text1=${zeks1}&text2=${zeks2}`, {method: 'get'})
+				buffer = await getBuffer(anu.result)
+				client.sendMessage(from, buffer, image, {quoted: mek})
+				await limitAdd(sender)
+				break
+                case 'phlogo':
+				if (!isRegistered) return reply(ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (args.length < 1) return reply('Teks nya mana?')
+				gh = body.slice(9)
+				zeks10 = gh.split("|")[0];
+				zeks20 = gh.split("|")[1];
+				reply(ind.wait())
+				anu = await fetchJson(`https://api.zeks.xyz/api/phlogo?text1=${zeks10}&text2=${zeks20}&apikey=apivinz`, {method: 'get'})
 				buffer = await getBuffer(anu.result)
 				client.sendMessage(from, buffer, image, {quoted: mek})
 				await limitAdd(sender)
@@ -766,7 +779,7 @@ client.on('group-participants-update', async (anu) => {
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (args.length < 1) return reply('Teks nya mana?')
-				gh = body.slice(9)
+				gh = body.slice(10)
 				gl1 = gh.split("|")[0];
 				gl2 = gh.split("|")[1];
 				reply(ind.wait())
@@ -849,10 +862,10 @@ client.on('group-participants-update', async (anu) => {
 				client.sendMessage(from, buffer, image, {quoted: mek})
 				await limitAdd(sender)
 				break
-                case 'loli':
+                case 'neko':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				gatauda = body.slice(5)
+				gatauda = body.slice(4)
 				reply(ind.wait())
 				anu = await fetchJson(`https://alfians-api.herokuapp.com/api/nekonime`, {method: 'get'})
 				buffer = await getBuffer(anu.result)
