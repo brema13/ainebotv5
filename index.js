@@ -31,6 +31,7 @@ const tiktod = require('tiktok-scraper')
 const brainly = require('brainly-scraper')
 const ffmpeg = require('fluent-ffmpeg')
 const path = require('path')
+const ms = require('parse-ms')
 const toMs = require('ms')
 const cd = 4.32e+7
 const { removeBackgroundFromImageFile } = require('remove.bg')
