@@ -514,7 +514,6 @@ client.on('group-participants-update', async (anu) => {
 				try {
 					const getmemex = groupMembers.length
 					    if (getmemex <= memberlimit) {
-                            client.groupLeave(from)
 					    }
 		       } catch (err) { console.error(err)  }
         }
