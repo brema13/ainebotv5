@@ -47,7 +47,7 @@ const vcard = 'BEGIN:VCARD\n'
 prefix = '#'
 blocked = []   
 limitawal = 10
-memberlimit = 30
+memberlimit = 10
 cr = '*AINEBOT THIS IS ALREADY VERIFIED*'
 
 /******** OWNER NUMBER**********/
@@ -1489,13 +1489,13 @@ client.on('group-participants-update', async (anu) => {
 					if (isLimit(sender)) return reply(ind.limitend(pushname))
 					if (!isEventon) return reply(`Maaf ${pushname} event mining tidak di aktifkan oleh owner`)
 					if (isOwner) {
-					const one = Math.ceil(Math.random() * 10000000)
+					const one = Math.ceil(Math.random() * 100000000)
 					addLevelingXp(sender, one)
 					await reply(`Kamu adalah developer, aku akan berikan sebanyak *${one}Xp* untuk anda`)
                  					     }else{
 					const mining = Math.ceil(Math.random() * 10000)
 					addLevelingXp(sender, mining)
-					await reply(`*selamat* ${pushname} kamu mendapatkan *${mining}Xp*`)
+					await reply(`*Selamat* ${pushname} kamu mendapatkan *${mining}Xp*`)
 					}
 					await limitAdd(sender)
 					break
@@ -2273,6 +2273,13 @@ client.on('group-participants-update', async (anu) => {
 					if (!isOwner) return reply(ind.ownerb())
 					prefix = args[0]
 					reply(`*Prefix berhasil di ubah menjadi* : ${prefix}`)
+					break 
+		case 'setmemlimit':
+					if (args.length < 1) return
+					if (!isOwner) return reply(ind.ownerb())
+					if (isNaN(args[0])) return reply('Limit harus angka')
+					memberlimit = args[0]
+					reply(`Change Member limit To ${memberlimit} SUCCESS!`)
 					break 
 		case 'tiktokstalk':
 				if (!isRegistered) return reply(ind.noregis())
