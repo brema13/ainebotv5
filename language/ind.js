@@ -23,11 +23,11 @@ exports.lvlnoon = () => {
 }
 
 exports.noregis = () => {
-	return`*「 BELUM DAFTAR 」*\n\n*cara daftar ${prefix}daftar nama|umur* \n*contoh ${prefix}daftar aine|22*`
+	return`*「 PENDAFTARAN 」*\n\n*Cara daftar ${prefix}daftar nama|umur* \n*contoh ${prefix}daftar aine|22*`
 }
 
 exports.rediregis = () => {
-	return`*「 SUDAH DAFTAR 」*\n\n*Kamu sudah terdaftar di database bot*`
+	return`*「 SUDAH TERDAFTAR 」*\n\n*Kamu sudah terdaftar di database bot*`
 }
 
 exports.stikga = () => {
@@ -114,7 +114,7 @@ exports.reglevelahf = (command, pushname, getLevelingLevel, sender, ahf) => {
 	return`*Maaf ${pushname} level mu belum mencukupi*\n\n*┏⊱level mu : ${getLevelingLevel(sender)}*\n*┣⊱jenis command : ${command}*\n*┗⊱syarat level : ${ahf}*\n\n_NOTE : CHAT/SELALU ON UNTUK MENDAPATKAN XP_`
 }
 
-exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku) => { 
+exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku, role, limitCounts) => { 
 	return `「 *AINE BOT* 」
 
 ◪ *INFO DEVELOPER*
@@ -125,7 +125,6 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ----------------------------------
 ◪ *INFO AINEBOT*
   ❏ Nama: AINEBOT 
-  ❏ Nomor: wa.me/12022926988
   ❏ Fb: https://facebook.com/ainneboot
   ----------------------------------
 ◪ *YOUR INFO*
@@ -134,12 +133,14 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ❏ Uang mu : Rp${uangku}
   ❏ Nomer: ${sender.split("@")[0]}
   ❏ XP: ${getLevelingXp(sender)}/${reqXp}
+  ❏ Limit: ${limitCounts}
+  ❏ Role : ${role}
   ❏ Level: ${getLevelingLevel(sender)}
   ❏ User register : ${_registered.length}
             *Rules* - *Simple*
 ▬▭▬▭▬▭▬▭▬▭▬▭▬
   ❏ *Spam : Auto Block!*
-  ❏ *Beri Jeda 5detik Saat Menggunakannya!!*
+  ❏ *Beri Jeda 10detik Saat Menggunakannya!!*
   ❏ *Bug/Error Harap Cht Owner!*
   ❏ *Untuk Memastikan Bot Off Atau On*
   ❏ *Ketik ${prefix}bot*
@@ -161,34 +162,17 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}sticker
   ├─ ❏ ${prefix}stickergif
   ├─ ❏ ${prefix}toimg
-  ├─ ❏ ${prefix}bplogo
-  ├─ ❏ ${prefix}sandwrite
-  ├─ ❏ ${prefix}swlogo2
-  ├─ ❏ ${prefix}text3d
-  ├─ ❏ ${prefix}thunder
-  ├─ ❏ ${prefix}glitch
-  ├─ ❏ ${prefix}cloudsky
-  ├─ ❏ ${prefix}quotemaker
-  ├─ ❏ ${prefix}blood
-  ├─ ❏ ${prefix}realcloud
-  ├─ ❏ ${prefix}metaldark
-  ├─ ❏ ${prefix}dropwater
+  ├─ ❏ ${prefix}ttp
   ├─ ❏ ${prefix}phlogo
-  ├─ ❏ ${prefix}grenneon
-  ├─ ❏ ${prefix}neontext
-  ├─ ❏ ${prefix}toxic
-  ├─ ❏ ${prefix}sumery
-  ├─ ❏ ${prefix}firework
-  ├─ ❏ ${prefix}lava
-  ├─ ❏ ${prefix}vinta
-  ├─ ❏ ${prefix}avengers
   ├─ ❏ ${prefix}wolflogo
-  ├─ ❏ ${prefix}lionlogo
-  ├─ ❏ ${prefix}ninjalogo
-  ├─ ❏ ${prefix}jokerlogo
-  ├─ ❏ ${prefix}sumery
-  ├─ ❏ ${prefix}summer
-  └─ ❏ ${prefix}hartatata
+  ├─ ❏ ${prefix}bplogo
+  ├─ ❏ ${prefix}glitch
+  ├─ ❏ ${prefix}thunder
+  ├─ ❏ ${prefix}text3d
+  ├─ ❏ ${prefix}hartatata
+  ├─ ❏ ${prefix}quotemaker
+  ├─ ❏ ${prefix}imgmaker
+  └─ ❏ ${prefix}calendermaker
 ◪ *MEDIA*
   │
   ├─ ❏ ${prefix}beritahoax
@@ -292,12 +276,12 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}quotescinta ❌
   ├─ ❏ ${prefix}animequotes
   └─ ❏ ${prefix}twichquotes
-◪ *LIMIT & UANG*
+◪ *LIMIT & UANG & LB*
   │
   ├─ ❏ ${prefix}limit
   ├─ ❏ ${prefix}buylimit
   ├─ ❏ ${prefix}transfer
-  └─ ❏ ${prefix}dompet
+  └─ ❏ ${prefix}leaderboard
 ◪ *SOUND*
   │
   ├─ ❏ ${prefix}play [teks]
@@ -339,7 +323,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}infogempa
   ├─ ❏ ${prefix}infocuaca
   ├─ ❏ ${prefix}infonomor
-  └─ ❏ ${prefix}covid ❌
+  └─ ❏ ${prefix}covid
 ◪ *GROUP*
   │
   ├─ ❏ ${prefix}tagall
@@ -356,6 +340,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   │
   ├─ ❏ ${prefix}setprefix
   ├─ ❏ ${prefix}setreply
+  ├─ ❏ ${prefix}setmemlimit
   ├─ ❏ ${prefix}setppbot
   ├─ ❏ ${prefix}block
   ├─ ❏ ${prefix}unblock
@@ -372,12 +357,14 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
 `
 }
 
-exports.levelup = (pushname, sender, getLevelingXp,  getLevel, getLevelingLevel) => {
+exports.levelup = (pushname, sender, getLevelingXp,  getLevel, getLevelingLevel, role) => {
 	return`
 *「 SELAMAT 」*
   ❏ Nama : ${pushname}
   ❏ Nomer : ${sender.split("@")[0]}
   ❏ Xp : ${getLevelingXp(sender)}
+  ❏ Limit :  +3
+  ❏ Role :  ${role}
   ❏ Level : ${getLevel} ⊱ ${getLevelingLevel(sender)}
 `}
  
