@@ -280,7 +280,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   │
   ├─ ❏ ${prefix}limit
   ├─ ❏ ${prefix}buylimit
-  ├─ ❏ ${prefix}transfer
+  ├─ ❏ ${prefix}transfer ❌
   └─ ❏ ${prefix}leaderboard
 ◪ *SOUND*
   │
