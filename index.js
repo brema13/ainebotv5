@@ -1786,6 +1786,15 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, cta, image, { quoted: mek, caption: '*Quotes Cinta*\n\n'+ cin })
 					await limitAdd(sender)
 					break	
+                case 'fotocewek':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+                                        reply (indo.wait())
+	                                const cangti = ['https://images.pexels.com/photos/2625122/pexels-photo-2625122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500','https://images.pexels.com/photos/247322/pexels-photo-247322.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500','https://images.pexels.com/photos/3373716/pexels-photo-3373716.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500','https://images.pexels.com/photos/2272853/pexels-photo-2272853.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500']
+                                        let cangtip = cangti[Math.floor(Math.random() * cangti.length)]
+                                        client.sendMessage(from, cangtip, image, {quote: mek})
+					await limitAdd(sender)
+                                        break
 		case 'ssweb':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
