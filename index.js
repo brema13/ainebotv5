@@ -1511,11 +1511,11 @@ client.on('group-participants-update', async (anu) => {
 					if (isLimit(sender)) return reply(ind.limitend(pushname))
 					if (!isEventon) return reply(`Maaf ${pushname} event mining tidak di aktifkan oleh owner`)
 					if (isOwner | isPacar) {
-					const one = Math.ceil(Math.random() * 1000000000000000000000000)
+					const one = Math.ceil(Math.random() * 10000000000000000000000000000)
 					addLevelingXp(sender, one)
 					await reply(`Kamu adalah developer, aku akan berikan sebanyak *${one}Xp* untuk anda`)
                  					     }else{
-					const mining = Math.ceil(Math.random() * 100000000)
+					const mining = Math.ceil(Math.random() * 10000000000)
 					addLevelingXp(sender, mining)
 					await reply(`*Selamat* ${pushname} kamu mendapatkan *${mining}Xp*`)
 					}
@@ -1786,12 +1786,28 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, cta, image, { quoted: mek, caption: '*Quotes Cinta*\n\n'+ cin })
 					await limitAdd(sender)
 					break	
+                case 'guntingbatukertas':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+	                                const cangti = ['🖐','✊','✌']
+                                        let cangtip = cangti[Math.floor(Math.random() * cangti.length)]
+                                        client.sendMessage(from, cangtip, {quote: mek})
+					await limitAdd(sender)
+                                        break
                 case 'fotocewek':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-	                                const cangti = ['https://images.pexels.com/photos/2625122/pexels-photo-2625122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500','https://images.pexels.com/photos/247322/pexels-photo-247322.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500','https://images.pexels.com/photos/3373716/pexels-photo-3373716.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500','https://images.pexels.com/photos/2272853/pexels-photo-2272853.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500']
+	                                const cangti = ['']
                                         let cangtip = cangti[Math.floor(Math.random() * cangti.length)]
                                         client.sendMessage(from, cangtip, image, {quote: mek})
+					await limitAdd(sender)
+                                        break
+                case 'aesthetics1':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+	                                const aesthetics = ['']
+                                        let tetics = aesthetics[Math.floor(Math.random() * aesthetics.length)]
+                                        client.sendMessage(from, tetics, image, {quote: mek})
 					await limitAdd(sender)
                                         break
 		case 'ssweb':
