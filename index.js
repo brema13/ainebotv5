@@ -1797,7 +1797,7 @@ client.on('group-participants-update', async (anu) => {
                 case 'fotocewek':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-	                                const cangti = ['']
+	                                const cangti = ['masih tahap proses']
                                         let cangtip = cangti[Math.floor(Math.random() * cangti.length)]
                                         client.sendMessage(from, cangtip, image, {quote: mek})
 					await limitAdd(sender)
@@ -1805,7 +1805,7 @@ client.on('group-participants-update', async (anu) => {
                 case 'aesthetics1':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-	                                const aesthetics = ['']
+	                                const aesthetics = ['masih tahap proses']
                                         let tetics = aesthetics[Math.floor(Math.random() * aesthetics.length)]
                                         client.sendMessage(from, tetics, image, {quote: mek})
 					await limitAdd(sender)
