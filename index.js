@@ -1789,9 +1789,9 @@ client.on('group-participants-update', async (anu) => {
                 case 'guntingbatukertas':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-	                                const cangti = ['🖐','✊','✌']
-                                        let cangtip = cangti[Math.floor(Math.random() * cangti.length)]
-                                        client.sendMessage(from, cangtip, {quote: mek})
+	                                const gbks = ['🖐','✊','✌']
+                                        let gubake = gbks[Math.floor(Math.random() * gbks.length)]
+                                        client.sendMessage(from, gubake, {quote: mek})
 					await limitAdd(sender)
                                         break
                 case 'fotocewek':
