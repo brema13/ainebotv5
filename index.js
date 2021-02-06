@@ -1797,17 +1797,17 @@ client.on('group-participants-update', async (anu) => {
                 case 'fotocewek':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-	                                const cangti = ['masih tahap proses']
+	                                const cangti = ['https://i.ibb.co/vvmp82w/kucing1.jpg','https://i.ibb.co/FsJ6jjs/kucing2.jpg','https://i.ibb.co/vvkdS7n/kucing3.jpg','https://i.ibb.co/1QHWxts/kucing4.jpg','https://i.ibb.co/JQmRz4n/kucing5.jpg','https://i.ibb.co/tBwrFkG/kucing6.jpg','https://i.ibb.co/dp0YhYm/kucing7.jpg','https://i.ibb.co/R03smZT/kucing8.jpg','https://i.ibb.co/17tw0dp/kucing9.jpg','https://i.ibb.co/7XdGGqc/kucing10.jpg','https://i.ibb.co/XL9PZxg/kucing11.jpg','https://i.ibb.co/gyjvXWN/kucing12.jpg','https://i.ibb.co/R4gg4wH/kucing13.jpg','https://i.ibb.co/PmLYtFm/kucing14.jpg','https://i.ibb.co/XbSDh47/kucing15.jpg','https://i.ibb.co/kSXNJzt/kucing16.jpg']
                                         let cangtip = cangti[Math.floor(Math.random() * cangti.length)]
                                         client.sendMessage(from, cangtip, image, {quote: mek})
 					await limitAdd(sender)
                                         break
-                case 'aesthetics1':
+                case 'kucingimut':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-	                                const aesthetics = ['masih tahap proses']
-                                        let tetics = aesthetics[Math.floor(Math.random() * aesthetics.length)]
-                                        client.sendMessage(from, tetics, image, {quote: mek})
+	                                const kucings = ['https://i.ibb.co/vvmp82w/kucing1.jpg','https://i.ibb.co/FsJ6jjs/kucing2.jpg','https://i.ibb.co/vvkdS7n/kucing3.jpg','https://i.ibb.co/1QHWxts/kucing4.jpg','https://i.ibb.co/JQmRz4n/kucing5.jpg','https://i.ibb.co/tBwrFkG/kucing6.jpg','https://i.ibb.co/dp0YhYm/kucing7.jpg','https://i.ibb.co/R03smZT/kucing8.jpg','https://i.ibb.co/17tw0dp/kucing9.jpg','https://i.ibb.co/7XdGGqc/kucing10.jpg','https://i.ibb.co/XL9PZxg/kucing11.jpg','https://i.ibb.co/gyjvXWN/kucing12.jpg','https://i.ibb.co/R4gg4wH/kucing13.jpg','https://i.ibb.co/PmLYtFm/kucing14.jpg','https://i.ibb.co/XbSDh47/kucing15.jpg','https://i.ibb.co/kSXNJzt/kucing16.jpg']
+                                        let kucigz = kucings[Math.floor(Math.random() * kucings.length)]
+                                        client.sendMessage(from, kucigz, image, {quote: mek})
 					await limitAdd(sender)
                                         break
 		case 'ssweb':
