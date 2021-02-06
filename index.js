@@ -1786,14 +1786,6 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, cta, image, { quoted: mek, caption: '*Quotes Cinta*\n\n'+ cin })
 					await limitAdd(sender)
 					break	
-                case 'guntingbatukertas':
-					if (!isRegistered) return reply(ind.noregis())
-					if (isLimit(sender)) return reply(ind.limitend(pusname))
-	                                const gbks = ['🖐','✊','✌']
-                                        let gubake = gbks[Math.floor(Math.random() * gbks.length)]
-                                        client.sendMessage(from, gubake, {quote: mek})
-					await limitAdd(sender)
-                                        break
                 case 'fotocewek':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
