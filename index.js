@@ -1614,7 +1614,6 @@ client.on('group-participants-update', async (anu) => {
 		case 'menupicture':
 		case 'menupict':
 					if (!isRegistered) return reply(ind.noregis())
-					const uangku = checkATMuser(sender)
 					await costum(randompict.randompict(pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku, role, limitCounts), text, tescuk, cr)
 					break
 		case 'bahasa':
