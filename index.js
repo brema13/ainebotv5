@@ -1614,7 +1614,8 @@ client.on('group-participants-update', async (anu) => {
 		case 'menupicture':
 		case 'menupict':
 					if (!isRegistered) return reply(ind.noregis())
-					client.sendMessage(from, randompict(prefix), text)
+					buffer = await getBuffer(`https://i.ibb.co/BKMRPmC/images.png`)
+					client.sendMessage(from, buffer, image, randompict(prefix), text)
 					break
 		case 'bahasa':
 					if (!isRegistered) return reply(ind.noregis())
