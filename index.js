@@ -23,6 +23,7 @@ const { color, bgcolor } = require('./lib/color')
 const { bahasa } = require('./lib/bahasa')
 const { negara } = require('./lib/kodenegara')
 const { donasi } = require('./lib/donasi')
+const { randompict } = require('./lib/randompict')
 const { fetchJson } = require('./lib/fetcher')
 const { recognize } = require('./lib/ocr')
 const { exec } = require("child_process")
@@ -1609,6 +1610,11 @@ client.on('group-participants-update', async (anu) => {
 		case 'donate':
 					if (!isRegistered) return reply(ind.noregis())
 					client.sendMessage(from, donasi(), text)
+					break
+		case 'menupicture':
+		case 'menupict':
+					if (!isRegistered) return reply(ind.noregis())
+					client.sendMessage(from, randompict(), text)
 					break
 		case 'bahasa':
 					if (!isRegistered) return reply(ind.noregis())
