@@ -1614,7 +1614,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'menupicture':
 		case 'menupict':
 					if (!isRegistered) return reply(ind.noregis())
-					await costum(randompict.randompict(prefix), text)
+					client.sendMessage(from, randompict(prefix), text)
 					break
 		case 'bahasa':
 					if (!isRegistered) return reply(ind.noregis())
