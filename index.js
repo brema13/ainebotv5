@@ -1629,6 +1629,13 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, negara(), text)
 					await limitAdd(sender)
 					break
+		case 'del':
+		case 'delete':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					client.deleteMessage(from, { id: mek.message.extendedTextMessage.contextInfo.stanzaId, remoteJid: from, fromMe: true })
+					await limitAdd(sender)
+					break
 		case 'level':
 					if (!isRegistered) return reply(ind.noregis())
 					if (!isLevelingOn) return reply(ind.lvlnoon())
