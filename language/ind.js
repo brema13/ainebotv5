@@ -125,7 +125,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ----------------------------------
 ◪ *INFO AINEBOT*
   ❏ Nama: AINEBOT 
-  ❏ Nomor: wa.me/12195159558
+  ❏ Nomor: wa.me/12029991296
   ❏ Fb: https://facebook.com/ainneboot
   ----------------------------------
 ◪ *YOUR INFO*
@@ -144,6 +144,8 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ❏ *Bug/Error Harap Cht Owner!*
   ❏ *Untuk Memastikan Bot Off Atau On*
   ❏ *Ketik ${prefix}bot*
+  ❏ *Untuk Melihat Sisa Limit Kamu*
+  ❏ *Ketik ${prefix}limit*
   ❏ *Harap Sabar Dengan Bug²nya!*
   ❏ *Gunakan Bot Sebaik-baiknya!*
 ▬▭▬▭▬▭▬▭▬▭▬▭▬
@@ -155,7 +157,8 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}request
   ├─ ❏ ${prefix}blocklist
   ├─ ❏ ${prefix}ping
-  └─ ❏ ${prefix}gcainebot
+  ├─ ❏ ${prefix}gcainebot
+  └─ ❏ ${prefix}menupict
 ◪ *MAKER*
   │
   ├─ ❏ ${prefix}nulis
@@ -220,53 +223,6 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   │
   ├─ ❏ ${prefix}mutual
   └─ ❏ ${prefix}next
-◪ *RANDOM PICTUE*
-  │ *ANIME*
-  ├─ ❏ ${prefix}loli
-  ├─ ❏ ${prefix}neko
-  ├─ ❏ ${prefix}waifu
-  ├─ ❏ ${prefix}animecry
-  ├─ ❏ ${prefix}animehug
-  ├─ ❏ ${prefix}osakana
-  ├─ ❏ ${prefix}naruto
-  ├─ ❏ ${prefix}anime
-  ├─ ❏ ${prefix}husbu
-  ├─ ❏ ${prefix}animegirl
-  ├─ ❏ ${prefix}animeboy
-  ├─ ❏ ${prefix}nekonime
-  │
-  │ *RANDOM KPOP*
-  ├─ ❏ ${prefix}randomkpop
-  │
-  │ *CARTOON*
-  ├─ ❏ ${prefix}doraemon
-  ├─ ❏ ${prefix}pokemon
-  │
-  │ *ANIMAL*
-  ├─ ❏ ${prefix}anjing
-  ├─ ❏ ${prefix}kucing
-  ├─ ❏ ${prefix}hamster
-  ├─ ❏ ${prefix}kelinci
-  │
-  │ *TRANSPORT*
-  ├─ ❏ ${prefix}mobil
-  ├─ ❏ ${prefix}motor
-  ├─ ❏ ${prefix}sepeda
-  │
-  │ *AESTHETIC*
-  ├─ ❏ ${prefix}aesthetic
-  ├─ ❏ ${prefix}bluesky
-  ├─ ❏ ${prefix}flower
-  ├─ ❏ ${prefix}icecream
-  ├─ ❏ ${prefix}pemandangan
-  │
-  │ *QUOTES PICTURE*
-  ├─ ❏ ${prefix}quotesid
-  ├─ ❏ ${prefix}quotesen
-  ├─ ❏ ${prefix}katakata
-  ├─ ❏ ${prefix}motivasi
-  ├─ ❏ ${prefix}kehidupan
-  └─ ❏ ${prefix}islami
 ◪ *QUOTES*
   │
   ├─ ❏ ${prefix}quotes
@@ -364,7 +320,7 @@ exports.levelup = (pushname, sender, getLevelingXp,  getLevel, getLevelingLevel,
   ❏ Nomer : ${sender.split("@")[0]}
   ❏ Xp : ${getLevelingXp(sender)}
   ❏ Limit :  +3
-  ❏ Role :  ${role}
+  ❏ Pangkat :  ${role}
   ❏ Level : ${getLevel} ⊱ ${getLevelingLevel(sender)}
 `}
  
