@@ -1604,7 +1604,7 @@ client.on('group-participants-update', async (anu) => {
 					if (!isRegistered) return reply(ind.noregis())
 					const reqXp  = 5000 * (Math.pow(2, getLevelingLevel(sender)) - 1)
 					const uangku = checkATMuser(sender)
-					await costum(ind.menu(pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku, role, limitCounts), text, tescuk, cr)
+					await costum(ind.menu(pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku, role), text, tescuk, cr)
 					break
 		case 'donasi':
 		case 'donate':
@@ -1614,7 +1614,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'menupicture':
 		case 'menupict':
 					if (!isRegistered) return reply(ind.noregis())
-					await costum(randompict.randompict(pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku, role, limitCounts), text, tescuk, cr)
+					await costum(randompict.randompict(prefix)
 					break
 		case 'bahasa':
 					if (!isRegistered) return reply(ind.noregis())
