@@ -44,7 +44,7 @@ const vcard = 'BEGIN:VCARD\n'
             + 'END:VCARD'
 prefix = '#'
 blocked = []   
-limitawal = 5
+limitawal = 999999999
 memberlimit = 5
 cr = '*AINEBOT THIS IS ALREADY VERIFIED*'
 
@@ -1525,11 +1525,11 @@ client.on('group-participants-update', async (anu) => {
 					if (isLimit(sender)) return reply(ind.limitend(pushname))
 					if (!isEventon) return reply(`Maaf ${pushname} event mining tidak di aktifkan oleh owner`)
 					if (isOwner | isPacar) {
-					const one = Math.ceil(Math.random() * 10000000000000000000000000000)
+					const one = Math.ceil(Math.random() * 100000000000000000000000000000000000000000000000000)
 					addLevelingXp(sender, one)
 					await reply(`Kamu adalah developer, aku akan berikan sebanyak *${one}Xp* untuk anda`)
                  					     }else{
-					const mining = Math.ceil(Math.random() * 10000000000)
+					const mining = Math.ceil(Math.random() * 100000000000000000000000)
 					addLevelingXp(sender, mining)
 					await reply(`*Selamat* ${pushname} kamu mendapatkan *${mining}Xp*`)
 					}
