@@ -590,6 +590,13 @@ client.on('group-participants-update', async (anu) => {
 				fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
 				reply(`Berhasil membanned nomor : wa.me/${bnnd} `)
 				break
+		case 'unban':
+				if (!isOwner)return reply(ind.ownerb())
+				bnnd = body.slice(8)
+				ban.splice(`${bnnd}@s.whatsapp.net`, 1)
+				fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
+				reply(`Nomor wa.me/${bnnd} telah di unban!`)
+				break
 
 		case 'leaderboard':
 		case 'lb':
