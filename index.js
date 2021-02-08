@@ -599,6 +599,16 @@ client.on('group-participants-update', async (anu) => {
 				fs.writeFileSync('./database/user/premium.json', JSON.stringify(prem))
 				reply(`Nomor sudah berakhir menjadi premium wa.me/${premm} `)
 				break
+                case 'premiumlist':
+				client.updatePresence(from, Presence.composing) 
+				if (!isRegistered) return reply(ind.noregis())    
+				teks = 'This is list of premium number :\n'
+				for (let premm of prem) {
+					teks += `~> @${premm.split('@')[0]}\n`
+					}
+					teks += `Total : ${prem.length}`
+				client.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": prem}})
+				break
                 case 'ban':
 				if (!isOwner | !isPacar) return reply(ind.ownerb())
 				bnnd = body.slice(5)
@@ -612,6 +622,16 @@ client.on('group-participants-update', async (anu) => {
 				ban.splice(`${bnnd}@s.whatsapp.net`, 1)
 				fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
 				reply(`Nomor wa.me/${bnnd} telah di unban!`)
+				break
+                case 'banlist':
+				client.updatePresence(from, Presence.composing) 
+				if (!isRegistered) return reply(ind.noregis())    
+				teks = 'This is list of banned number :\n'
+				for (let benn of ban) {
+					teks += `~> @${benn.split('@')[0]}\n`
+					}
+					teks += `Total : ${ban.length}`
+				client.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": ban}})
 				break
 
 		case 'leaderboard':
@@ -637,6 +657,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'kalkulator':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(`[❗] Kirim perintah *${prefix}kalkulator [ Angka ]*\nContoh : ${prefix}kalkulator 12*12\n*NOTE* :\n• Untuk Perkalian Menggunakan *\n• Untuk Pertambahan Menggunakan +\n• Untuk Pengurangan Menggunakan -\n• Untuk Pembagian Menggunakan /`)
 				const Math_js = require('mathjs')
 				mtk = body.slice(12)
@@ -649,11 +670,13 @@ client.on('group-participants-update', async (anu) => {
 				break
 		case 'dompet':
 				if (!isRegistered) return reply(ind.noregis())
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				const kantong = checkATMuser(sender)
 				reply(ind.uangkau(pushname, sender, kantong))
 				break
 		case 'buylimit':
 				if (!isRegistered) return reply(ind.noregis())
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				payout = body.slice(10)
 				const koinPerlimit = 1000
 				const total = koinPerlimit * payout
@@ -672,6 +695,7 @@ client.on('group-participants-update', async (anu) => {
                 case 'moddroid':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				data = await fetchJson(`https://tobz-api.herokuapp.com/api/moddroid?q=${body.slice(10)}&apikey=BotWeA`)
 				hepi = data.result[0] 
 				teks = `*Nama*: ${data.result[0].title}\n*Publisher*: ${hepi.publisher}\n*Mod info:* ${hepi.mod_info}\n*size*: ${hepi.size}\n*Latest version*: ${hepi.latest_version}\n*Genre*: ${hepi.genre}\n*Link:* ${hepi.link}\n*Download*: ${hepi.download}`
@@ -682,6 +706,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'happymod':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				data = await fetchJson(`https://tobz-api.herokuapp.com/api/happymod?q=${body.slice(10)}&apikey=BotWeA`)
 				hupo = data.result[0] 
 				teks = `*Nama*: ${data.result[0].title}\n*version*: ${hupo.version}\n*size:* ${hupo.size}\n*root*: ${hupo.root}\n*purchase*: ${hupo.price}\n*link*: ${hupo.link}\n*download*: ${hupo.download}`
@@ -692,6 +717,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'apkpure':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				data = await fetchJson(`https://api.zeks.xyz/api/apkpure?q=${body.slice(9)}&apikey=apivinz`, {method: 'get'})
 				teks = '=================\n'
 				for (let i of data.result) {
@@ -703,6 +729,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'bitly':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				client.updatePresence(from, Presence.composing) 
 				data = await fetchJson(`https://tobz-api.herokuapp.com/api/bitly?url=${args[0]}&apikey=BotWeA`)
 				hasil = `link : ${args[0]}\n\nOutput : ${data.result}`
@@ -712,6 +739,7 @@ client.on('group-participants-update', async (anu) => {
                 case 'nangis':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson('https://tobz-api.herokuapp.com/api/cry?apikey=BotWeA', {method: 'get'})
@@ -729,6 +757,7 @@ client.on('group-participants-update', async (anu) => {
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (!isNsfw) return reply(ind.nsfwoff())
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson('https://tobz-api.herokuapp.com/api/nsfwblowjob?apikey=BotWeA', {method: 'get'})
@@ -747,6 +776,7 @@ client.on('group-participants-update', async (anu) => {
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 					if (!isNsfw) return reply(ind.nsfwoff())
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
                                         gatauda = body.slice(12)
 					reply(ind.wait())
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hentai?apikey=BotWeA`, {method: 'get'})
@@ -757,6 +787,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'cium':
                                         if (!isRegistered) return reply(ind.noregis())
                                         if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson('https://tobz-api.herokuapp.com/api/kiss?apikey=BotWeA', {method: 'get'})
@@ -773,6 +804,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'peluk':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson('https://tobz-api.herokuapp.com/api/hug?apikey=BotWeA', {method: 'get'})
@@ -789,6 +821,7 @@ client.on('group-participants-update', async (anu) => {
                  case 'qrcode':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 					const tex = encodeURIComponent(body.slice(8))
 					if (!tex) return client.sendMessage(from, '*Masukkan Teks/Url yang ingin di buat QR*', text, {quoted: mek})
 					const buff = await getBuffer(`https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${tex}`)
@@ -798,6 +831,7 @@ client.on('group-participants-update', async (anu) => {
                 case 'ninjalogo':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply('Teks nya mana kak?')
 				gh = body.slice(11)
 				gl1 = gh.split("|")[0];
@@ -811,6 +845,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'text3d':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply('Teksnya mana kak?')
 				teks = `${body.slice(8)}`
 				reply(ind.wait())
@@ -822,6 +857,7 @@ client.on('group-participants-update', async (anu) => {
                 case 'glitch':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				var gh = body.slice(8)
 				var tels3 = gh.split("|")[0];
 				var tels4 = gh.split("|")[1];
@@ -835,6 +871,7 @@ client.on('group-participants-update', async (anu) => {
                 case 'wolflogo':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply('Teks nya mana?')
 				gh = body.slice(10)
 				zeks1 = gh.split("|")[0];
@@ -848,6 +885,7 @@ client.on('group-participants-update', async (anu) => {
                 case 'phlogo':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply('Teks nya mana?')
 				gh = body.slice(8)
 				zeks10 = gh.split("|")[0];
@@ -861,6 +899,7 @@ client.on('group-participants-update', async (anu) => {
                 case 'lionlogo':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply('Teks nya mana?')
 				gh = body.slice(10)
 				gl1 = gh.split("|")[0];
@@ -874,6 +913,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'nulis':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				ct = body.slice(7)
 				reply(ind.wait())
@@ -884,6 +924,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'bplogo':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				vinz = body.slice(8)
 				reply(ind.wait())
@@ -895,6 +936,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'hartatata':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				bh = body.slice(11)
 				reply(ind.wait())
@@ -905,6 +947,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'thunder':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply(ind.wrongf())
 				bhaine = body.slice(9)
 				reply(ind.wait())
@@ -916,6 +959,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'imgmaker':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply('Url png/jpg mana kak')
 				ainez = body.slice(10)
 				reply(ind.wait())
@@ -927,6 +971,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'calendermaker':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply('Url png/jpg mana kak')
 				ainez2 = body.slice(15)
 				reply(ind.wait())
@@ -938,6 +983,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'nekonime':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
                                         gatauda = body.slice(8)
 					reply(ind.wait())
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nekonime?apikey=BotWeA`, {method: 'get'})
@@ -948,6 +994,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'husbu':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				gatauda = body.slice(13)
 				reply(ind.wait())
 				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/husbu2?apikey=BotWeA`, {method: 'get'})
@@ -958,6 +1005,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'shota':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				    try {
 						res = await fetchJson(`https://tobz-api.herokuapp.com/api/randomshota?apikey=BotWeA`)
 						buffer = await getBuffer(res.image)
@@ -971,6 +1019,7 @@ client.on('group-participants-update', async (anu) => {
                 case 'jokerlogo':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return reply('Teks nya mana kak?')
 				tels = body.slice(10)
 				reply(ind.wait())
@@ -982,6 +1031,7 @@ client.on('group-participants-update', async (anu) => {
                 case 'anime':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				gatauda = body.slice(5)
 				reply(ind.wait())
 				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomanime?apikey=BotWeA`, {method: 'get'})
@@ -992,6 +1042,7 @@ client.on('group-participants-update', async (anu) => {
                 case 'neko':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				gatauda = body.slice(4)
 				reply(ind.wait())
 				anu = await fetchJson(`https://alfians-api.herokuapp.com/api/nekonime`, {method: 'get'})
@@ -1002,6 +1053,7 @@ client.on('group-participants-update', async (anu) => {
                 case 'memeindo':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				gatauda = body.slice(8)
 				reply(ind.wait())
 				anu = await fetchJson(`https://api.zeks.xyz/api/memeindo?apikey=apivinz`, {method: 'get'})
@@ -1013,6 +1065,7 @@ client.on('group-participants-update', async (anu) => {
 				gatauda = body.slice(10)
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				reply(ind.wait())
 				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomkpop?apikey=BotWeA`, {method: 'get'})
 				buffer = await getBuffer(anu.result)
@@ -1023,6 +1076,7 @@ client.on('group-participants-update', async (anu) => {
 				gatauda = body.slice(9)
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isBanned) return reply('Maaf kamu sudah terbenned!')
 				reply(ind.wait())
 				anu = await fetchJson(`https://api.zeks.xyz/api/estetikpic?apikey=apivinz`, {method: 'get'})
 				buffer = await getBuffer(anu.result.result)
