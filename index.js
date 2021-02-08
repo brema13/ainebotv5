@@ -613,7 +613,7 @@ client.on('group-participants-update', async (anu) => {
 				break
                 case 'ban':
 				if (!isOwner) return reply(ind.ownerb())
-				if (!isPacar) return reply('Maaf bukan owner kami)
+				if (!isPacar) return reply('Maaf bukan owner kami')
 				bnnd = body.slice(5)
 				ban.push(`${bnnd}@s.whatsapp.net`)
 				fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
@@ -621,7 +621,7 @@ client.on('group-participants-update', async (anu) => {
 				break
 		case 'unban':
 				if (!isOwner) return reply(ind.ownerb())
-				if (!isPacar) return reply('Maaf bukan owner kami)
+				if (!isPacar) return reply('Maaf bukan owner kami')
 				bnnd = body.slice(7)
 				ban.splice(`${bnnd}@s.whatsapp.net`, 1)
 				fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
