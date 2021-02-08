@@ -587,13 +587,15 @@ client.on('group-participants-update', async (anu) => {
 				break
                 case 'premium':
 				if (!isOwner) return reply(ind.ownerb())
+				if (!isPacar) return reply('Maaf bukan owner kami)
 				premm = body.slice(9)
 				prem.push(`${premm}@s.whatsapp.net`)
 				fs.writeFileSync('./database/user/premium.json', JSON.stringify(prem))
 				reply(`Berhasil menjadi premium wa.me/${premm} `)
 				break
 		case 'unpremium':
-				if (!isOwner)return reply(ind.ownerb())
+				if (!isOwner) return reply(ind.ownerb())
+				if (!isPacar) return reply('Maaf bukan owner kami)
 				premm = body.slice(11)
 				prem.splice(`${premm}@s.whatsapp.net`, 1)
 				fs.writeFileSync('./database/user/premium.json', JSON.stringify(prem))
@@ -611,13 +613,15 @@ client.on('group-participants-update', async (anu) => {
 				break
                 case 'ban':
 				if (!isOwner) return reply(ind.ownerb())
+				if (!isPacar) return reply('Maaf bukan owner kami)
 				bnnd = body.slice(5)
 				ban.push(`${bnnd}@s.whatsapp.net`)
 				fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
 				reply(`Berhasil membanned nomor : wa.me/${bnnd} `)
 				break
 		case 'unban':
-				if (!isOwner)return reply(ind.ownerb())
+				if (!isOwner) return reply(ind.ownerb())
+				if (!isPacar) return reply('Maaf bukan owner kami)
 				bnnd = body.slice(7)
 				ban.splice(`${bnnd}@s.whatsapp.net`, 1)
 				fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
@@ -739,6 +743,7 @@ client.on('group-participants-update', async (anu) => {
                 case 'nangis':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
@@ -757,6 +762,7 @@ client.on('group-participants-update', async (anu) => {
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (!isNsfw) return reply(ind.nsfwoff())
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
@@ -776,6 +782,7 @@ client.on('group-participants-update', async (anu) => {
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 					if (!isNsfw) return reply(ind.nsfwoff())
+					if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
                                         gatauda = body.slice(12)
 					reply(ind.wait())
@@ -787,6 +794,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'cium':
                                         if (!isRegistered) return reply(ind.noregis())
                                         if (isLimit(sender)) return reply(ind.limitend(pusname))
+					if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
@@ -804,6 +812,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'peluk':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
@@ -2024,6 +2033,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'animecry':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					await limitAdd(sender)
 					ranp = getRandom('.gif')
@@ -2041,6 +2051,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'animehug':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					await limitAdd(sender)
 					ranp = getRandom('.gif')
@@ -2650,7 +2661,6 @@ client.on('group-participants-update', async (anu) => {
 					if (!isRegistered) return reply(ind.noregis())
 					if (!isGroup) return reply(ind.groupo())
 					if (!isOwner) return reply(ind.ownerb())
-					if (!isGroupAdmins) return reply(ind.admin())
 					setTimeout( () => {
 					client.groupLeave (from) 
 					}, 2000)
