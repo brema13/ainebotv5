@@ -65,6 +65,7 @@ const event = JSON.parse(fs.readFileSync('./database/bot/event.json'))
 const _limit = JSON.parse(fs.readFileSync('./database/user/limit.json'))
 const uang = JSON.parse(fs.readFileSync('./database/user/uang.json'))
 const ban = JSON.parse(fs.readFileSync('./database/user/banned.json'))
+const prem = JSON.parse(fs.readFileSync('./database/user/premium.json'))
 /*********** END LOAD ***********/
 
 /********** FUNCTION ***************/
