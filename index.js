@@ -586,7 +586,7 @@ client.on('group-participants-update', async (anu) => {
 				reply(`*「 SUKSES 」*\n\nPengiriman uang telah sukses\nDari : +${sender.split("@")[0]}\nKe : +${tujuan}\nJumlah transfer : ${jumblah}\npajak : ${fee}`)
 				break
                 case 'premium':
-				if (!isOwner | !isPacar) return reply(ind.ownerb())
+				if (!isOwner) return reply(ind.ownerb())
 				premm = body.slice(9)
 				prem.push(`${premm}@s.whatsapp.net`)
 				fs.writeFileSync('./database/user/premium.json', JSON.stringify(prem))
@@ -610,7 +610,7 @@ client.on('group-participants-update', async (anu) => {
 				client.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": prem}})
 				break
                 case 'ban':
-				if (!isOwner | !isPacar) return reply(ind.ownerb())
+				if (!isOwner) return reply(ind.ownerb())
 				bnnd = body.slice(5)
 				ban.push(`${bnnd}@s.whatsapp.net`)
 				fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
