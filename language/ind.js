@@ -157,6 +157,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}request
   ├─ ❏ ${prefix}blocklist
   ├─ ❏ ${prefix}ping
+  ├─ ❏ ${prefix}buypremium
   ├─ ❏ ${prefix}gcainebot
   └─ ❏ ${prefix}menupict
 ◪ *MAKER*
@@ -284,6 +285,9 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   │
   ├─ ❏ ${prefix}tagall
   ├─ ❏ ${prefix}listadmin
+  ├─ ❏ ${prefix}premiumlist
+  ├─ ❏ ${prefix}banlist
+  ├─ ❏ ${prefix}blocklist
   ├─ ❏ ${prefix}linkgc
   ├─ ❏ ${prefix}mining
   ├─ ❏ ${prefix}level
@@ -298,6 +302,10 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}setreply
   ├─ ❏ ${prefix}setmemlimit
   ├─ ❏ ${prefix}setppbot
+  ├─ ❏ ${prefix}premium
+  ├─ ❏ ${prefix}unpremium
+  ├─ ❏ ${prefix}ban
+  ├─ ❏ ${prefix}unban
   ├─ ❏ ${prefix}block
   ├─ ❏ ${prefix}unblock
   ├─ ❏ ${prefix}setprefix
