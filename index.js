@@ -341,6 +341,7 @@ client.on('group-participants-update', async (anu) => {
 			const isOwner = ownerNumber.includes(sender)
 			const isPacar = pacarNumber.includes(sender)
 			const isBanned = ban.includes(sender)
+			const isPremium= prem.includes(sender)
 			const isImage = type === 'imageMessage'
 			const isUrl = (url) => {
 			    return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/, 'gi'))
@@ -584,16 +585,30 @@ client.on('group-participants-update', async (anu) => {
 				addKoinUser('62895330379186@s.whatsapp.net', fee)
 				reply(`*「 SUKSES 」*\n\nPengiriman uang telah sukses\nDari : +${sender.split("@")[0]}\nKe : +${tujuan}\nJumlah transfer : ${jumblah}\npajak : ${fee}`)
 				break
+                case 'premium':
+				if (!isOwner | !isPacar) return reply(ind.ownerb())
+				premm = body.slice(9)
+				prem.push(`${premm}@s.whatsapp.net`)
+				fs.writeFileSync('./database/user/premium.json', JSON.stringify(prem))
+				reply(`Berhasil menjadi premium wa.me/${premm} `)
+				break
+		case 'unpremium':
+				if (!isOwner)return reply(ind.ownerb())
+				premm = body.slice(11)
+				prem.splice(`${premm}@s.whatsapp.net`, 1)
+				fs.writeFileSync('./database/user/premium.json', JSON.stringify(prem))
+				reply(`Nomor sudah berakhir menjadi premium wa.me/${premm} `)
+				break
                 case 'ban':
 				if (!isOwner | !isPacar) return reply(ind.ownerb())
-				bnnd = body.slice(6)
+				bnnd = body.slice(5)
 				ban.push(`${bnnd}@s.whatsapp.net`)
 				fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
 				reply(`Berhasil membanned nomor : wa.me/${bnnd} `)
 				break
 		case 'unban':
 				if (!isOwner)return reply(ind.ownerb())
-				bnnd = body.slice(8)
+				bnnd = body.slice(7)
 				ban.splice(`${bnnd}@s.whatsapp.net`, 1)
 				fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
 				reply(`Nomor wa.me/${bnnd} telah di unban!`)
