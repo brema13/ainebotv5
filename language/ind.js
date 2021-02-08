@@ -291,7 +291,9 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}linkgc
   ├─ ❏ ${prefix}mining
   ├─ ❏ ${prefix}level
-  ├─ ❏ ${prefix}grup [buka/tutup)
+  ├─ ❏ ${prefix}add [tag]
+  ├─ ❏ ${prefix}kick [tag]
+  ├─ ❏ ${prefix}grup [buka/tutup]
   ├─ ❏ ${prefix}welcome [1/0]
   ├─ ❏ ${prefix}nsfw [1/0]
   ├─ ❏ ${prefix}leveling [1/0]
@@ -305,6 +307,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}premium
   ├─ ❏ ${prefix}unpremium
   ├─ ❏ ${prefix}ban
+  ├─ ❏ ${prefix}bc
   ├─ ❏ ${prefix}unban
   ├─ ❏ ${prefix}block
   ├─ ❏ ${prefix}unblock
