@@ -2574,6 +2574,21 @@ client.on('group-participants-update', async (anu) => {
 		case 'bot':
 					client.sendMessage(from, 'Iya kak? \nJangan lupa daftar iya kak ^_^"\nJika sudah silahkan berarti sudah terdaftar kak ^_^"',MessageType.text, { quoted: mek} )
 					break
+		case 'buypremium':
+					client.sendMessage(from, 'Ingin membeli premium?\nHarap hubungi kami : wa.me/62895330379186',MessageType.text, { quoted: mek} )
+					break
+		case 'buypremunlimited':
+					if (!isPremium) return reply('Maaf kamu bukan user premium!')
+					client.sendMessage(from, 'Selamat kamu sudah berlangganan selamanya 🎉',MessageType.text, { quoted: mek} )
+					break
+		case 'buyprem30day':
+					if (!isPremium) return reply('Maaf kamu bukan user premium!')
+					client.sendMessage(from, 'Selamat kamu sudah berlangganan 30 hari',MessageType.text, { quoted: mek} )
+					break
+		case 'buyprem7day':
+					if (!isPremium) return reply('Maaf kamu bukan user premium!')
+					client.sendMessage(from, 'Selamat kamu sudah berlangganan 7 hari',MessageType.text, { quoted: mek} )
+					break
 		case 'test':
 					client.sendMessage(from, 'Active',MessageType.text, { quoted: mek} )
 					break
