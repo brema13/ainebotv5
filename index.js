@@ -1086,8 +1086,8 @@ client.on('group-participants-update', async (anu) => {
                 case 'joox':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-				if (isPremium) return reply('Maaf kamu bukan user premium!')
 				data = await fetchJson(`https://tobz-api.herokuapp.com/api/joox?q=${body.slice(6)}&apikey=BotWeA`, {method: 'get'})
 				if (data.error) return reply(data.error)
 				infomp3 = `*Lagu Ditemukan!!!*\nJudul : ${data.result.judul}\nAlbum : ${data.result.album}\nDipublikasi : ${data.result.dipublikasi}`
@@ -1100,8 +1100,8 @@ client.on('group-participants-update', async (anu) => {
 		case 'ytmp3':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-				if (isPremium) return reply('Maaf kamu bukan user premium!')
 				reply(ind.wait())
 				if (args.length < 1) return reply('Urlnya mana kak?')
 				if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(ind.stikga())
@@ -1117,8 +1117,8 @@ client.on('group-participants-update', async (anu) => {
 		case 'ytmp4':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-				if (isPremium) return reply('Maaf kamu bukan user premium!')
 				reply(ind.wait())
 				if (args.length < 1) return reply('Urlnya mana kak?')
 				if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(ind.stikga())
@@ -1134,8 +1134,8 @@ client.on('group-participants-update', async (anu) => {
 		case 'play':   
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-				if (isPremium) return reply('Maaf kamu bukan user premium!')
 				reply(ind.wait())
 				play = body.slice(5)
 				anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?q=${play}&apikey=apivinz`)
@@ -1791,8 +1791,8 @@ client.on('group-participants-update', async (anu) => {
 		case 'delete':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-					if (isPremium) return reply('Maaf kamu bukan user premium!')
 					client.deleteMessage(from, { id: mek.message.extendedTextMessage.contextInfo.stanzaId, remoteJid: from, fromMe: true })
 					await limitAdd(sender)
 					break
