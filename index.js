@@ -583,6 +583,13 @@ client.on('group-participants-update', async (anu) => {
 				addKoinUser('62895330379186@s.whatsapp.net', fee)
 				reply(`*「 SUKSES 」*\n\nPengiriman uang telah sukses\nDari : +${sender.split("@")[0]}\nKe : +${tujuan}\nJumlah transfer : ${jumblah}\npajak : ${fee}`)
 				break
+                case 'ban':
+				if (!isOwner | !isPacar) return reply(ind.ownerb())
+				bnnd = body.slice(6)
+				ban.push(`${bnnd}@s.whatsapp.net`)
+				fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
+				reply(`Berhasil membanned nomor : wa.me/${bnnd} `)
+				break
 
 		case 'leaderboard':
 		case 'lb':
