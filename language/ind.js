@@ -298,7 +298,6 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}kick [tag]
   ├─ ❏ ${prefix}grup [buka/tutup]
   ├─ ❏ ${prefix}welcome [1/0]
-  ├─ ❏ ${prefix}antilink [1/0]
   ├─ ❏ ${prefix}nsfw [1/0]
   ├─ ❏ ${prefix}leveling [1/0]
   └─ ❏ ${prefix}simih [1/0]
