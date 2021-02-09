@@ -167,20 +167,20 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}stickergif
   ├─ ❏ ${prefix}toimg
   ├─ ❏ ${prefix}ttp
-  ├─ ❏ ${prefix}phlogo
-  ├─ ❏ ${prefix}wolflogo
-  ├─ ❏ ${prefix}bplogo
-  ├─ ❏ ${prefix}glitch
-  ├─ ❏ ${prefix}thunder
-  ├─ ❏ ${prefix}text3d
+  ├─ ❏ ${prefix}phlogo ❌
+  ├─ ❏ ${prefix}wolflogo ❌
+  ├─ ❏ ${prefix}bplogo ❌
+  ├─ ❏ ${prefix}glitch ❌
+  ├─ ❏ ${prefix}thunder ❌
+  ├─ ❏ ${prefix}text3d ❌
   ├─ ❏ ${prefix}hartatata
   ├─ ❏ ${prefix}quotemaker
   ├─ ❏ ${prefix}imgmaker
   └─ ❏ ${prefix}calendermaker
 ◪ *MEDIA*
   │
-  ├─ ❏ ${prefix}beritahoax
-  └─ ❏ ${prefix}trendtwit
+  ├─ ❏ ${prefix}beritahoax ❌
+  └─ ❏ ${prefix}trendtwit ❌
 ◪ *OTHER FITUR*
   │
   ├─ ❏ ${prefix}ssweb
@@ -190,14 +190,14 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}kbbi [teks]
   ├─ ❏ ${prefix}map [teks]
   ├─ ❏ ${prefix}kalkulator
-  ├─ ❏ ${prefix}fml
+  ├─ ❏ ${prefix}fml ❌
   ├─ ❏ ${prefix}lirik [teks]
   ├─ ❏ ${prefix}brainly [teks]
   ├─ ❏ ${prefix}bitly
   ├─ ❏ ${prefix}chord [teks]
-  ├─ ❏ ${prefix}katacinta
-  ├─ ❏ ${prefix}katabijak
-  ├─ ❏ ${prefix}faktaunik
+  ├─ ❏ ${prefix}katacinta ❌
+  ├─ ❏ ${prefix}katabijak ❌
+  ├─ ❏ ${prefix}faktaunik ❌
   ├─ ❏ ${prefix}pantun
   └─ ❏ ${prefix}artinama [teks]
 ◪ *KERANG AJAIB*
@@ -232,8 +232,8 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}quotesislami
   ├─ ❏ ${prefix}quotesnasehat
   ├─ ❏ ${prefix}quotescinta ❌
-  ├─ ❏ ${prefix}animequotes
-  └─ ❏ ${prefix}twichquotes
+  ├─ ❏ ${prefix}animequotes ❌
+  └─ ❏ ${prefix}twichquotes ❌
 ◪ *LIMIT & UANG & LB*
   │
   ├─ ❏ ${prefix}limit
