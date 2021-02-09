@@ -2542,6 +2542,12 @@ client.on('group-participants-update', async (anu) => {
 					prefix = args[0]
 					reply(`*Prefix berhasil di ubah menjadi* : ${prefix}`)
 					break 
+		case 'setlimit':
+					if (args.length < 1) return
+					if (!isOwner) return reply(ind.ownerb())
+					limitawal = args[0]
+					reply(`*Limit berhasil di ubah menjadi* : ${limitawal}`)
+					break 
 		case 'setmemlimit':
 					if (args.length < 1) return
 					if (!isOwner) return reply(ind.ownerb())
