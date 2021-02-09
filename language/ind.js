@@ -215,6 +215,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}pinterest [teks]
   ├─ ❏ ${prefix}ytmp3 [link]
   ├─ ❏ ${prefix}ytmp4 [link]
+  ├─ ❏ ${prefix}play [teks]
   ├─ ❏ ${prefix}fototiktok
   └─ ❏ ${prefix}joox [teks]
 ◪ *MEME*
@@ -242,8 +243,9 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   └─ ❏ ${prefix}leaderboard
 ◪ *SOUND*
   │
-  ├─ ❏ ${prefix}play [teks]
-  └─ ❏ ${prefix}tts
+  ├─ ❏ ${prefix}hai
+  ├─ ❏ ${prefix}aine
+  └─ ❏ ${prefix}gtts
 ◪ *ISLAM*
   │
   ├─ ❏ ${prefix}jadwalsholat [teks]
@@ -296,6 +298,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}kick [tag]
   ├─ ❏ ${prefix}grup [buka/tutup]
   ├─ ❏ ${prefix}welcome [1/0]
+  ├─ ❏ ${prefix}antilink [1/0]
   ├─ ❏ ${prefix}nsfw [1/0]
   ├─ ❏ ${prefix}leveling [1/0]
   └─ ❏ ${prefix}simih [1/0]
@@ -303,6 +306,8 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   │
   ├─ ❏ ${prefix}setprefix
   ├─ ❏ ${prefix}setreply
+  ├─ ❏ ${prefix}setlimit
+  ├─ ❏ ${prefix}addlimit
   ├─ ❏ ${prefix}setmemlimit
   ├─ ❏ ${prefix}setppbot
   ├─ ❏ ${prefix}premium
