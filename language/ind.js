@@ -189,6 +189,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}wiki [teks]
   ├─ ❏ ${prefix}kbbi [teks]
   ├─ ❏ ${prefix}map [teks]
+  ├─ ❏ ${prefix}kalkulator
   ├─ ❏ ${prefix}fml
   ├─ ❏ ${prefix}lirik [teks]
   ├─ ❏ ${prefix}brainly [teks]
