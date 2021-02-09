@@ -166,13 +166,6 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}sticker
   ├─ ❏ ${prefix}stickergif
   ├─ ❏ ${prefix}toimg
-  ├─ ❏ ${prefix}ttp
-  ├─ ❏ ${prefix}phlogo ❌
-  ├─ ❏ ${prefix}wolflogo ❌
-  ├─ ❏ ${prefix}bplogo ❌
-  ├─ ❏ ${prefix}glitch ❌
-  ├─ ❏ ${prefix}thunder ❌
-  ├─ ❏ ${prefix}text3d ❌
   ├─ ❏ ${prefix}hartatata
   ├─ ❏ ${prefix}quotemaker
   ├─ ❏ ${prefix}imgmaker
