@@ -2231,7 +2231,7 @@ client.on('group-participants-update', async (anu) => {
 					await limitAdd(sender)
 					break
 		case 'hamster':
-					if (!isRegistered) return reply(ind.noregis()
+					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					client.updatePresence(from, Presence.composing) 
