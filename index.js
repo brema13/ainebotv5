@@ -703,6 +703,10 @@ client.on('group-participants-update', async (anu) => {
 				addKoinUser('62895330379186@s.whatsapp.net', fee)
 				reply(`*「 SUKSES 」*\n\nPengiriman uang telah sukses\nDari : +${sender.split("@")[0]}\nKe : +${tujuan}\nJumlah transfer : ${jumblah}\npajak : ${fee}`)
 				break
+              case 'Hai':
+				let eerrr = fs.readFileSync('./mp3/WhatsApp-Ptt-2021-02-10-at-02.16.542.opus')
+				client.sendMessage(from, eerrr, MessageType.audio, { quoted: mek, ptt: true })
+				break
                 case 'premium':
 				if (!isOwner) return reply(ind.ownerb())
 				premm = body.slice(9)
