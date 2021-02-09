@@ -56,6 +56,7 @@ const pacarNumber = ["62895321438933@s.whatsapp.net"]
        
 /*********** LOAD FILE ***********/
 const _leveling = JSON.parse(fs.readFileSync('./database/group/leveling.json'))
+const anlink = JSON.parse(fs.readFileSync('./database/group/antilink.json'))
 const _level = JSON.parse(fs.readFileSync('./database/user/level.json'))
 const _registered = JSON.parse(fs.readFileSync('./database/bot/registered.json'))
 const welkom = JSON.parse(fs.readFileSync('./database/bot/welkom.json'))
@@ -338,6 +339,7 @@ client.on('group-participants-update', async (anu) => {
 			const isWelkom = isGroup ? welkom.includes(from) : false
 			const isNsfw = isGroup ? nsfw.includes(from) : false
 			const isSimi = isGroup ? samih.includes(from) : false
+			const isAntilink = isGroup ? anlink.includes(from) : false
 			const isOwner = ownerNumber.includes(sender)
 			const isPacar = pacarNumber.includes(sender)
 			const isBanned = ban.includes(sender)
@@ -704,10 +706,12 @@ client.on('group-participants-update', async (anu) => {
 				reply(`*「 SUKSES 」*\n\nPengiriman uang telah sukses\nDari : +${sender.split("@")[0]}\nKe : +${tujuan}\nJumlah transfer : ${jumblah}\npajak : ${fee}`)
 				break
               case 'Hai':
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				let eerrr = fs.readFileSync('./mp3/WhatsApp-Ptt-2021-02-10-at-02.16.542.opus')
 				client.sendMessage(from, eerrr, MessageType.audio, { quoted: mek, ptt: true })
 				break
               case 'aine':
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				let ainezz = fs.readFileSync('./mp3/WhatsApp-Ptt-2021-02-10-at-02.39.39.opus')
 				client.sendMessage(from, ainezz, MessageType.audio, { quoted: mek, ptt: true })
 				break
@@ -823,11 +827,11 @@ client.on('group-participants-update', async (anu) => {
 					rano = getRandom('.webp')
 					anu = await fetchJson('https://tobz-api.herokuapp.com/api/ttp?text=${body.slice(5)}&apikey=BotWeA', {method: 'get'})
 					if (anu.error) return reply(anu.error)
-					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+					exec(`wget ${anu.base64} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 						fs.unlinkSync(ranp)
 						if (err) return reply(ind.stikga())
 						buffer = fs.readFileSync(rano)
-						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						 client.sendMessage(from, buffer, sticker, {quoted: mek})
 						fs.unlinkSync(rano)
 					})
 					await limitAdd(sender)
@@ -2671,6 +2675,7 @@ client.on('group-participants-update', async (anu) => {
 					reply(`*Prefix berhasil di ubah menjadi* : ${prefix}`)
 					break 
 		case 'setlimit':
+		case 'addlimit':
 					if (args.length < 1) return
 					if (!isOwner) return reply(ind.ownerb())
 					limitawal = args[0]
@@ -3026,6 +3031,23 @@ client.on('group-participants-update', async (anu) => {
 					} else if (Number(args[0]) === 0) {
 						welkom.splice(from, 1)
 						fs.writeFileSync('./database/bot/welkom.json', JSON.stringify(welkom))
+						reply('❬ SUCCSESS ❭ menonaktifkan fitur welcome di group ini')
+					} else {
+						reply(ind.satukos())
+					}
+					break
+		case 'antilink':
+					if (!isGroup) return reply(ind.groupo())
+					if (!isGroupAdmins) return reply(ind.admin())
+					if (args.length < 1) return reply('Mengaktifkan tekan 1, Menonaktif tekan 0')
+					if (Number(args[0]) === 1) {
+						if (isAntilink) return reply('*Fitur welcome sudah aktif sebelum nya')
+						anlink.push(from)
+						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(anlink))
+						reply('❬ SUCCSESS ❭ mengaktifkan fitur welcome di group ini')
+					} else if (Number(args[0]) === 0) {
+						anlink.splice(from, 1)
+						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(anlink))
 						reply('❬ SUCCSESS ❭ menonaktifkan fitur welcome di group ini')
 					} else {
 						reply(ind.satukos())
