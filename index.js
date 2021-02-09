@@ -3041,14 +3041,14 @@ client.on('group-participants-update', async (anu) => {
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (args.length < 1) return reply('Mengaktifkan tekan 1, Menonaktif tekan 0')
 					if (Number(args[0]) === 1) {
-						if (isAntilink) return reply('*Fitur welcome sudah aktif sebelum nya')
+						if (isAntilink) return reply('*Fitur antilink sudah aktif sebelum nya')
 						anlink.push(from)
 						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(anlink))
-						reply('❬ SUCCSESS ❭ mengaktifkan fitur welcome di group ini')
-					} else if (Number(args[0]) === 0) {
+						reply('❬ SUCCSESS ❭ mengaktifkan fitur antilink di group ini')
+					} else if (args[0] == '0') {
 						anlink.splice(from, 1)
 						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(anlink))
-						reply('❬ SUCCSESS ❭ menonaktifkan fitur welcome di group ini')
+						reply('❬ SUCCSESS ❭ menonaktifkan fitur antilink di group ini')
 					} else {
 						reply(ind.satukos())
 					}
