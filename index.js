@@ -705,10 +705,14 @@ client.on('group-participants-update', async (anu) => {
 				addKoinUser('62895330379186@s.whatsapp.net', fee)
 				reply(`*「 SUKSES 」*\n\nPengiriman uang telah sukses\nDari : +${sender.split("@")[0]}\nKe : +${tujuan}\nJumlah transfer : ${jumblah}\npajak : ${fee}`)
 				break
-              case 'Hai':
+              case 'hai':
+              case 'hi':
+              case 'hei':
+              case 'hey':
+              case 'hii':
 				if (!isPremium) return reply('Maaf kamu bukan user premium!')
-				let eerrr = fs.readFileSync('./mp3/WhatsApp-Ptt-2021-02-10-at-02.16.542.opus')
-				client.sendMessage(from, eerrr, MessageType.audio, { quoted: mek, ptt: true })
+				let ainecs = fs.readFileSync('./mp3/WhatsApp-Ptt-2021-02-10-at-02.16.542.opus')
+				client.sendMessage(from, ainecs, MessageType.audio, { quoted: mek, ptt: true })
 				break
               case 'aine':
 				if (!isPremium) return reply('Maaf kamu bukan user premium!')
