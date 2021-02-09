@@ -44,7 +44,7 @@ const vcard = 'BEGIN:VCARD\n'
             + 'END:VCARD'
 prefix = '#'
 blocked = []   
-limitawal = 999999999
+limitawal = 5
 memberlimit = 5
 cr = '*AINEBOT THIS IS ALREADY VERIFIED*'
 
