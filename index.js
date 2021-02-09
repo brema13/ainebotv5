@@ -708,8 +708,8 @@ client.on('group-participants-update', async (anu) => {
 				client.sendMessage(from, eerrr, MessageType.audio, { quoted: mek, ptt: true })
 				break
               case 'aine':
-				let eerrr = fs.readFileSync('./mp3/WhatsApp-Ptt-2021-02-10-at-02.39.39.opus')
-				client.sendMessage(from, eerrr, MessageType.audio, { quoted: mek, ptt: true })
+				let ainezz = fs.readFileSync('./mp3/WhatsApp-Ptt-2021-02-10-at-02.39.39.opus')
+				client.sendMessage(from, ainezz, MessageType.audio, { quoted: mek, ptt: true })
 				break
                 case 'premium':
 				if (!isOwner) return reply(ind.ownerb())
