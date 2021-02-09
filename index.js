@@ -818,24 +818,6 @@ client.on('group-participants-update', async (anu) => {
 					await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga limit* : ${koinPerlimit}/limit\n*Sisa uang mu* : ${checkATMuser(sender)}\n\nProses berhasil dengan nomer pembayaran\n${createSerial(15)}`)
 				} 
 				break
-		case 'ttp':
-				if (!isRegistered) return reply(ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (!isPremium) return reply('Maaf kamu bukan user premium!')
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-					ranp = getRandom('.png')
-					rano = getRandom('.webp')
-					anu = await fetchJson('https://tobz-api.herokuapp.com/api/ttp?text=${body.slice(5)}&apikey=BotWeA', {method: 'get'})
-					if (anu.error) return reply(anu.error)
-					exec(`wget ${anu.base64} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
-						fs.unlinkSync(ranp)
-						if (err) return reply(ind.stikga())
-						buffer = fs.readFileSync(rano)
-						 client.sendMessage(from, buffer, sticker, {quoted: mek})
-						fs.unlinkSync(rano)
-					})
-					await limitAdd(sender)
-					break
                 case 'moddroid':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
