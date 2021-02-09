@@ -51,6 +51,7 @@ cr = '*AINEBOT THIS IS ALREADY VERIFIED*'
 /******** OWNER NUMBER**********/
 const ownerNumber = ["62895330379186@s.whatsapp.net"] 
 const pacarNumber = ["62895321438933@s.whatsapp.net"]
+const kozetNumber = ["628994622890@s.whatsapp.net"]
 /************************************/
 
        
@@ -342,6 +343,7 @@ client.on('group-participants-update', async (anu) => {
 			const isAntilink = isGroup ? anlink.includes(from) : false
 			const isOwner = ownerNumber.includes(sender)
 			const isPacar = pacarNumber.includes(sender)
+			const isKozet = kozetNumber.includes(sender)
 			const isBanned = ban.includes(sender)
 			const isPremium= prem.includes(sender)
 			const isImage = type === 'imageMessage'
@@ -1793,7 +1795,7 @@ client.on('group-participants-update', async (anu) => {
 					if (isLimit(sender)) return reply(ind.limitend(pushname))
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if (!isEventon) return reply(`Maaf ${pushname} event mining tidak di aktifkan oleh owner`)
-					if (isOwner | isPacar) {
+					if (isOwner | isPacar | isKozet) {
 					const one = Math.ceil(Math.random() * 1000000000000000000000000000000000000000000000000000)
 					addLevelingXp(sender, one)
 					await reply(`Kamu adalah developer, aku akan berikan sebanyak *${one}Xp* untuk anda`)
