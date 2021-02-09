@@ -676,6 +676,7 @@ client.on('group-participants-update', async (anu) => {
 				break
 		case 'buylimit':
 				if (!isRegistered) return reply(ind.noregis())
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				payout = body.slice(10)
 				const koinPerlimit = 1000
@@ -777,8 +778,8 @@ client.on('group-participants-update', async (anu) => {
 		case 'randomhentai':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
-					if (!isNsfw) return reply(ind.nsfwoff())
 					if (!isPremium) return reply('Maaf kamu bukan user premium!')
+					if (!isNsfw) return reply(ind.nsfwoff())
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
                                         gatauda = body.slice(12)
 					reply(ind.wait())
@@ -1305,7 +1306,7 @@ client.on('group-participants-update', async (anu) => {
 				    try {
 					    if (!isRegistered) return reply(ind.noregis())
 					    if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					    if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					    if (!isGroup) return reply(ind.groupo())
 					    if (!isNsfw) return reply(ind.nsfwoff())
 						res = await fetchJson(`https://st4rz.herokuapp.com/api/1cak`, {method: 'get'})
@@ -1664,11 +1665,11 @@ client.on('group-participants-update', async (anu) => {
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if (!isEventon) return reply(`Maaf ${pushname} event mining tidak di aktifkan oleh owner`)
 					if (isOwner | isPacar) {
-					const one = Math.ceil(Math.random() * 100000000000000000000000000000000000000000000000000)
+					const one = Math.ceil(Math.random() * 1000000000000000000000)
 					addLevelingXp(sender, one)
 					await reply(`Kamu adalah developer, aku akan berikan sebanyak *${one}Xp* untuk anda`)
                  					     }else{
-					const mining = Math.ceil(Math.random() * 100000000000000000000000)
+					const mining = Math.ceil(Math.random() * 1000000000)
 					addLevelingXp(sender, mining)
 					await reply(`*Selamat* ${pushname} kamu mendapatkan *${mining}Xp*`)
 					}
@@ -1983,11 +1984,11 @@ client.on('group-participants-update', async (anu) => {
                                         client.sendMessage(from, cangtip, image, {quote: mek})
 					await limitAdd(sender)
                                         break
-                case 'kucingimut':
+                case 'kucing':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-	                                const kucings = ['https://i.ibb.co/vvmp82w/kucing1.jpg','https://i.ibb.co/FsJ6jjs/kucing2.jpg','https://i.ibb.co/vvkdS7n/kucing3.jpg','https://i.ibb.co/1QHWxts/kucing4.jpg','https://i.ibb.co/JQmRz4n/kucing5.jpg','https://i.ibb.co/tBwrFkG/kucing6.jpg','https://i.ibb.co/dp0YhYm/kucing7.jpg','https://i.ibb.co/R03smZT/kucing8.jpg','https://i.ibb.co/17tw0dp/kucing9.jpg','https://i.ibb.co/7XdGGqc/kucing10.jpg','https://i.ibb.co/XL9PZxg/kucing11.jpg','https://i.ibb.co/gyjvXWN/kucing12.jpg','https://i.ibb.co/R4gg4wH/kucing13.jpg','https://i.ibb.co/PmLYtFm/kucing14.jpg','https://i.ibb.co/XbSDh47/kucing15.jpg','https://i.ibb.co/kSXNJzt/kucing16.jpg']
+	                                const kucings = ['https://i.ibb.co/vvmp82w/kucing1.jpg','https://i.ibb.co/FsJ6jjs/kucing2.jpg','https://i.ibb.co/vvkdS7n/kucing3.jpg','https://i.ibb.co/1QHWxts/kucing4.jpg','https://i.ibb.co/JQmRz4n/kucing5.jpg','https://i.ibb.co/tBwrFkG/kucing6.jpg','https://i.ibb.co/dp0YhYm/kucing7.jpg','https://i.ibb.co/R03smZT/kucing8.jpg','https://i.ibb.co/17tw0dp/kucing9.jpg','https://i.ibb.co/7XdGGqc/kucing10.jpg','https://i.ibb.co/XL9PZxg/kucing11.jpg','https://i.ibb.co/gyjvXWN/kucing12.jpg','https://i.ibb.co/R4gg4wH/kucing13.jpg','https://i.ibb.co/PmLYtFm/kucing14.jpg','https://i.ibb.co/XbSDh47/kucing15.jpg','https://i.ibb.co/kSXNJzt/kucing16.jpg','https://i.ibb.co/QpXk64p/kucing17.jpg','https://i.ibb.co/RSMKy9S/kucing18.jpg','https://i.ibb.co/8zDpJY6/kucing19.jpg','https://i.ibb.co/YTSLT0q/kucing20.jpg','https://i.ibb.co/VtM6t3h/kucing21.jpg','https://i.ibb.co/GCK3bBB/kucing22.jpg','https://i.ibb.co/qFJP3s8/kucing23.jpg','https://i.ibb.co/MBbV94X/kucing24.jpg','https://i.ibb.co/dBHmsCK/kucing25.jpg','https://i.ibb.co/RzX1sJf/kucing26.jpg','https://i.ibb.co/1TrCQYb/kucin27.jpg','https://i.ibb.co/k9d4Czm/kucing28.jpg','https://i.ibb.co/dpMqR2j/kucing29.jpg','https://i.ibb.co/744Gz4t/kucing30.jpg','https://i.ibb.co/2grFzkf/kucing31.jpg','https://i.ibb.co/g7Yj0MX/kucing32.jpg','https://i.ibb.co/Hzq9FQm/kucing33.jpg','https://i.ibb.co/KVRc37v/kucing34.jpg','https://i.ibb.co/zfccdnP/kucing35.jpg','https://i.ibb.co/cXmCKmK/kucing36.jpg','https://i.ibb.co/jLd265T/kucing37.jpg','https://i.ibb.co/VBDcS25/kucing38.jpg','https://i.ibb.co/nRnCTfv/kucing39.png','https://i.ibb.co/k6NC1qq/kucing40.jpg','https://i.ibb.co/L1ng7Mm/kucing41.jpg','https://i.ibb.co/vqY27Hs/kucing42.jpg','https://i.ibb.co/1RdnDrV/kucing43.jpg','https://i.ibb.co/RzDY4KQ/kucing44.jpg','https://i.ibb.co/1LjQbvv/kucing45.jpg','https://i.ibb.co/m8snf6Q/kucing46.png','https://i.ibb.co/1LwV2NB/kucing47.jpg','https://i.ibb.co/cCkdcrF/kucing48.jpg','https://i.ibb.co/wzN8bf1/kucing49.jpg','https://i.ibb.co/BGgYJ5p/kucing50.jpg','https://i.ibb.co/1QFfxMk/kucing51.jpg','https://i.ibb.co/xXntdMk/kucing52.jpg','https://i.ibb.co/pw0gwfH/kucing53.jpg','https://i.ibb.co/3zDbghH/kucing54.jpg','https://i.ibb.co/VLjWGnc/kucing55.jpg','https://i.ibb.co/bJHcPTL/kucing56.jpg','https://i.ibb.co/mHB8cqD/kucing57.jpg','https://i.ibb.co/YDtCphD/kucing58.jpg','https://i.ibb.co/VBmNqGk/kucing59.jpg','https://i.ibb.co/bFW56RF/kucing60.jpg','https://i.ibb.co/b76kTK0/kucing61.jpg','https://i.ibb.co/S7YpTG7/kucing62.jpg','https://i.ibb.co/bg1bqNT/kucing63.jpg','https://i.ibb.co/wpB7Bzb/kucing64.jpg','https://i.ibb.co/f07TLHS/kucing65.jpg','https://i.ibb.co/846GTWw/kucing66.jpg','https://i.ibb.co/17ZNMt4/kucing67.jpg','https://i.ibb.co/MVF11TZ/kucing68.jpg','https://i.ibb.co/DYySNBn/kucing69.jpg','https://i.ibb.co/2NXG6nc/kucing70.jpg','https://i.ibb.co/vjDpKmG/kucing71.jpg','https://i.ibb.co/D5Gtvz5/kucing72.jpg','https://i.ibb.co/HYqg97L/kucing73.jpg','https://i.ibb.co/DQPDLqq/kucing74.jpg','https://i.ibb.co/TrN8wx6/kucing75.jpg','https://i.ibb.co/Ltpy4Rc/kucing76.jpg','https://i.ibb.co/mXJhg2P/kucing77.jpg','https://i.ibb.co/HP4dmFJ/kucing78.jpg','https://i.ibb.co/NyT1hVF/kucing79.jpg','https://i.ibb.co/J36H8ZH/kucing80.jpg']
                                         let kucigz = kucings[Math.floor(Math.random() * kucings.length)]
                                         client.sendMessage(from, kucigz, image, {quote: mek})
 					await limitAdd(sender)
@@ -2091,19 +2092,6 @@ client.on('group-participants-update', async (anu) => {
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=doraemon`, {method: 'get'})
-					reply(ind.wait())
-					n = JSON.parse(JSON.stringify(data));
-					nimek =  n[Math.floor(Math.random() * n.length)];
-					pok = await getBuffer(nimek)
-					client.sendMessage(from, pok, image, { quoted: mek })
-					await limitAdd(sender)
-					break
-		case 'kucing':
-					if (!isRegistered) return reply(ind.noregis())
-					if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-					client.updatePresence(from, Presence.composing) 
-					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=kucing`, {method: 'get'})
 					reply(ind.wait())
 					n = JSON.parse(JSON.stringify(data));
 					nimek =  n[Math.floor(Math.random() * n.length)];
@@ -2516,6 +2504,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'tts':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				if (args.length < 1) return client.sendMessage(from, 'Diperlukan kode bahasa kak!!', text, {quoted: mek})
 					const gtts = require('./lib/gtts')(args[0])
