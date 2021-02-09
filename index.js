@@ -368,88 +368,206 @@ client.on('group-participants-update', async (anu) => {
 			
 		//role level
         const levelRole = getLevelingLevel(sender)
-        var role = 'Copper ✰'
+        var role = 'Newbie ㋡'
         if (levelRole <= 2) {
-            role = 'Copper ✰'
+            role = 'Newbie ㋡'
         } else if (levelRole <= 4) {
-            role = 'Copper ✰✰'
+            role = 'Beginner Grade 1 ⚊¹'
         } else if (levelRole <= 6) {
-            role = 'Copper ✰✰✰'
+            role = 'Beginner Grade 2 ⚊²'
         } else if (levelRole <= 8) {
-            role = 'Copper ✰✰✰✰'
+            role = 'Beginner Grade 3 ⚊³'
         } else if (levelRole <= 10) {
-            role = 'Copper ✰✰✰✰✰'
+            role = 'Beginner Grade 4 ⚊⁴'
         } else if (levelRole <= 12) {
-            role = 'Silver ✩'
+            role = 'Private Grade 1 ⚌¹'
         } else if (levelRole <= 14) {
-            role = 'Silver ✩✩'
+            role = 'Private Grade 2 ⚌²'
         } else if (levelRole <= 16) {
-            role = 'Silver ✩✩✩'
+            role = 'Private Grade 3 ⚌³'
         } else if (levelRole <= 18) {
-            role = 'Silver ✩✩✩✩'
+            role = 'Private Grade 4 ⚌⁴'
         } else if (levelRole <= 20) {
-            role = 'Silver ✩✩✩✩✩'
+            role = 'Private Grade 5 ⚌⁵'
         } else if (levelRole <= 22) {
-            role = 'Gold ✯'
+            role = 'Corporal Grade 1 ☰¹'
         } else if (levelRole <= 24) {
-            role = 'Gold ✯✯'
+            role = 'Corporal Grade 2 ☰²'
         } else if (levelRole <= 26) {
-            role = 'Gold ✯✯✯'
+            role = 'Corporal Grade 3 ☰³'
         } else if (levelRole <= 28) {
-            role = 'Gold ✯✯✯✯'
+            role = 'Corporal Grade 4 ☰⁴'
         } else if (levelRole <= 30) {
-            role = 'Gold ✯✯✯✯✯'
+            role = 'Corporal Grade 5 ☰⁵'
         } else if (levelRole <= 32) {
-            role = 'Platinum ✬'
+            role = 'Sergeant Grade 1 ≣¹'
         } else if (levelRole <= 34) {
-            role = 'Platinum ✬✬'
+            role = 'Sergeant Grade 2 ≣²'
         } else if (levelRole <= 36) {
-            role = 'Platinum ✬✬✬'
+            role = 'Sergeant Grade 3 ≣³'
         } else if (levelRole <= 38) {
-            role = 'Platinum ✬✬✬✬'
+            role = 'Sergeant Grade 4 ≣⁴'
         } else if (levelRole <= 40) {
-            role = 'Platinum ✬✬✬✬✬'
+            role = 'Sergeant Grade 5 ≣⁵'
         } else if (levelRole <= 42) {
-            role = 'Diamond ✪'
+            role = 'Staff Grade 1 ﹀¹'
         } else if (levelRole <= 44) {
-            role = 'Diamond ✪✪'
+            role = 'Staff Grade 2 ﹀²'
         } else if (levelRole <= 46) {
-            role = 'Diamond ✪✪✪'
+            role = 'Staff Grade 3 ﹀³'
         } else if (levelRole <= 48) {
-            role = 'Diamond ✪✪✪✪'
+            role = 'Staff Grade 4 ﹀⁴'
         } else if (levelRole <= 50) {
-            role = 'Diamond ✪✪✪✪✪'
+            role = 'Staff Grade 5 ﹀⁵'
         } else if (levelRole <= 52) {
-            role = 'General ❂'
+            role = 'Sergeant Grade 1 ︾¹'
         } else if (levelRole <= 54) {
-            role = 'General ❂❂'
+            role = 'Sergeant Grade 2 ︾²'
         } else if (levelRole <= 56) {
-            role = 'General ❂❂❂'
+            role = 'Sergeant Grade 3 ︾³'
         } else if (levelRole <= 58) {
-            role = 'General ❂❂❂❂'
+            role = 'Sergeant Grade 4 ︾⁴'
         } else if (levelRole <= 60) {
-            role = 'General ❂❂❂❂❂'
+            role = 'Sergeant Grade 5 ︾⁵'
         } else if (levelRole <= 62) {
-            role = 'Brigadir Jenderal ✵'
+            role = '2nd Lt. Grade 1 ♢¹ '
         } else if (levelRole <= 64) {
-            role = 'Brigadir Jenderal ✵✵'
+            role = '2nd Lt. Grade 2 ♢²'
         } else if (levelRole <= 66) {
-            role = 'Brigadir Jenderal ✵✵✵'
+            role = '2nd Lt. Grade 3 ♢³'
         } else if (levelRole <= 68) {
-            role = 'Brigadir Jenderal ✵✵✵✵'
+            role = '2nd Lt. Grade 4 ♢⁴'
         } else if (levelRole <= 70) {
-            role = 'Brigadir Jenderal ✵✵✵✵✵'
+            role = '2nd Lt. Grade 5 ♢⁵'
         } else if (levelRole <= 72) {
-            role = 'Mayor Jendral ⚝'
+            role = '1st Lt. Grade 1 ♢♢¹'
         } else if (levelRole <= 74) {
-            role = 'Mayor Jendral ⚝⚝'
+            role = '1st Lt. Grade 2 ♢♢²'
         } else if (levelRole <= 76) {
-            role = 'Mayor Jendral ⚝⚝⚝'
+            role = '1st Lt. Grade 3 ♢♢³'
         } else if (levelRole <= 78) {
-            role = 'Mayor Jendral ⚝⚝⚝⚝'
+            role = '1st Lt. Grade 4 ♢♢⁴'
         } else if (levelRole <= 80) {
-            role = 'Mayor Jendral ⚝⚝⚝⚝⚝'
-        }	
+            role = '1st Lt. Grade 5 ♢♢⁵'
+        } else if (levelRole <= 82) {
+            role = 'Major Grade 1 ✷¹'
+        } else if (levelRole <= 84) {
+            role = 'Major Grade 2 ✷²'
+        } else if (levelRole <= 86) {
+            role = 'Major Grade 3 ✷³'
+        } else if (levelRole <= 88) {
+            role = 'Major Grade 4 ✷⁴'
+        } else if (levelRole <= 90) {
+            role = 'Major Grade 5 ✷⁵'
+        } else if (levelRole <= 92) {
+            role = 'Colonel Grade 1 ✷✷¹'
+        } else if (levelRole <= 94) {
+            role = 'Colonel Grade 2 ✷✷²'
+        } else if (levelRole <= 96) {
+            role = 'Colonel Grade 3 ✷✷³'
+        } else if (levelRole <= 98) {
+            role = 'Colonel Grade 4 ✷✷⁴'
+        } else if (levelRole <= 100) {
+            role = 'Colonel Grade 5 ✷✷⁵'
+        } else if (levelRole <= 102) {
+            role = 'Brigadier Early ✰'
+        } else if (levelRole <= 104) {
+            role = 'Brigadier Silver ✩'
+        } else if (levelRole <= 106) {
+            role = 'Brigadier gold ✯'
+        } else if (levelRole <= 108) {
+            role = 'Brigadier Platinum ✬'
+        } else if (levelRole <= 110) {
+            role = 'Brigadier Diamond ✪'
+        } else if (levelRole <= 112) {
+            role = 'Major General Early ✰'
+        } else if (levelRole <= 114) {
+            role = 'Major General Silver ✩'
+        } else if (levelRole <= 116) {
+            role = 'Major General gold ✯'
+        } else if (levelRole <= 118) {
+            role = 'Major General Platinum ✬'
+        } else if (levelRole <= 120) {
+            role = 'Major General Diamond ✪'
+        } else if (levelRole <= 122) {
+            role = 'Lt. General Early ✰'
+        } else if (levelRole <= 124) {
+            role = 'Lt. General Silver ✩'
+        } else if (levelRole <= 126) {
+            role = 'Lt. General gold ✯'
+        } else if (levelRole <= 128) {
+            role = 'Lt. General Platinum ✬'
+        } else if (levelRole <= 130) {
+            role = 'Lt. General Diamond ✪'
+        } else if (levelRole <= 132) {
+            role = 'General Early ✰'
+        } else if (levelRole <= 134) {
+            role = 'General Silver ✩'
+        } else if (levelRole <= 136) {
+            role = 'General gold ✯'
+        } else if (levelRole <= 138) {
+            role = 'General Platinum ✬'
+        } else if (levelRole <= 140) {
+            role = 'General Diamond ✪'
+        } else if (levelRole <= 142) {
+            role = 'Commander Early ★'
+        } else if (levelRole <= 144) {
+            role = 'Commander Intermediate ⍣'
+        } else if (levelRole <= 146) {
+            role = 'Commander Elite ≛'
+        } else if (levelRole <= 148) {
+            role = 'The Commander Hero ⍟'
+        } else if (levelRole <= 152) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 154) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 156) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 158) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 160) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 162) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 164) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 166) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 168) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 170) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 172) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 174) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 176) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 178) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 180) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 182) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 184) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 186) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 188) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 190) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 192) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 194) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 196) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 198) {
+            role = 'Legends 忍'
+        } else if (levelRole <= 200) {
+            role = 'Legends 忍'
+	}
 			
 	        //function leveling
             if (isGroup && isRegistered && isLevelingOn) {
@@ -689,10 +807,23 @@ client.on('group-participants-update', async (anu) => {
 				} 
 				break
 		case 'ttp':
-				anu = await fetchJson(`https://tobz-api.herokuapp.com/api/ttp?text=${body.slice(5)}&apikey=BotWeA`)
-				res = await getBase64(anu.base64)
-				client.sendMessage(from, res, sticker, {quoted:mek})
-				break
+				if (!isRegistered) return reply(ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					ranp = getRandom('.png')
+					rano = getRandom('.webp')
+					anu = await fetchJson('https://tobz-api.herokuapp.com/api/ttp?text=${body.slice(5)}&apikey=BotWeA', {method: 'get'})
+					if (anu.error) return reply(anu.error)
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(ind.stikga())
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					await limitAdd(sender)
+					break
                 case 'moddroid':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -1311,7 +1442,7 @@ client.on('group-participants-update', async (anu) => {
 					    if (!isNsfw) return reply(ind.nsfwoff())
 						res = await fetchJson(`https://st4rz.herokuapp.com/api/1cak`, {method: 'get'})
 						buffer = await getBuffer(res.result)
-						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'ni anjim'})
+						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih Kak udah Jadi'})
 					} catch (e) {
 						console.log(`Error :`, color(e,'red'))
 						reply(ind.wrongf())
@@ -1363,9 +1494,9 @@ client.on('group-participants-update', async (anu) => {
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-					data = await fetchJson(`https://api.kawalcorona.com/indonesia`)
-					cop = `Positif : ${data.positif}\nSembuh : ${data.sembuh}\nMeninggal : ${data.meninggal}\nDirawat : ${data.dirawat}`
-					reply(cop)
+					data = await fetchJson(`https://arugaz.herokuapp.com/api/coronaindo`)
+					hasil = `Positif : ${data.kasus_total}\nSembuh : ${data.sembuh}\nMeninggal : ${data.meninggal}\nDirawat : ${data.penanganan}`
+					reply(hasil)
 					await limitAdd(sender)
 					break
 		case 'infonomor':
@@ -2100,7 +2231,7 @@ client.on('group-participants-update', async (anu) => {
 					await limitAdd(sender)
 					break
 		case 'hamster':
-					if (!isRegistered) return reply(ind.noregis())
+					if (!isRegistered) return reply(ind.noregis()
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					client.updatePresence(from, Presence.composing) 
