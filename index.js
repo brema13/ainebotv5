@@ -812,7 +812,6 @@ client.on('group-participants-update', async (anu) => {
 				break
 		case 'buylimit':
 				if (!isRegistered) return reply(ind.noregis())
-				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				payout = body.slice(10)
 				const koinPerlimit = 1000
