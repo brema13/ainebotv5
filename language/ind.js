@@ -287,8 +287,6 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}linkgc
   ├─ ❏ ${prefix}mining
   ├─ ❏ ${prefix}level
-  ├─ ❏ ${prefix}add [tag]
-  ├─ ❏ ${prefix}kick [tag]
   ├─ ❏ ${prefix}grup [buka/tutup]
   ├─ ❏ ${prefix}welcome [1/0]
   ├─ ❏ ${prefix}nsfw [1/0]
