@@ -834,7 +834,7 @@ client.on('group-participants-update', async (anu) => {
 				if ( checkATMuser(sender) >= totalprem ) {
 					confirmATM(sender, totalprem)
 					bayarLimit(sender, payout)
-					await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga limit* : ${koinPerlimit}/limit\n*Sisa uang mu* : ${checkATMuser(sender)}\n\nProses berhasil dengan nomer pembayaran\n${createSerial(15)}`)
+					await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga limit* : ${koinpremPerlimit}/limit\n*Sisa uang mu* : ${checkATMuser(sender)}\n\nProses berhasil dengan nomer pembayaran\n${createSerial(15)}`)
 				} 
 				break
 					
@@ -856,7 +856,7 @@ client.on('group-participants-update', async (anu) => {
                         	if (found !== false) {
                             	_limit[found].limit -= jmla
                             	const updated = _limit[found]
-                            	const result = `Gift kuota limit sukses dengan SN: ${createSerial(8)} pada ${moment().format('DD/MM/YY HH:mm:ss')}
+                            	const result = `Gift kuota limit sukses dengan NS: ${createSerial(15)} pada ${moment().format('DD/MM/YY HH:mm:ss')}
 							*「 GIFT KUOTA LIMIT 」*
 							• User : @${updated.id.replace('@s.whatsapp.net','')}
 							• Limit: ${limitawal-updated.limit}`
