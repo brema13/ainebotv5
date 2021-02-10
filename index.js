@@ -824,6 +824,36 @@ client.on('group-participants-update', async (anu) => {
 					await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga limit* : ${koinPerlimit}/limit\n*Sisa uang mu* : ${checkATMuser(sender)}\n\nProses berhasil dengan nomer pembayaran\n${createSerial(15)}`)
 				} 
 				break
+					
+		case 'giftlimit': 
+				if (!isRegistered) return reply(ind.noregis())
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
+				const nomerr = args[0].replace('@','')
+                		const jmla = args[1]
+                		if (jmla <= 1) return reply(`minimal gift limit adalah 1`)
+                		if (isNaN(jmla)) return reply(`limit harus berupa angka`)
+                		if (!nomerr) return reply(`maaf format salah\nmasukan parameter yang benar\ncontoh : ${prefix}giftlimit @62895710074883 20`)
+                		const cysz = nomerr + '@s.whatsapp.net'
+                		var found = false
+                        			Object.keys(_limit).forEach((i) => {
+                            			if(_limit[i].id === cysz){
+                                			found = i
+                            			}
+                        		})
+                        	if (found !== false) {
+                            	_limit[found].limit -= jmla
+                            	const updated = _limit[found]
+                            	const result = `Gift kuota limit sukses dengan SN: ${createSerial(8)} pada ${moment().format('DD/MM/YY HH:mm:ss')}
+							*「 GIFT KUOTA LIMIT 」*
+							• User : @${updated.id.replace('@s.whatsapp.net','')}
+							• Limit: ${limitawal-updated.limit}`
+                            	console.log(_limit[found])
+                            	fs.writeFileSync('./database/user/limit.json',JSON.stringify(_limit));
+                            	reply(result)
+                        	} else {
+                                reply(`Maaf, nomor ${nomerr} tidak terdaftar di database!`)
+                        	}
+               			break
                 case 'moddroid':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
