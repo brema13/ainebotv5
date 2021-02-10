@@ -1734,7 +1734,7 @@ client.on('group-participants-update', async (anu) => {
 					hasil = `Fullname : ${hmm.fullname}\nPengikut : ${hmm.follower}\nMengikuti : ${hmm.following}\nPrivate : ${hmm.is_private}\nVerified : ${hmm.is_verified}\nbio : ${hmm.bio}`
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: hasil})
 					await limitAdd(sender)
-					break 
+					break /*
                 case 'kickall':
 					if (!isOwner) return reply(ind.ownerb())
 					members_id = []
@@ -1746,7 +1746,7 @@ client.on('group-participants-update', async (anu) => {
 					}
 					mentions(teks, members_id, true)
 					client.groupRemove(from, members_id)
-					break 
+					break */
 		case 'setreply':
 					if (!isOwner) return reply(ind.ownerb())
 					client.updatePresence(from, Presence.composing) 
@@ -2817,7 +2817,7 @@ client.on('group-participants-update', async (anu) => {
 					media = await client.downloadAndSaveMediaMessage(mek)
 					await client.updateProfilePicture (from, media)
 					reply('*Sukses mengganti icon group*')
-					break						
+					break/*				
 		case 'add':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
@@ -2831,7 +2831,7 @@ client.on('group-participants-update', async (anu) => {
 						console.log('Error :', e)
 						reply('Gagal menambahkan target, mungkin karena di private')
 					}
-					break
+					break*/
 		case 'grup':
 		case 'group':
 					if (!isGroup) return reply(ind.groupo())
@@ -2903,7 +2903,7 @@ client.on('group-participants-update', async (anu) => {
 						mentions(`*Selamat* 🥳 @${mentioned[0].split('@')[0]} *Anda naik menjadi admin group* 🎉`, mentioned, true)
 						client.groupMakeAdmin(from, mentioned)
 					}
-					break	
+					break/*
 		case 'kick':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
@@ -2922,7 +2922,7 @@ client.on('group-participants-update', async (anu) => {
 						mentions(`*Asek jatah kick, otw kick* @${mentioned[0].split('@')[0]} 🤭`, mentioned, true)
 						client.groupRemove(from, mentioned)
 					}
-					break
+					break*/
 		case 'listadmin':
 					if (!isGroup) return reply(ind.groupo())
 					teks = `List admin of group *${groupMetadata.subject}*\nTotal : ${groupAdmins.length}\n\n`
