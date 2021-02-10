@@ -1824,8 +1824,8 @@ client.on('group-participants-update', async (anu) => {
 					if (isLimit(sender)) return reply(ind.limitend(pushname))
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if (!isEventon) return reply(`Maaf ${pushname} event mining tidak di aktifkan oleh owner`)
-					if (isOwner | isPacar | isKozet) {
-					const one = Math.ceil(Math.random() * 1000000000000000000000000000000000000000000000000000)
+					if (isOwner | isPacar | isPremium) {
+					const one = Math.ceil(Math.random() * 100000000000000000000000000000000000000000000000000000000000000)
 					addLevelingXp(sender, one)
 					await reply(`Kamu adalah developer, aku akan berikan sebanyak *${one}Xp* untuk anda`)
                  					     }else{
