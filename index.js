@@ -57,7 +57,7 @@ const kozetNumber = ["628994622890@s.whatsapp.net"]
        
 /*********** LOAD FILE ***********/
 const _leveling = JSON.parse(fs.readFileSync('./database/group/leveling.json'))
-const anlink = JSON.parse(fs.readFileSync('./database/group/antilink.json'))
+const antilink = JSON.parse(fs.readFileSync('./database/group/antilink.json'))
 const _level = JSON.parse(fs.readFileSync('./database/user/level.json'))
 const _registered = JSON.parse(fs.readFileSync('./database/bot/registered.json'))
 const welkom = JSON.parse(fs.readFileSync('./database/bot/welkom.json'))
@@ -340,7 +340,7 @@ client.on('group-participants-update', async (anu) => {
 			const isWelkom = isGroup ? welkom.includes(from) : false
 			const isNsfw = isGroup ? nsfw.includes(from) : false
 			const isSimi = isGroup ? samih.includes(from) : false
-			const isAntilink = isGroup ? anlink.includes(from) : false
+			const isAntilink = isGroup ? antilink.includes(from) : false
 			const isOwner = ownerNumber.includes(sender)
 			const isPacar = pacarNumber.includes(sender)
 			const isKozet = kozetNumber.includes(sender)
