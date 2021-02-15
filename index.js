@@ -744,6 +744,38 @@ client.on('group-participants-update', async (anu) => {
                 console.error(err)
             }
         }
+        if (messagesC.includes("://chat.whatsapp.com/")){
+		if (!isGroup) return
+		if (!isAntilink) return
+		if (isGroupAdmins) return reply('karena kamu adalah admin group, bot tidak akan kick kamu')
+		nzwa.updatePresence(from, Presence.composing)
+		if (messagesC.includes("#izinadmin")) return reply("#izinadmin diterima")
+		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
+		reply(`Link Group Terdeteksi maaf ${sender.split("@")[0]} anda akan di kick dari group 5detik lagi`)
+		setTimeout( () => {
+			client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+		}, 5000)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			reply("1detik")
+		}, 4000)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			reply("2detik")
+		}, 3000)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			reply("3detik")
+		}, 2000)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			reply("4detik")
+		}, 1000)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			reply("5detik")
+		}, 0)
+	}
 
              //kolor
 			colors = ['red','white','black','blue','yellow','green']
