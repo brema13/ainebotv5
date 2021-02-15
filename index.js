@@ -1543,7 +1543,7 @@ client.on('group-participants-update', async (anu) => {
 				client.sendMessage(from, aruga, image, {caption: 'Nih kak', quoted: mek})
 				await limitAdd(sender)
 				break 
-		case 'toxic':
+		case 'toxic13':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
@@ -1776,13 +1776,13 @@ client.on('group-participants-update', async (anu) => {
 		case 'bcgc':
 					if (!isOwner) return reply(ind.ownerb())
 					if (args.length < 1) return reply('.......')
-					anu = await groupMembers
-					nom = mek.participant
+					anu = await groupMembers 
+					tagss = mek.participant
 					if (isMedia && !mek.message.videoMessage || isQuotedImage) {
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
-						buff = await client.downloadMediaMessage(encmedia)
+						buffer = await client.downloadMediaMessage(encmedia)
 						for (let _ of anu) {
-							client.sendMessage(_.jid, buff, image, {caption: `*「 BC GROUP 」*\n\nDari Grup : ${groupName}\nPengirim : wa.me/${(sender.split('@')[0])}\nPesan : ${body.slice(6)}`})
+							client.sendMessage(_.jid, buffer, image, {caption: `*「 BC GROUP 」*\n\nDari Grup : ${groupName}\nPengirim : wa.me/${(sender.split('@')[0])}\nPesan : ${body.slice(6)}`})
 						}
 						reply('')
 					} else {
@@ -1899,7 +1899,7 @@ client.on('group-participants-update', async (anu) => {
 					hasil = `Fullname : ${hmm.fullname}\nPengikut : ${hmm.follower}\nMengikuti : ${hmm.following}\nPrivate : ${hmm.is_private}\nVerified : ${hmm.is_verified}\nbio : ${hmm.bio}`
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: hasil})
 					await limitAdd(sender)
-					break /*
+					break/*
                 case 'kickall':
 					if (!isOwner) return reply(ind.ownerb())
 					members_id = []
@@ -1911,7 +1911,7 @@ client.on('group-participants-update', async (anu) => {
 					}
 					mentions(teks, members_id, true)
 					client.groupRemove(from, members_id)
-					break */
+					break*/
 		case 'setreply':
 					if (!isOwner) return reply(ind.ownerb())
 					client.updatePresence(from, Presence.composing) 
@@ -1938,8 +1938,8 @@ client.on('group-participants-update', async (anu) => {
 					const namaUser = q.substring(0, q.indexOf('|') - 0)
 					const umurUser = q.substring(q.lastIndexOf('|') + 1)
 					const serialUser = createSerial(20)
-					if (namaUser.length >= 30) return reply(`why is your name so long it's a name or a train`)
-					if (umurUser.length >= 3, umurUser.length <= 1) return reply(`your age is too young / old minimum age 10 years and maximum 40 years`)
+					if (namaUser.length >= 10) return reply(`why is your name so long it's a name or a train`)
+					if (umurUser.length >= 5, umurUser.length <= 1) return reply(`your age is too young / old minimum age 10 years and maximum 40 years`)
 					veri = sender
 					if (isGroup) {
 					addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
@@ -1961,11 +1961,11 @@ client.on('group-participants-update', async (anu) => {
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if (!isEventon) return reply(`Maaf ${pushname} event mining tidak di aktifkan oleh owner`)
 					if (isOwner | isPacar | isPremium) {
-					const one = Math.ceil(Math.random() * 100000000000000000000000000000000000000000000000000000000000000)
+					const one = Math.ceil(Math.random() * 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)
 					addLevelingXp(sender, one)
 					await reply(`Kamu adalah developer, aku akan berikan sebanyak *${one}Xp* untuk anda`)
                  					     }else{
-					const mining = Math.ceil(Math.random() * 1000000000000)
+					const mining = Math.ceil(Math.random() * 1000000000000000000000000)
 					addLevelingXp(sender, mining)
 					await reply(`*Selamat* ${pushname} kamu mendapatkan *${mining}Xp*`)
 					}
@@ -2189,11 +2189,11 @@ client.on('group-participants-update', async (anu) => {
                                 tels = body.slice(4)
                                 if (args.length < 1) return reply('Kakak afk karena apa?')
                                 var ain = mek.participant
-                                const tag = {
-                                                text: `@${tag.split("@s.whatsapp.net")[0]} *SEDANG AFK ${tels} JANGAN GANGGU YA*`,
+                                const tagzz = {
+                                                text: `@${tagzz.split("@s.whatsapp.net")[0]} *SEDANG AFK ${tels} JANGAN GANGGU YA*`,
                                                 contextInfo: { mentionedJid: [ain] }
                                         }
-                                        client.sendMessage(from, tag, text, {quoted: mek})
+                                        client.sendMessage(from, tagzz, text, {quoted: mek})
 					await limitAdd(sender)
                                         break
                 case 'quotemaker':
@@ -2319,6 +2319,30 @@ client.on('group-participants-update', async (anu) => {
 					gatauda = body.slice(7)
 					reply(ind.wait())
 					data = await fetchJson('https://waifu.pics/api/sfw/neko')
+					hasil = await getBuffer(data.url)
+					client.sendMessage(from, hasil, image, {quoted: mek})
+					await limitAdd(sender)
+					break
+		case 'loli2':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					gatauda = body.slice(7)
+					reply(ind.wait())
+					data = await fetchJson('https://akaneko-api.herokuapp.com/api/loli')
+					hasil = await getBuffer(data.url)
+					client.sendMessage(from, hasil, image, {quoted: mek})
+					await limitAdd(sender)
+					break
+		case 'hentai2':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					if (!isPremium) return reply('Maaf kamu bukan user premium!')
+					if (!isNsfw) return reply(ind.nsfwoff())
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					gatauda = body.slice(9)
+					reply(ind.wait())
+					data = await fetchJson('https://akaneko-api.herokuapp.com/api/hentai')
 					hasil = await getBuffer(data.url)
 					client.sendMessage(from, hasil, image, {quoted: mek})
 					await limitAdd(sender)
@@ -2982,7 +3006,7 @@ client.on('group-participants-update', async (anu) => {
 					media = await client.downloadAndSaveMediaMessage(mek)
 					await client.updateProfilePicture (from, media)
 					reply('*Sukses mengganti icon group*')
-					break/*				
+					break				
 		case 'add':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
@@ -2996,7 +3020,7 @@ client.on('group-participants-update', async (anu) => {
 						console.log('Error :', e)
 						reply('Gagal menambahkan target, mungkin karena di private')
 					}
-					break*/
+					break
 		case 'grup':
 		case 'group':
 					if (!isGroup) return reply(ind.groupo())
@@ -3068,7 +3092,7 @@ client.on('group-participants-update', async (anu) => {
 						mentions(`*Selamat* 🥳 @${mentioned[0].split('@')[0]} *Anda naik menjadi admin group* 🎉`, mentioned, true)
 						client.groupMakeAdmin(from, mentioned)
 					}
-					break/*
+					break
 		case 'kick':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
@@ -3087,7 +3111,7 @@ client.on('group-participants-update', async (anu) => {
 						mentions(`*Asek jatah kick, otw kick* @${mentioned[0].split('@')[0]} 🤭`, mentioned, true)
 						client.groupRemove(from, mentioned)
 					}
-					break*/
+					break
 		case 'listadmin':
 					if (!isGroup) return reply(ind.groupo())
 					teks = `List admin of group *${groupMetadata.subject}*\nTotal : ${groupAdmins.length}\n\n`
