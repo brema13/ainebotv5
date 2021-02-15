@@ -3188,21 +3188,24 @@ client.on('group-participants-update', async (anu) => {
 						reply(ind.satukos())
 					}
 					break
-		case 'antilink':
-					if (!isGroup) return reply(ind.groupo())
-					if (!isGroupAdmins) return reply(ind.admin())
-					if (args.length < 1) return reply('Mengaktifkan tekan 1, Menonaktif tekan 0')
+                 case 'antilink':
+                                	if (!isGroup) return reply(mess.only.group)
+					if (!isGroupAdmins) return reply(mess.only.admin)
+					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
+					if (args.length < 1) return reply('Ketik 1 untuk mengaktifkan')
 					if (Number(args[0]) === 1) {
-						if (isAntilink) return reply('*Fitur antilink sudah aktif sebelum nya')
-						anlink.push(from)
-						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(anlink))
-						reply('❬ SUCCSESS ❭ mengaktifkan fitur antilink di group ini')
-					} else if (args[0] == '0') {
-						anlink.splice(from, 1)
-						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(anlink))
-						reply('❬ SUCCSESS ❭ menonaktifkan fitur antilink di group ini')
+						if (isAntilink) return reply('Anti link group sudah aktif')
+						antilink.push(from)
+						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
+						reply('Sukses mengaktifkan anti link group di group ini ✔️')
+						client.sendMessage(from,`Perhatian kepada seluruh member anti link group aktif apabila anda mengirim link group anda akan di kick dari group`, text)
+					} else if (Number(args[0]) === 0) {
+						if (!isAntilink) return reply('Mode anti link group sudah disable')
+						antilink.splice(from, 1)
+						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
+						reply('Sukes menonaktifkan anti link group di group ini ✔️')
 					} else {
-						reply(ind.satukos())
+						reply('1 untuk mengaktifkan, 0 untuk menonaktifkan')
 					}
 					break
                  case 'event':
