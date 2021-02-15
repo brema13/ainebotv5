@@ -749,7 +749,7 @@ client.on('group-participants-update', async (anu) => {
 		if (!isGroup) return
 		if (!isAntilink) return
 		if (isGroupAdmins) return reply('karena kamu adalah admin group, bot tidak akan kick kamu')
-		nzwa.updatePresence(from, Presence.composing)
+		client.updatePresence(from, Presence.composing)
 		if (messagesC.includes("#izinadmin")) return reply("#izinadmin diterima")
 		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
 		reply(`Link Group Terdeteksi maaf ${sender.split("@")[0]} anda akan di kick dari group 5detik lagi`)
