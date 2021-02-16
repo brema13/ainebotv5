@@ -189,8 +189,8 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}bitly
   ├─ ❏ ${prefix}chord [teks]
   ├─ ❏ ${prefix}katacinta ❌
-  ├─ ❏ ${prefix}katabijak ❌
-  ├─ ❏ ${prefix}faktaunik ❌
+  ├─ ❏ ${prefix}katabijak 
+  ├─ ❏ ${prefix}faktaunik 
   ├─ ❏ ${prefix}pantun
   └─ ❏ ${prefix}artinama [teks]
 ◪ *KERANG AJAIB*
@@ -288,8 +288,11 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}linkgc
   ├─ ❏ ${prefix}mining
   ├─ ❏ ${prefix}level
+  ├─ ❏ ${prefix}kick
+  ├─ ❏ ${prefix}add
   ├─ ❏ ${prefix}grup [buka/tutup]
   ├─ ❏ ${prefix}welcome [1/0]
+  ├─ ❏ ${prefix}antilink [1/0]
   ├─ ❏ ${prefix}nsfw [1/0]
   ├─ ❏ ${prefix}leveling [1/0]
   └─ ❏ ${prefix}simih [1/0]
