@@ -818,17 +818,19 @@ client.on('group-participants-update', async (anu) => {
 		case 'transfer':
 				if (!isRegistered) return reply(ind.noregis())
 				if (!q.includes('|')) return  reply(ind.wrongf())
-				const tujuan = q.substring(0, q.indexOf('|') - 1)
-				const jumblah = q.substring(q.lastIndexOf('|') + 1)
-				if (checkATMuser(sender) < jumblah) return reply(`Uang mu tidak mencukupi untuk melakukan transfer`)
-				const tujuantf = `${tujuan.replace("@", '')}@s.whatsapp.net`
-				fee = 0.005 *  jumblah
-				hasiltf = jumblah - fee
-				addKoinUser(tujuantf, hasiltf)
-				confirmATM(sender, jumblah)
-				addKoinUser('62895330379186@s.whatsapp.net', fee)
-				reply(`*「 SUKSES 」*\n\nPengiriman uang telah sukses\nDari : +${sender.split("@")[0]}\nKe : +${tujuan}\nJumlah transfer : ${jumblah}\npajak : ${fee}`)
-				break
+                		const tujuan = q.substring(0, q.indexOf('|') - 1)
+                		const jumblah = q.substring(q.lastIndexOf('|') + 1)
+                		if(isNaN(jumblah)) return await reply('jumlah harus berupa angka!!')
+                		if (jumblah < 100 ) return reply(`minimal transfer 100`)
+                		if (checkATMuser(sender) < jumblah) return reply(`uang mu tidak mencukupi untuk melakukan transfer`)
+                		const tujuantf = `${tujuan.replace("@", '')}@s.whatsapp.net`
+                		fee = 0.005 *  jumblah
+                		hasiltf = jumblah - fee
+                		addKoinUser(tujuantf, hasiltf)
+                		confirmATM(sender, jumblah)
+                		addKoinUser('62895710073737@s.whatsapp.net', fee)
+                		reply(`*「 SUKSES 」*\n\npengiriman uang telah sukses\ndari : +${sender.split("@")[0]}\nke : +${tujuan}\njumblah transfer : ${jumblah}\npajak : ${fee}`)
+                		break
               case 'hai':
               case 'hi':
               case 'hei':
