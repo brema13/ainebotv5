@@ -45,7 +45,7 @@ const vcard = 'BEGIN:VCARD\n'
 prefix = '#'
 blocked = []   
 limitawal = 5
-memberlimit = 5
+memberlimit = 0
 cr = '*AINEBOT THIS IS ALREADY VERIFIED*'
 
 /******** OWNER NUMBER**********/
@@ -936,7 +936,7 @@ client.on('group-participants-update', async (anu) => {
 				if (!isRegistered) return reply(ind.noregis())
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 				payout = body.slice(10)
-				const koinPerlimit = 1500
+				const koinPerlimit = 2000
 				const total = koinPerlimit * payout
 				if ( checkATMuser(sender) <= total) return reply(`Maaf uang kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
 				if ( checkATMuser(sender) >= total ) {
@@ -2149,7 +2149,6 @@ client.on('group-participants-update', async (anu) => {
                          				contextInfo: {mentionedJid: [nomor]},
                      			}
 					client.sendMessage('62895330379186@s.whatsapp.net', options, text, {quoted: mek})
-					client.sendMessage('6285156459328@s.whatsapp.net', options, text, {quoted: mek})
 					reply('REQUEST ANDA TELAH SAMPAI KE OWNER AINEBOT, Requests palsu atau main² tidak akan ditanggapi.')
 					break
 		case 'blocklist': 
@@ -3041,21 +3040,21 @@ client.on('group-participants-update', async (anu) => {
                   client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: mek})
                   client.sendMessage(from, 'Tuh nomer owner ku >_<, jangan spam atau ku block kamu',MessageType.text, { quoted: mek} )
 					break    
-           case 'setname':
+           /*case 'setname':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (!isBotGroupAdmins) return reply(ind.badmin())
 					client.groupUpdateSubject(from, `${body.slice(9)}`)
 					client.sendMessage(from, 'Succes, Ganti Nama Grup', text, {quoted: mek})
-					break
-                case 'setdesc':
+					break*/
+                /*case 'setdesc':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (!isBotGroupAdmins) return reply(ind.badmin())
 					client.groupUpdateDescription(from, `${body.slice(9)}`)
 					client.sendMessage(from, 'Succes, Ganti Deskripsi Grup', text, {quoted: mek})
-					break
-           case 'demote':
+					break*/
+           /*case 'demote':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (!isBotGroupAdmins) return reply(ind.badmin())
@@ -3073,8 +3072,8 @@ client.on('group-participants-update', async (anu) => {
 						mentions(`*Perintah diterima, menurunkan* @${mentioned[0].split('@')[0]} *jadi admin group*`, mentioned, true)
 						client.groupDemoteAdmin(from, mentioned)
 					}
-					break
-		case 'promote':
+					break*/
+			/*case 'promote':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					if (!isBotGroupAdmins) return reply(ind.badmin())
@@ -3092,7 +3091,7 @@ client.on('group-participants-update', async (anu) => {
 						mentions(`*Selamat* 🥳 @${mentioned[0].split('@')[0]} *Anda naik menjadi admin group* 🎉`, mentioned, true)
 						client.groupMakeAdmin(from, mentioned)
 					}
-					break
+					break*/
 		case 'kick':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
