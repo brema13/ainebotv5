@@ -1932,29 +1932,39 @@ client.on('group-participants-update', async (anu) => {
 					teks += `\n\`\`\`Total grup : ${groupId.length}\`\`\``
 					client.sendMessage(from, teks.trim(), extendedText, {quoted: mek})
 					break
+		//daftar 
 		case 'daftar':
-					if (isRegistered) return  reply(ind.rediregis())
-					if (!q.includes('|')) return  reply(ind.wrongf())
-					const namaUser = q.substring(0, q.indexOf('|') - 0)
-					const umurUser = q.substring(q.lastIndexOf('|') + 1)
-					const serialUser = createSerial(20)
-					if (namaUser.length >= 10) return reply(`why is your name so long it's a name or a train`)
-					if (umurUser.length >= 5, umurUser.length <= 1) return reply(`your age is too young / old minimum age 10 years and maximum 40 years`)
-					veri = sender
-					if (isGroup) {
-					addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
-					await reply(ind.registered(namaUser, umurUser, serialUser, time, sender))
-					addATM(sender)
-					addLevelingId(sender)
-					console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'), 'in', color(sender || groupName))
-					} else {
-					addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
-					await reply(ind.registered(namaUser, umurUser, serialUser, time, sender))
-					addATM(sender)
-					addLevelingId(sender)
-					console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'))
-					}
-					break
+                			if (isRegistered) return  reply(ind.rediregis())
+                			if (!q.includes('|')) return  reply(ind.wrongf())
+                			const namaUser = q.substring(0, q.indexOf('|') - 0)
+                			const umurUser = q.substring(q.lastIndexOf('|') + 1)
+                			const serialUser = createSerial(15)
+                			if(isNaN(umurUser)) return await reply('Umur harus berupa angka!!')
+                			if (namaUser.length >= 30) return reply(`why is your name so long it's a name or a train`)
+                			if (umurUser > 40) return reply(`your age is too  old maximum 40 years`)
+                			if (umurUser < 12) return reply(`your age is too young minimum 12 years`)
+                					try {
+								ppimg = await client.getProfilePicture(`${sender.split('@')[0]}@c.us`)
+								} catch {
+								ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+							}
+                					veri = sender
+                					if (isGroup) {
+                    			addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
+                    			await client.sendMessage(from, ppimg, image, {quoted: mek, caption: ind.registered(namaUser, umurUser, serialUser, time, sender)})
+                    			addATM(sender)
+                    			addLevelingId(sender)
+                    			checkLimit(sender)
+                    			console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'), 'in', color(sender || groupName))
+                			} else {
+                    			addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
+                    			await client.sendMessage(from, ppimg, image, {quoted: mek, caption: ind.registered(namaUser, umurUser, serialUser, time, sender)})
+                    			addATM(sender)
+                    			addLevelingId(sender)
+                    			checkLimit(sender)
+                    			console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'))
+                			}
+				        break
 		case 'mining':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pushname))
