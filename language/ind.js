@@ -239,6 +239,8 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   │
   ├─ ❏ ${prefix}hai
   ├─ ❏ ${prefix}aine
+  ├─ ❏ ${prefix}soundbakahentai
+  ├─ ❏ ${prefix}sayonichan
   └─ ❏ ${prefix}gtts
 ◪ *ISLAM*
   │
