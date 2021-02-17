@@ -233,7 +233,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}limit
   ├─ ❏ ${prefix}buylimit
   ├─ ❏ ${prefix}buypremiumlimit
-  ├─ ❏ ${prefix}transfer ❌
+  ├─ ❏ ${prefix}transfer
   └─ ❏ ${prefix}leaderboard
 ◪ *SOUND*
   │
