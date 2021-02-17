@@ -839,24 +839,52 @@ client.on('group-participants-update', async (anu) => {
               case 'hei':
               case 'hey':
               case 'hii':
+				if (!isRegistered) return reply(ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				let ainecs = fs.readFileSync('./mp3/WhatsApp-Ptt-2021-02-10-at-02.16.542.opus')
 				client.sendMessage(from, ainecs, MessageType.audio, { quoted: mek, ptt: true })
+				await limitAdd(sender)
 				break
               case 'aine':
+				if (!isRegistered) return reply(ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				let ainezz = fs.readFileSync('./mp3/WhatsApp-Ptt-2021-02-10-at-02.39.39.opus')
 				client.sendMessage(from, ainezz, MessageType.audio, { quoted: mek, ptt: true })
+				await limitAdd(sender)
 				break
               case 'soundbakahentai':
+				if (!isRegistered) return reply(ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				let aineess = fs.readFileSync('./mp3/Onii-Chan-Baka-HentaiLyrics.opus')
 				client.sendMessage(from, aineess, MessageType.audio, { quoted: mek, ptt: true })
+				await limitAdd(sender)
 				break
               case 'sayonichan':
+				if (!isRegistered) return reply(ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				let aineesi = fs.readFileSync('./mp3/Loli-Saying-Onii-Chan-Sound.opus')
 				client.sendMessage(from, aineesi, MessageType.audio, { quoted: mek, ptt: true })
+				await limitAdd(sender)
+				break
+              case 'soundplaydate':
+				if (!isRegistered) return reply(ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
+				let aineesii = fs.readFileSync('./mp3/Play-Date-Melanie-Martinez-Cover-by-邢凯悦XKY.opus')
+				client.sendMessage(from, aineesii, MessageType.audio, { quoted: mek, ptt: true })
+				await limitAdd(sender)
+				break
+              case 'hallo':
+				if (!isRegistered) return reply(ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
+				let aineesii = fs.readFileSync('./mp3/little-girl-sayingtalking-hello-sound-effectcute-sound-effectsadorable.opus')
+				client.sendMessage(from, aineesii, MessageType.audio, { quoted: mek, ptt: true })
+				await limitAdd(sender)
 				break
                 case 'premium':
 				if (!isOwner) return reply(ind.ownerb())
