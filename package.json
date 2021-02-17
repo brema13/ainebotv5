@@ -8,7 +8,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node index"
+    "start": "node index",
+    "play": "nodemon index"
   },
   "keywords": [
     "termux",
