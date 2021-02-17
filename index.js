@@ -1228,7 +1228,7 @@ client.on('group-participants-update', async (anu) => {
 				client.sendMessage(from, ct, image, {caption: 'Nih kak udah jadi..', quoted: mek})
 				await limitAdd(sender)
 				break
-		case 'nulis2':
+		/*case 'nulis2':
 				const textnulis = body.slice(7)
 				let inputPath ='./lib/magernulis1.jpg'
  			   let outputPath = './tmp/hasil.jpg'
@@ -1277,7 +1277,7 @@ client.on('group-participants-update', async (anu) => {
  				 .on('exit', () => {
   			  client.sendMessage(from, outputPath, image, {quoted: mek, caption : ' nih sayang, jangan mager ya sayang'})
   			}))
-  			  break
+  			  break*/
 		case 'bplogo':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -1462,13 +1462,13 @@ client.on('group-participants-update', async (anu) => {
 				reply(ind.wait())
 				if (args.length < 1) return reply('Urlnya mana kak?')
 				if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(ind.stikga())
-				anu = await fetchJson(`https://api.zeks.xyz/api/ytmp3?url=${args[0]}&apikey=apivinz`, {method: 'get'})
+				anu = await fetchJson(`https://api.arugaz.my.id/api/media/ytmus?url=${args[0]}`, {method: 'get'})
 				if (anu.error) return reply(anu.error)
-				teks = `❏ *Title* : ${anu.result.title}\n❏ *Ukuran* : ${anu.result.size}\n\n❏ *Tunggu Bentar Ya Kak, Audionya Lagi Di Kirim...*`
-				thumb = await getBuffer(anu.result.thumbnail)
+				teks = `❏  ${anu.titleInfo}\n❏ *Ukuran* : Error\n\n❏ *Tunggu Bentar Ya Kak, Audionya Lagi Di Kirim...*`
+				thumb = await getBuffer(anu.getImages)
 				client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
-				buffer = await getBuffer(anu.result.url_audio)
-				client.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.result.title}.mp3`, quoted: mek})
+				buffer = await getBuffer(anu.getAudio)
+				client.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.titleInfo}.mp3`, quoted: mek})
 				await limitAdd(sender)
 				break
 		case 'ytmp4':
@@ -1479,13 +1479,13 @@ client.on('group-participants-update', async (anu) => {
 				reply(ind.wait())
 				if (args.length < 1) return reply('Urlnya mana kak?')
 				if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(ind.stikga())
-				anu = await fetchJson(`https://api.zeks.xyz/api/ytmp4?url=${args[0]}&apikey=apivinz`, {method: 'get'})
+				anu = await fetchJson(`https://api.arugaz.my.id/api/media/ytvid?url=${args[0]}`, {method: 'get'})
 				if (anu.error) return reply(anu.error)
-				teks = `❏ *Title* : ${anu.result.title}\n❏ *Ukuran* : ${anu.result.size}\n\n❏ *Tunggu Bentar Ya Kak, Vidoenya Lagi Di Kirim...*`
-				thumb = await getBuffer(anu.result.thumbnail)
+				teks = `❏ *Title* : ${anu.titleInfo}\n❏ *Ukuran* : Error\n\n❏ *Tunggu Bentar Ya Kak, Vidoenya Lagi Di Kirim...*`
+				thumb = await getBuffer(anu.getImages)
 				client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
-				buffer = await getBuffer(anu.result.url_video)
-				client.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.result.title}.mp4`, quoted: mek})
+				buffer = await getBuffer(anu.getVideo)
+				client.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.titleInfo}.mp4`, quoted: mek})
 				await limitAdd(sender)
 				break
 		case 'play':   
@@ -2355,15 +2355,15 @@ client.on('group-participants-update', async (anu) => {
                                         client.sendMessage(from, cangtip, image, {quote: mek})
 					await limitAdd(sender)
                                         break
-                case 'kucing':
+                /*case 'kucing':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-	                                const kucings = ['https://i.ibb.co/vvmp82w/kucing1.jpg','https://i.ibb.co/FsJ6jjs/kucing2.jpg','https://i.ibb.co/vvkdS7n/kucing3.jpg','https://i.ibb.co/1QHWxts/kucing4.jpg','https://i.ibb.co/JQmRz4n/kucing5.jpg','https://i.ibb.co/tBwrFkG/kucing6.jpg','https://i.ibb.co/dp0YhYm/kucing7.jpg','https://i.ibb.co/R03smZT/kucing8.jpg','https://i.ibb.co/17tw0dp/kucing9.jpg','https://i.ibb.co/7XdGGqc/kucing10.jpg','https://i.ibb.co/XL9PZxg/kucing11.jpg','https://i.ibb.co/gyjvXWN/kucing12.jpg','https://i.ibb.co/R4gg4wH/kucing13.jpg','https://i.ibb.co/PmLYtFm/kucing14.jpg','https://i.ibb.co/XbSDh47/kucing15.jpg','https://i.ibb.co/kSXNJzt/kucing16.jpg','https://i.ibb.co/QpXk64p/kucing17.jpg','https://i.ibb.co/RSMKy9S/kucing18.jpg','https://i.ibb.co/8zDpJY6/kucing19.jpg','https://i.ibb.co/YTSLT0q/kucing20.jpg','https://i.ibb.co/VtM6t3h/kucing21.jpg','https://i.ibb.co/GCK3bBB/kucing22.jpg','https://i.ibb.co/qFJP3s8/kucing23.jpg','https://i.ibb.co/MBbV94X/kucing24.jpg','https://i.ibb.co/dBHmsCK/kucing25.jpg','https://i.ibb.co/RzX1sJf/kucing26.jpg','https://i.ibb.co/1TrCQYb/kucin27.jpg','https://i.ibb.co/k9d4Czm/kucing28.jpg','https://i.ibb.co/dpMqR2j/kucing29.jpg','https://i.ibb.co/744Gz4t/kucing30.jpg','https://i.ibb.co/2grFzkf/kucing31.jpg','https://i.ibb.co/g7Yj0MX/kucing32.jpg','https://i.ibb.co/Hzq9FQm/kucing33.jpg','https://i.ibb.co/KVRc37v/kucing34.jpg','https://i.ibb.co/zfccdnP/kucing35.jpg','https://i.ibb.co/cXmCKmK/kucing36.jpg','https://i.ibb.co/jLd265T/kucing37.jpg','https://i.ibb.co/VBDcS25/kucing38.jpg','https://i.ibb.co/nRnCTfv/kucing39.png','https://i.ibb.co/k6NC1qq/kucing40.jpg','https://i.ibb.co/L1ng7Mm/kucing41.jpg','https://i.ibb.co/vqY27Hs/kucing42.jpg','https://i.ibb.co/1RdnDrV/kucing43.jpg','https://i.ibb.co/RzDY4KQ/kucing44.jpg','https://i.ibb.co/1LjQbvv/kucing45.jpg','https://i.ibb.co/m8snf6Q/kucing46.png','https://i.ibb.co/1LwV2NB/kucing47.jpg','https://i.ibb.co/cCkdcrF/kucing48.jpg','https://i.ibb.co/wzN8bf1/kucing49.jpg','https://i.ibb.co/BGgYJ5p/kucing50.jpg','https://i.ibb.co/1QFfxMk/kucing51.jpg','https://i.ibb.co/xXntdMk/kucing52.jpg','https://i.ibb.co/pw0gwfH/kucing53.jpg','https://i.ibb.co/3zDbghH/kucing54.jpg','https://i.ibb.co/VLjWGnc/kucing55.jpg','https://i.ibb.co/bJHcPTL/kucing56.jpg','https://i.ibb.co/mHB8cqD/kucing57.jpg','https://i.ibb.co/YDtCphD/kucing58.jpg','https://i.ibb.co/VBmNqGk/kucing59.jpg','https://i.ibb.co/bFW56RF/kucing60.jpg','https://i.ibb.co/b76kTK0/kucing61.jpg','https://i.ibb.co/S7YpTG7/kucing62.jpg','https://i.ibb.co/bg1bqNT/kucing63.jpg','https://i.ibb.co/wpB7Bzb/kucing64.jpg','https://i.ibb.co/f07TLHS/kucing65.jpg','https://i.ibb.co/846GTWw/kucing66.jpg','https://i.ibb.co/17ZNMt4/kucing67.jpg','https://i.ibb.co/MVF11TZ/kucing68.jpg','https://i.ibb.co/DYySNBn/kucing69.jpg','https://i.ibb.co/2NXG6nc/kucing70.jpg','https://i.ibb.co/vjDpKmG/kucing71.jpg','https://i.ibb.co/D5Gtvz5/kucing72.jpg','https://i.ibb.co/HYqg97L/kucing73.jpg','https://i.ibb.co/DQPDLqq/kucing74.jpg','https://i.ibb.co/TrN8wx6/kucing75.jpg','https://i.ibb.co/Ltpy4Rc/kucing76.jpg','https://i.ibb.co/mXJhg2P/kucing77.jpg','https://i.ibb.co/HP4dmFJ/kucing78.jpg','https://i.ibb.co/NyT1hVF/kucing79.jpg','https://i.ibb.co/J36H8ZH/kucing80.jpg']
+	                                const kucings = ['https://i.ibb.co/vvmp82w/kucing1.jpg']
                                         let kucigz = kucings[Math.floor(Math.random() * kucings.length)]
                                         client.sendMessage(from, kucigz, image, {quote: mek})
 					await limitAdd(sender)
-                                        break
+                                        break*/
 		case 'ssweb':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -2475,6 +2475,19 @@ client.on('group-participants-update', async (anu) => {
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=anjing`, {method: 'get'})
+					reply(ind.wait())
+					var n = JSON.parse(JSON.stringify(anu));
+					var nimek =  n[Math.floor(Math.random() * n.length)];
+					pok = await getBuffer(nimek)
+					client.sendMessage(from, pok, image, { quoted: mek })
+					await limitAdd(sender)
+					break
+
+                case 'kucing':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=kucing`, {method: 'get'})
 					reply(ind.wait())
 					var n = JSON.parse(JSON.stringify(anu));
 					var nimek =  n[Math.floor(Math.random() * n.length)];
@@ -2995,6 +3008,21 @@ client.on('group-participants-update', async (anu) => {
 					break
 		case 'assalamualaikum':
 					client.sendMessage(from, 'Waalaikumusalam',MessageType.text, { quoted: mek} )
+					break
+		case 'kontol':
+					client.sendMessage(from, 'Gunakan bahasa yang benar\nAnda akan kami banned!\nHubungi kami : wa.me/62895330379186',MessageType.text, { quoted: mek} )
+					break
+		case 'memek':
+					client.sendMessage(from, 'Gunakan bahasa yang benar\nAnda akan kami banned!\nHubungi kami : wa.me/62895330379186',MessageType.text, { quoted: mek} )
+					break
+		case 'jembut':
+					client.sendMessage(from, 'Gunakan bahasa yang benar\nAnda akan kami banned!\nHubungi kami : wa.me/62895330379186',MessageType.text, { quoted: mek} )
+					break
+		case 'ngentod':
+					client.sendMessage(from, 'Gunakan bahasa yang benar\nAnda akan kami banned!\nHubungi kami : wa.me/62895330379186',MessageType.text, { quoted: mek} )
+					break
+		case 'kntl':
+					client.sendMessage(from, 'Gunakan bahasa yang benar\nAnda akan kami banned!\nHubungi kami : wa.me/62895330379186',MessageType.text, { quoted: mek} )
 					break
 
 		case 'wa.me':
