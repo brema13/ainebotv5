@@ -205,6 +205,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   └─ ❏ ${prefix}rate
 ◪ *DOWNLOADER*
   │
+  ├─ ❏ ${prefix}1cak
   ├─ ❏ ${prefix}pinterest [teks]
   ├─ ❏ ${prefix}ytmp3 [link]
   ├─ ❏ ${prefix}ytmp4 [link]
@@ -239,6 +240,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   │
   ├─ ❏ ${prefix}hai
   ├─ ❏ ${prefix}aine
+  ├─ ❏ ${prefix}soundplaydate
   ├─ ❏ ${prefix}soundbakahentai
   ├─ ❏ ${prefix}sayonichan
   └─ ❏ ${prefix}gtts
