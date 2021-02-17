@@ -125,7 +125,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ----------------------------------
 ◪ *INFO AINEBOT*
   ❏ Nama: AINEBOT 
-  ❏ Nomor: wa.me/12029991296
+  ❏ Nomor: wa.me/12195159558
   ❏ Fb: https://facebook.com/ainneboot
   ----------------------------------
 ◪ *YOUR INFO*
