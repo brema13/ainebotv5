@@ -239,6 +239,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
 ◪ *SOUND*
   │
   ├─ ❏ ${prefix}hai
+  ├─ ❏ ${prefix}hallo
   ├─ ❏ ${prefix}aine
   ├─ ❏ ${prefix}soundplaydate
   ├─ ❏ ${prefix}soundbakahentai
