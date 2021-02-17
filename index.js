@@ -985,7 +985,7 @@ client.on('group-participants-update', async (anu) => {
 				if ( checkATMuser(sender) >= total ) {
 					confirmATM(sender, total)
 					bayarLimit(sender, payout)
-					await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga limit* : ${koinPerlimit}/limit\n*Sisa uang mu* : ${checkATMuser(sender)}\n\nProses berhasil dengan nomer pembayaran\n${createSerial(15)}`)
+					await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga limit* : ${koinPerlimit}/limit\n*Sisa uang mu* : ${checkATMuser(sender)}\n\nProses berhasil dengan nomer pembayaran\n${createSerial(20)}`)
 				} 
 				break
 		case 'buypremiumlimit':
@@ -999,7 +999,7 @@ client.on('group-participants-update', async (anu) => {
 				if ( checkATMuser(sender) >= totalprem ) {
 					confirmATM(sender, totalprem)
 					bayarLimit(sender, payout)
-					await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga limit* : ${koinpremPerlimit}/limit\n*Sisa uang mu* : ${checkATMuser(sender)}\n\nProses berhasil dengan nomer pembayaran\n${createSerial(15)}`)
+					await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga limit* : ${koinpremPerlimit}/limit\n*Sisa uang mu* : ${checkATMuser(sender)}\n\nProses berhasil dengan nomer pembayaran\n${createSerial(20)}`)
 				} 
 				break
 					
@@ -1021,7 +1021,7 @@ client.on('group-participants-update', async (anu) => {
                         	if (found !== false) {
                             	_limit[found].limit -= jmla
                             	const updated = _limit[found]
-                            	const result = `Gift kuota limit sukses dengan NS: ${createSerial(15)} pada ${moment().format('DD/MM/YY HH:mm:ss')}
+                            	const result = `Gift kuota limit sukses dengan NS: ${createSerial(20)} pada ${moment().format('DD/MM/YY HH:mm:ss')}
 							*「 GIFT KUOTA LIMIT 」*
 							• User : @${updated.id.replace('@s.whatsapp.net','')}
 							• Limit: ${limitawal-updated.limit}`
@@ -2041,7 +2041,7 @@ client.on('group-participants-update', async (anu) => {
                 			if (!q.includes('|')) return  reply(ind.wrongf())
                 			const namaUser = q.substring(0, q.indexOf('|') - 0)
                 			const umurUser = q.substring(q.lastIndexOf('|') + 1)
-                			const serialUser = createSerial(15)
+                			const serialUser = createSerial(20)
                 			if(isNaN(umurUser)) return await reply('Umur harus berupa angka!!')
                 			if (namaUser.length >= 30) return reply(`why is your name so long it's a name or a train`)
                 			if (umurUser > 40) return reply(`your age is too  old maximum 40 years`)
@@ -2172,6 +2172,7 @@ client.on('group-participants-update', async (anu) => {
 		case 'help': 
 		case 'menu':
 					if (!isRegistered) return reply(ind.noregis())
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					const reqXp  = 5000 * (Math.pow(2, getLevelingLevel(sender)) - 1)
 					const uangku = checkATMuser(sender)
 					await costum(ind.menu(pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku, role), text, tescuk, cr)
@@ -2668,6 +2669,19 @@ client.on('group-participants-update', async (anu) => {
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					client.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=osakana`, {method: 'get'})
+					reply(ind.wait())
+					n = JSON.parse(JSON.stringify(data));
+					nimek =  n[Math.floor(Math.random() * n.length)];
+					pok = await getBuffer(nimek)
+					client.sendMessage(from, pok, image, { quoted: mek })
+					await limitAdd(sender)
+					break
+		case 'menherachan':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					client.updatePresence(from, Presence.composing) 
+					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=menhera-chan`, {method: 'get'})
 					reply(ind.wait())
 					n = JSON.parse(JSON.stringify(data));
 					nimek =  n[Math.floor(Math.random() * n.length)];
