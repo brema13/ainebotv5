@@ -28,7 +28,7 @@ const { fetchJson } = require('./lib/fetcher')
 const { recognize } = require('./lib/ocr')
 const fontPath = ('./lib/Zahraaa.ttf')
 const path = require('path')
-const { exec } = require("child_process")
+const { exec, spawn } = require("child_process")
 const { wait, simih, getBuffer, h2k, generateMessageID, getGroupAdmins, getRandom, banner, start, info, success, close } = require('./lib/functions')
 const tiktod = require('tiktok-scraper')
 const brainly = require('brainly-scraper')
@@ -2980,6 +2980,9 @@ client.on('group-participants-update', async (anu) => {
 					break
 		case 'ping':
 					client.sendMessage(from, 'Active',MessageType.text, { quoted: mek} )
+					break
+		case 'assalamualaikum':
+					client.sendMessage(from, 'Waalaikumusalam',MessageType.text, { quoted: mek} )
 					break
 
 		case 'wa.me':
