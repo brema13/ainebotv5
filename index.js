@@ -26,6 +26,8 @@ const { donasi } = require('./lib/donasi')
 const { randompict } = require('./lib/randompict')
 const { fetchJson } = require('./lib/fetcher')
 const { recognize } = require('./lib/ocr')
+const fontPath = ('./lib/Zahraaa.ttf')
+const path = require('path')
 const { exec } = require("child_process")
 const { wait, simih, getBuffer, h2k, generateMessageID, getGroupAdmins, getRandom, banner, start, info, success, close } = require('./lib/functions')
 const tiktod = require('tiktok-scraper')
@@ -1225,6 +1227,56 @@ client.on('group-participants-update', async (anu) => {
 				client.sendMessage(from, ct, image, {caption: 'Nih kak udah jadi..', quoted: mek})
 				await limitAdd(sender)
 				break
+		case 'nulis2':
+				const textnulis = body.slice(7)
+				let inputPath ='./lib/magernulis1.jpg'
+ 			   let outputPath = './tmp/hasil.jpg'
+			    let d = new Date
+			    let tgl = d.toLocaleDateString('id-Id')
+			    let hari = d.toLocaleDateString('id-Id', { weekday: 'long' })
+ 			 //  reply('p\n' + util.format({fontPath, inputPath, outputPath, tgl, hari, textnulis}))
+				  spawn('convert', [
+				    inputPath,
+				    '-font',
+				    fontPath,
+				    '-size',
+				    '1024x784',
+				    '-pointsize',
+				    '20',
+ 				   '-interline-spacing',
+				    '1',
+				    '-annotate',
+ 				   '+806+78',
+				    hari,
+  				  '-font',
+  				  fontPath,
+  				  '-size',
+  				  '1024x784',
+  				  '-pointsize',
+  				  '18',
+  				  '-interline-spacing',
+  				  '1',
+  				  '-annotate',
+   				 '+806+102',
+ 				   tgl,
+ 				   '-font',
+  				  fontPath,
+   				 '-size',
+				    '1024x784',
+ 				   '-pointsize',
+ 				   '20',
+  				  '-interline-spacing',
+  				  '-7.5',
+  				  '-annotate',
+ 				   '+344+142',
+ 				   textnulis,
+    				outputPath
+				  ])
+ 				 .on('error', e => reply(util.format(e))
+ 				 .on('exit', () => {
+  			  client.sendMessage(from, outputPath, image, {quoted: mek, caption : ' nih sayang, jangan mager ya sayang'})
+  			}))
+  			  break
 		case 'bplogo':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
