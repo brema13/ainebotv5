@@ -1888,6 +1888,16 @@ client.on('group-participants-update', async (anu) => {
 					reply(data.result)
 				        await limitAdd(sender)
 					break
+		case 'spamcall':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isPremium) return reply('Maaf kamu bukan user premium!')
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					if (args.length < 1) return reply('Nomor nya mana kak?!!!')
+					data = await fetchJson(`https://tobz-api.herokuapp.com/api/spamcall?no=${body.slice(10)}&apikey=BotWeA`)
+					reply(data.logs)
+				        await limitAdd(sender)
+					break
 		case 'wiki':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -2155,6 +2165,7 @@ client.on('group-participants-update', async (anu) => {
 					await limitAdd(sender)
 					break
 		case 'del':
+		case 'd':
 		case 'delete':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
