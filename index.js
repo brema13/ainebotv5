@@ -874,8 +874,8 @@ client.on('group-participants-update', async (anu) => {
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (!isPremium) return reply('Maaf kamu bukan user premium!')
-				let aineesii = fs.readFileSync('./mp3/Play-Date-Melanie-Martinez-Cover-by-邢凯悦XKY.opus')
-				client.sendMessage(from, aineesii, MessageType.audio, { quoted: mek, ptt: true })
+				let aineesiie = fs.readFileSync('./mp3/Play-Date-Melanie-Martinez-Cover-by-邢凯悦XKY.opus')
+				client.sendMessage(from, aineesiie, MessageType.audio, { quoted: mek, ptt: true })
 				await limitAdd(sender)
 				break
               case 'hallo':
