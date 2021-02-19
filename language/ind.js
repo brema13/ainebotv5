@@ -114,6 +114,13 @@ exports.reglevelahf = (command, pushname, getLevelingLevel, sender, ahf) => {
 	return`*Maaf ${pushname} level mu belum mencukupi*\n\n*┏⊱level mu : ${getLevelingLevel(sender)}*\n*┣⊱jenis command : ${command}*\n*┗⊱syarat level : ${ahf}*\n\n_NOTE : CHAT/SELALU ON UNTUK MENDAPATKAN XP_`
 }
 
+//anjing INFO DEVELOPER jangan di ganti bangsat!!
+//cuma numpang nama doang lu !!
+//kalau INFO DEVELOPER ga di ganti gw ikhlas !!
+//---------------------------
+//Fuck dont change INFO DEVELOPER !!
+//You only get your name fuck !!
+//If INFO DEVELOPER not in change, its okey!!
 exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku, role) => { 
 	return `「 *AINE BOT* 」
 
