@@ -2258,6 +2258,15 @@ client.on('group-participants-update', async (anu) => {
 					await reply(`Error!\n${err}`)
 					})
 					break
+		case 'say':
+                                        teks = body.slice(5)
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+                                        if (args.length < 1) return reply('teksnya mana kak?')
+                                        saying = teks
+                                        client.sendMessage(from, saying, text)
+					await limitAdd(sender)
+                                        break
 		case 'info':
 					me = client.user
 					uptime = process.uptime()
