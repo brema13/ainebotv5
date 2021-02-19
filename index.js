@@ -1,3 +1,6 @@
+//Anjing mau apa lo
+//Numpang nama doang bangsat
+//Script gw ini anjing
 const {
    WAConnection,
    MessageType,
