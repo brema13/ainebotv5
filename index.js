@@ -1,6 +1,9 @@
 //Anjing mau apa lo
 //Numpang nama doang bangsat
-//Script gw ini anjing
+//Script gw ini anjing!
+//Fuck , What do you want
+//You just put a name, fuck
+//This is my script DOG!
 const {
    WAConnection,
    MessageType,
