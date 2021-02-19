@@ -827,7 +827,7 @@ client.on('group-participants-update', async (anu) => {
                 		if (jumblah < 5000 ) return reply(`minimal transfer 5000`)
                 		if (checkATMuser(sender) < jumblah) return reply(`uang mu tidak mencukupi untuk melakukan transfer`)
                 		const tujuantf = `${tujuan.replace("@", '')}@s.whatsapp.net`
-                		fee = 1.000 *  jumblah
+                		fee = 0.010 *  jumblah
                 		hasiltf = jumblah - fee
                 		addKoinUser(tujuantf, hasiltf)
                 		confirmATM(sender, jumblah)
