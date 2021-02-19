@@ -179,6 +179,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}ssweb
   ├─ ❏ ${prefix}hilih [teks]
   ├─ ❏ ${prefix}alay [teks]
+  ├─ ❏ ${prefix}say [teks]
   ├─ ❏ ${prefix}wiki [teks]
   ├─ ❏ ${prefix}kbbi [teks]
   ├─ ❏ ${prefix}map [teks]
@@ -197,6 +198,9 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   │
   ├─ ❏ ${prefix}gantengcek
   ├─ ❏ ${prefix}cantikcek
+  ├─ ❏ ${prefix}sangecek
+  ├─ ❏ ${prefix}gaycek
+  ├─ ❏ ${prefix}lesbicek
   ├─ ❏ ${prefix}watak
   ├─ ❏ ${prefix}hobby
   ├─ ❏ ${prefix}apakah
@@ -227,6 +231,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}quotesislami
   ├─ ❏ ${prefix}quotesnasehat
   ├─ ❏ ${prefix}quotescinta ❌
+  ├─ ❏ ${prefix}quotesmotivasi
   ├─ ❏ ${prefix}animequotes ❌
   └─ ❏ ${prefix}twichquotes ❌
 ◪ *LIMIT & UANG & LB*
@@ -239,11 +244,11 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
 ◪ *SOUND*
   │
   ├─ ❏ ${prefix}hai
-  ├─ ❏ ${prefix}hallo
+  ├─ ❏ ${prefix}hallo [only computer]
   ├─ ❏ ${prefix}aine
-  ├─ ❏ ${prefix}soundplaydate
-  ├─ ❏ ${prefix}soundbakahentai
-  ├─ ❏ ${prefix}sayonichan
+  ├─ ❏ ${prefix}soundplaydate [only computer]
+  ├─ ❏ ${prefix}soundbakahentai [only computer]
+  ├─ ❏ ${prefix}sayonichan [only computer]
   └─ ❏ ${prefix}gtts
 ◪ *ISLAM*
   │
