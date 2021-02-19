@@ -859,7 +859,7 @@ client.on('group-participants-update', async (anu) => {
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (!isPremium) return reply('Maaf kamu bukan user premium!')
 				let aineess = fs.readFileSync('./mp3/WhatsApp-Audio-2021-02-19-at-23.33.29.opus')
-				client.sendMessage(from, aineess, MessageType.audio, { quoted: mek, ptt: true })
+				client.sendMessage(from, aineess, audio, {mimetype: 'audio/mp4', filename: `bakahentai.mp3`, quoted: mek})
 				await limitAdd(sender)
 				break
               case 'sayonichan':
