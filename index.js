@@ -858,8 +858,8 @@ client.on('group-participants-update', async (anu) => {
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (!isPremium) return reply('Maaf kamu bukan user premium!')
-				let aineess = fs.readFileSync('./mp3/Onii-Chan-Baka-HentaiLyrics.opus')
-				client.sendMessage(from, aineess, audio, { quoted: mek, ptt: true })
+				let aineess = fs.readFileSync('./mp3/WhatsApp-Ptt-2021-02-10-at-02.39.39.opus')
+				client.sendMessage(from, aineess, MessageType.audio, { quoted: mek, ptt: true })
 				await limitAdd(sender)
 				break
               case 'sayonichan':
