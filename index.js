@@ -2300,13 +2300,13 @@ client.on('group-participants-update', async (anu) => {
 		case 'menupict':
 					if (!isRegistered) return reply(ind.noregis())
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-					buffer = await getBuffer(`https://i.ibb.co/5nBhggv/2b84cc9cb84d76bc5c2b27e81d6aecfd.png`)
+					buffer = await getBuffer(`https://i.ibb.co/tqf0P7q/Whats-App-Image-2021-02-22-at-01-46-22.png`)
 					client.sendMessage(from, buffer, image, { quoted: mek, caption: randompict(prefix)})
 					break
 		case 'menuowner':
 					if (!isRegistered) return reply(ind.noregis())
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-					buffer = await getBuffer(``)
+					buffer = await getBuffer(`https://i.ibb.co/5nBhggv/2b84cc9cb84d76bc5c2b27e81d6aecfd.png`)
 					client.sendMessage(from, buffer, image, { quoted: mek, caption: developer(prefix)})
 					break
 		case 'bahasa':
