@@ -127,6 +127,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
 ◪ *INFO DEVELOPER*
   ❏ Nama: Muhammad Ridwan Reynaldy
   ❏ Wa: wa.me/62895330379186
+  ❏ Wa: wa.me/
   ❏ Ig: https://instagram.com/anemio999
   ❏ Fb: https://facebook.com/ridwan228
   ----------------------------------
