@@ -1049,7 +1049,7 @@ client.on('group-participants-update', async (anu) => {
 				break
 		case 'giftlimit': 
 				if (!isRegistered) return reply(ind.noregis())
-				if (!isOwner) return reply(ind.ownerb())
+				if (!isOwner && !isAdmin)
 				const nomerr = args[0].replace('@','')
                 		const jmla = args[1]
                 		if (jmla <= 1) return reply(`minimal gift limit adalah 1`)
@@ -1074,35 +1074,6 @@ client.on('group-participants-update', async (anu) => {
                             	reply(result)
                         	} else {
                                 reply(`Maaf, nomor ${nomerr} tidak terdaftar di database!`)
-                        	}
-               			break
-		case 'giftlimitt': 
-				if (!isRegistered) return reply(ind.noregis())
-				if (!isAdmin) return reply('*Only Admin bot*')
-				const nomerrs = args[0].replace('@','')
-                		const jmla = args[1]
-                		if (jmla <= 1) return reply(`minimal gift limit adalah 1`)
-                		if (isNaN(jmla)) return reply(`limit harus berupa angka`)
-                		if (!nomerr) return reply(`maaf format salah\nmasukan parameter yang benar\ncontoh : ${prefix}giftlimit @62895710074883 20`)
-                		const cysz = nomerrs + '@s.whatsapp.net'
-                		var found = false
-                        			Object.keys(_limit).forEach((i) => {
-                            			if(_limit[i].id === cysz){
-                                			found = i
-                            			}
-                        		})
-                        	if (found !== false) {
-                            	_limit[found].limit -= jmla
-                            	const updated = _limit[found]
-                            	const result = `Gift kuota limit sukses dengan NS: ${createSerial(20)} pada ${moment().format('DD/MM/YY HH:mm:ss')}
-							*「 GIFT KUOTA LIMIT 」*
-							• User : @${updated.id.replace('@s.whatsapp.net','')}
-							• Limit: ${limitawal-updated.limit}`
-                            	console.log(_limit[found])
-                            	fs.writeFileSync('./database/user/limit.json',JSON.stringify(_limit));
-                            	reply(result)
-                        	} else {
-                                reply(`Maaf, nomor ${nomerrs} tidak terdaftar di database!`)
                         	}
                			break
                 case 'moddroid':
