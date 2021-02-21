@@ -30,6 +30,7 @@ const { color, bgcolor } = require('./lib/color')
 const { bahasa } = require('./lib/bahasa')
 const { negara } = require('./lib/kodenegara')
 const { donasi } = require('./lib/donasi')
+const { developer } = require('./lib/developer')
 const { randompict } = require('./lib/randompict')
 const { fetchJson } = require('./lib/fetcher')
 const { recognize } = require('./lib/ocr')
@@ -1545,11 +1546,11 @@ client.on('group-participants-update', async (anu) => {
 				if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(ind.stikga())
 				anu = await fetchJson(`https://api.zeks.xyz/api/ytmp3?url=${args[0]}&apikey=apivinz`, {method: 'get'})
 				if (anu.error) return reply(anu.error)
-				teks = `❏  ${anu.title}\n❏ *Ukuran* : ${anu.size}\n\n❏ *Tunggu Bentar Ya Kak, Audionya Lagi Di Kirim...*`
-				thumb = await getBuffer(anu.thumbnail)
+				teks = `❏  ${anu.result.title}\n❏ *Ukuran* : ${anu.result.size}\n\n❏ *Tunggu Bentar Ya Kak, Audionya Lagi Di Kirim...*`
+				thumb = await getBuffer(anu.result.thumbnail)
 				client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
-				buffer = await getBuffer(anu.url_audio)
-				client.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
+				buffer = await getBuffer(anu.result.url_audio)
+				client.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.result.title}.mp3`, quoted: mek})
 				await limitAdd(sender)
 				break
 		case 'ytmp4':
@@ -1562,11 +1563,11 @@ client.on('group-participants-update', async (anu) => {
 				if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(ind.stikga())
 				anu = await fetchJson(`https://api.zeks.xyz/api/ytmp4?url=${args[0]}&apikey=apivinz`, {method: 'get'})
 				if (anu.error) return reply(anu.error)
-				teks = `❏ *Title* : ${anu.title}\n❏ *Ukuran* : ${anu.size}\n\n❏ *Tunggu Bentar Ya Kak, Vidoenya Lagi Di Kirim...*`
-				thumb = await getBuffer(anu.thumbnail)
+				teks = `❏ *Title* : ${anu.result.title}\n❏ *Ukuran* : ${anu.result.size}\n\n❏ *Tunggu Bentar Ya Kak, Vidoenya Lagi Di Kirim...*`
+				thumb = await getBuffer(anu.result.thumbnail)
 				client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
-				buffer = await getBuffer(anu.url_video)
-				client.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.title}.mp4`, quoted: mek})
+				buffer = await getBuffer(anu.result.url_video)
+				client.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.result.title}.mp4`, quoted: mek})
 				await limitAdd(sender)
 				break
 		case 'play':   
@@ -1860,6 +1861,19 @@ client.on('group-participants-update', async (anu) => {
 					})
 					await limitAdd(sender)
 					break
+                case 'tribunews':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					client.updatePresence(from, Presence.composing) 
+					data = await fetchJson(`https://api.zeks.xyz/api/tribunews?apikey=apivinz`, {method: 'get'})
+					teks = '=================\n'
+					for (let i of data.result) {
+						teks += `*Judul* : ${i.title}\n*Time* : ${i.time}\n*Link* : ${i.url}\n*Keterangan* : ${i.ket}\n=================\n`
+					}
+					reply(teks.trim())
+					await limitAdd(sender)
+					break 
                 case 'beritahoax':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -2174,6 +2188,16 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, 'Pertanyaan : *'+apakah+'*\n\nJawaban : '+ kah, text, { quoted: mek })
 					await limitAdd(sender)
 					break
+		case 'bagaimanakah':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					bagaimanakah = body.slice(1)
+					const bagai =['Iya','Tidak','Bisa Jadi','Coba Ulangi','Cari Aja Sendiri']
+					const mana = bagai[Math.floor(Math.random() * bagai.length)]
+					client.sendMessage(from, 'Pertanyaan : *'+bagaimanakah+'*\n\nJawaban : '+ mana, text, { quoted: mek })
+					await limitAdd(sender)
+					break
 		case 'rate':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -2276,8 +2300,14 @@ client.on('group-participants-update', async (anu) => {
 		case 'menupict':
 					if (!isRegistered) return reply(ind.noregis())
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-					buffer = await getBuffer(`https://i.ibb.co/BKMRPmC/images.png`)
+					buffer = await getBuffer(`https://i.ibb.co/5nBhggv/2b84cc9cb84d76bc5c2b27e81d6aecfd.png`)
 					client.sendMessage(from, buffer, image, { quoted: mek, caption: randompict(prefix)})
+					break
+		case 'menuowner':
+					if (!isRegistered) return reply(ind.noregis())
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					buffer = await getBuffer(``)
+					client.sendMessage(from, buffer, image, { quoted: mek, caption: developer(prefix)})
 					break
 		case 'bahasa':
 					if (!isRegistered) return reply(ind.noregis())
@@ -2500,7 +2530,7 @@ client.on('group-participants-update', async (anu) => {
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-	                                const cangti = ['https://i.ibb.co/vvmp82w/kucing1.jpg','https://i.ibb.co/FsJ6jjs/kucing2.jpg','https://i.ibb.co/vvkdS7n/kucing3.jpg','https://i.ibb.co/1QHWxts/kucing4.jpg','https://i.ibb.co/JQmRz4n/kucing5.jpg','https://i.ibb.co/tBwrFkG/kucing6.jpg','https://i.ibb.co/dp0YhYm/kucing7.jpg','https://i.ibb.co/R03smZT/kucing8.jpg','https://i.ibb.co/17tw0dp/kucing9.jpg','https://i.ibb.co/7XdGGqc/kucing10.jpg','https://i.ibb.co/XL9PZxg/kucing11.jpg','https://i.ibb.co/gyjvXWN/kucing12.jpg','https://i.ibb.co/R4gg4wH/kucing13.jpg','https://i.ibb.co/PmLYtFm/kucing14.jpg','https://i.ibb.co/XbSDh47/kucing15.jpg','https://i.ibb.co/kSXNJzt/kucing16.jpg']
+	                                const cangti = ['https://i.ibb.co/1T1DCz7/cewek-thailand-20200325-007-non-fotografer-kly.jpg','https://i.ibb.co/FsJ6jjs/kucing2.jpg','https://i.ibb.co/vvkdS7n/kucing3.jpg','https://i.ibb.co/1QHWxts/kucing4.jpg','https://i.ibb.co/JQmRz4n/kucing5.jpg','https://i.ibb.co/tBwrFkG/kucing6.jpg','https://i.ibb.co/dp0YhYm/kucing7.jpg','https://i.ibb.co/R03smZT/kucing8.jpg','https://i.ibb.co/17tw0dp/kucing9.jpg','https://i.ibb.co/7XdGGqc/kucing10.jpg','https://i.ibb.co/XL9PZxg/kucing11.jpg','https://i.ibb.co/gyjvXWN/kucing12.jpg','https://i.ibb.co/R4gg4wH/kucing13.jpg','https://i.ibb.co/PmLYtFm/kucing14.jpg','https://i.ibb.co/XbSDh47/kucing15.jpg','https://i.ibb.co/kSXNJzt/kucing16.jpg']
                                         let cangtip = cangti[Math.floor(Math.random() * cangti.length)]
                                         client.sendMessage(from, cangtip, image, {quote: mek})
 					await limitAdd(sender)
@@ -3161,6 +3191,9 @@ client.on('group-participants-update', async (anu) => {
 					break
 		case 'bot':
 					client.sendMessage(from, 'Iya kak? \nJangan lupa daftar iya kak ^_^"\nJika sudah silahkan berarti sudah terdaftar kak ^_^"',MessageType.text, { quoted: mek} )
+					break
+		case 'hargapremium':
+					client.sendMessage(from, 'Level 100 = Free 3 day (premium)\n10k = 7day (premium)\n25k = bulan (premium)',MessageType.text, { quoted: mek} )
 					break
 		case 'buypremium':
 					client.sendMessage(from, 'Ingin membeli premium?\nHarap hubungi kami : wa.me/62895330379186',MessageType.text, { quoted: mek} )
