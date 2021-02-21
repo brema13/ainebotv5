@@ -1049,7 +1049,7 @@ client.on('group-participants-update', async (anu) => {
 				break
 		case 'giftlimit': 
 				if (!isRegistered) return reply(ind.noregis())
-				if (!isOwner && !isAdmin)
+				if (!isAdmin) return reply('*Only Admin & Owner Kami!*')
 				const nomerr = args[0].replace('@','')
                 		const jmla = args[1]
                 		if (jmla <= 1) return reply(`minimal gift limit adalah 1`)
