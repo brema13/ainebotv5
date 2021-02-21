@@ -324,15 +324,26 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}setppbot
   ├─ ❏ ${prefix}premium
   ├─ ❏ ${prefix}unpremium
+  ├─ ❏ ${prefix}admin
+  ├─ ❏ ${prefix}unadmin
   ├─ ❏ ${prefix}ban
-  ├─ ❏ ${prefix}bc
   ├─ ❏ ${prefix}unban
+  ├─ ❏ ${prefix}bc
   ├─ ❏ ${prefix}block
   ├─ ❏ ${prefix}unblock
   ├─ ❏ ${prefix}setprefix
   ├─ ❏ ${prefix}event [1/0]
   ├─ ❏ ${prefix}clone
   └─ ❏ ${prefix}clearall
+◪ *ADMIN*
+  │
+  ├─ ❏ ${prefix}event
+  ├─ ❏ ${prefix}bcc
+  ├─ ❏ ${prefix}bann
+  ├─ ❏ ${prefix}unbann
+  ├─ ❏ ${prefix}blockk
+  ├─ ❏ ${prefix}unblockk
+  └─ ❏ ${prefix}giftlimit
 ◪ *OTHER*
   │
   ├─ ❏ ${prefix}wame
