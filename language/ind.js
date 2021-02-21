@@ -165,8 +165,10 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}blocklist
   ├─ ❏ ${prefix}ping
   ├─ ❏ ${prefix}buypremium
+  ├─ ❏ ${prefix}hargaprem
   ├─ ❏ ${prefix}gcainebot
-  └─ ❏ ${prefix}menupict
+  ├─ ❏ ${prefix}menupict
+  └─ ❏ ${prefix}menuowner
 ◪ *MAKER*
   │
   ├─ ❏ ${prefix}nulis
@@ -179,6 +181,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   └─ ❏ ${prefix}calendermaker
 ◪ *MEDIA*
   │
+  ├─ ❏ ${prefix}tribunews
   ├─ ❏ ${prefix}beritahoax ❌
   └─ ❏ ${prefix}trendtwit ❌
 ◪ *OTHER FITUR*
@@ -300,6 +303,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   │
   ├─ ❏ ${prefix}tagall
   ├─ ❏ ${prefix}listadmin
+  ├─ ❏ ${prefix}wakillist
   ├─ ❏ ${prefix}premiumlist
   ├─ ❏ ${prefix}banlist
   ├─ ❏ ${prefix}blocklist
@@ -314,37 +318,6 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}nsfw [1/0]
   ├─ ❏ ${prefix}leveling [1/0]
   └─ ❏ ${prefix}simih [1/0]
-◪ *OWNER*
-  │
-  ├─ ❏ ${prefix}setprefix
-  ├─ ❏ ${prefix}setreply
-  ├─ ❏ ${prefix}setlimit
-  ├─ ❏ ${prefix}addlimit
-  ├─ ❏ ${prefix}giftlimit
-  ├─ ❏ ${prefix}setmemlimit
-  ├─ ❏ ${prefix}setppbot
-  ├─ ❏ ${prefix}premium
-  ├─ ❏ ${prefix}unpremium
-  ├─ ❏ ${prefix}admin
-  ├─ ❏ ${prefix}unadmin
-  ├─ ❏ ${prefix}ban
-  ├─ ❏ ${prefix}unban
-  ├─ ❏ ${prefix}bc
-  ├─ ❏ ${prefix}block
-  ├─ ❏ ${prefix}unblock
-  ├─ ❏ ${prefix}setprefix
-  ├─ ❏ ${prefix}event [1/0]
-  ├─ ❏ ${prefix}clone
-  └─ ❏ ${prefix}clearall
-◪ *ADMIN*
-  │
-  ├─ ❏ ${prefix}event
-  ├─ ❏ ${prefix}bcc
-  ├─ ❏ ${prefix}bann
-  ├─ ❏ ${prefix}unbann
-  ├─ ❏ ${prefix}blockk
-  ├─ ❏ ${prefix}unblockk
-  └─ ❏ ${prefix}giftlimit
 ◪ *OTHER*
   │
   ├─ ❏ ${prefix}wame
