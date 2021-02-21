@@ -3550,7 +3550,7 @@ client.on('group-participants-update', async (anu) => {
 					break
                  case 'event':
 					if (!isGroup) return reply(ind.groupo())
-					if (!isOwner) return reply(ind.ownerb())
+					if (!isAdmin) return reply('*Only Admin & Owner Kami!*')
 					if (args.length < 1) return reply('Mengaktifkan tekan 1, Menonaktif tekan 0')
 					if (Number(args[0]) === 1) {
 						if (isEventon) return reply('*Fitur event sudah aktif sebelum nya*')
