@@ -213,6 +213,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}apakah
   ├─ ❏ ${prefix}kapankah
   ├─ ❏ ${prefix}bisakah
+  ├─ ❏ ${prefix}bagaimanakah
   └─ ❏ ${prefix}rate
 ◪ *DOWNLOADER*
   │
