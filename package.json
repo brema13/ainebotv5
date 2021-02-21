@@ -1,5 +1,5 @@
 {
-  "name": "AINEBOT",
+  "name": "BREMABOT",
   "version": "1.0.0",
   "description": "Aine for whatsapp online with termux",
   "main": "index.js",
@@ -21,12 +21,12 @@
   "author": "Muhammad Ridwan Reynaldy",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anemio/ainebotv5.git"
+    "url": "git+https://github.com/brema13/ainebotv5.git"
   },
   "bugs": {
-    "url": "https://github.com/anemio/ainebotv5/issues"
+    "url": "https://github.com/brema13/ainebotv5/issues"
   },
-"homepage": "https://github.com/anemio/ainebotv5/readme",
+"homepage": "https://github.com/brema13/ainebotv5/readme",
 "license": "ISC",
 "dependencies": {
     "@adiwajshing/baileys": "^3.3.0",
