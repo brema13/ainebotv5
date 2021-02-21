@@ -122,17 +122,23 @@ exports.reglevelahf = (command, pushname, getLevelingLevel, sender, ahf) => {
 //You only get your name fuck !!
 //If INFO DEVELOPER not in change, its okey!!
 exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku, role) => { 
-	return `「 *AINE BOT* 」
+	return `「 *BREMA BOT* 」
 
 ◪ *INFO DEVELOPER*
   ❏ Nama: Muhammad Ridwan Reynaldy
+  ❏ Nama: Brema Bastanta Bangun
   ❏ Wa: wa.me/62895330379186
+  ❏ Wa: wa.me/6282237617224
   ❏ Ig: https://instagram.com/anemio999
+  ❏ Ig: https://instagram.com/brema.bangun
   ❏ Fb: https://facebook.com/ridwan228
+  ❏ Fb: https://facebook.com/brema.nangien
   ----------------------------------
-◪ *INFO AINEBOT*
+◪ *INFO ABOUT BOT*
   ❏ Nama: AINEBOT 
+  ❏ Nama: BREMABOT
   ❏ Nomor: wa.me/12195159558
+  ❏ Nomor: wa.me/6281315113882
   ❏ Fb: https://facebook.com/ainneboot
   ----------------------------------
 ◪ *YOUR INFO*
@@ -338,7 +344,7 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
   ├─ ❏ ${prefix}wame
   ├─ ❏ ${prefix}qrcode
   └─ ❏ ${prefix}afk
-◪ *POWERED BY AINEBOT*
+◪ *POWERED BY BREMABOT*
 `
 }
 
@@ -354,7 +360,7 @@ exports.levelup = (pushname, sender, getLevelingXp,  getLevel, getLevelingLevel,
 `}
  
 exports.limitend = (pushname) => {
-	return`*Maaf ${pushname} limit hari ini habis*\n*Hubungi kami* : wa.me/62895330379186\n\n*Note : Kami akan berikan random dari 1-10*`
+	return`*Maaf ${pushname} limit hari ini habis*\n*Hubungi kami* : wa.me/6282237617224\n\n*Note : Kami akan berikan random dari 1-10*`
 }
 
 exports.limitcount = (limitCounts) => {
