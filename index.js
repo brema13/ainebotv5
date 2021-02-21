@@ -60,7 +60,6 @@ cr = '*AINEBOT THIS IS ALREADY VERIFIED*'
 /******** OWNER NUMBER**********/
 const ownerNumber = ["62895330379186@s.whatsapp.net"] 
 const pacarNumber = ["62895321438933@s.whatsapp.net"]
-const kozetNumber = ["628994622890@s.whatsapp.net"]
 /************************************/
 
        
@@ -77,6 +76,7 @@ const _limit = JSON.parse(fs.readFileSync('./database/user/limit.json'))
 const uang = JSON.parse(fs.readFileSync('./database/user/uang.json'))
 const ban = JSON.parse(fs.readFileSync('./database/user/banned.json'))
 const prem = JSON.parse(fs.readFileSync('./database/user/premium.json'))
+const adm = JSON.parse(fs.readFileSync('./database/user/admin.json'))
 /*********** END LOAD ***********/
 
 /********** FUNCTION ***************/
@@ -357,6 +357,7 @@ client.on('group-participants-update', async (anu) => {
 			const isKozet = kozetNumber.includes(sender)
 			const isBanned = ban.includes(sender)
 			const isPremium= prem.includes(sender)
+			const isAdmin = adm.includes(sender)
 			const isImage = type === 'imageMessage'
 			const isUrl = (url) => {
 			    return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/, 'gi'))
@@ -892,6 +893,30 @@ client.on('group-participants-update', async (anu) => {
 				client.sendMessage(from, aineesii, MessageType.audio, { quoted: mek, ptt: true })
 				await limitAdd(sender)
 				break
+                case 'admin':
+				if (!isOwner) return reply(ind.ownerb())
+				admm = body.slice(7)
+				adm.push(`${admm}@s.whatsapp.net`)
+				fs.writeFileSync('./database/user/admin.json', JSON.stringify(adm))
+				reply(`Berhasil menambahkan admin bot wa.me/${admm} `)
+				break
+                case 'unadmin':
+				if (!isOwner) return reply(ind.ownerb())
+				admm = body.slice(9)
+				admin.push(`${adm}@s.whatsapp.net`)
+				fs.writeFileSync('./database/user/admin.json', JSON.stringify(adm))
+				reply(`Berhasil menambahkan admin bot wa.me/${adm} `)
+				break
+                case 'adminlist':
+				client.updatePresence(from, Presence.composing) 
+				if (!isRegistered) return reply(ind.noregis())    
+				teks = 'This is list of admin bot number :\n'
+				for (let admm of adm) {
+					teks += `~> @${adm.split('@')[0]}\n`
+					}
+					teks += `Total : ${admm.length}`
+				client.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": adm}})
+				break
                 case 'premium':
 				if (!isOwner) return reply(ind.ownerb())
 				premm = body.slice(9)
@@ -915,6 +940,20 @@ client.on('group-participants-update', async (anu) => {
 					}
 					teks += `Total : ${prem.length}`
 				client.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": prem}})
+				break
+                case 'bann':
+				if (!isAdmin) return reply(ind.ownerb())
+				bnnd = body.slice(5)
+				ban.push(`${bnnd}@s.whatsapp.net`)
+				fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
+				reply(`Berhasil membanned nomor : wa.me/${bnnd} `)
+				break
+		case 'unbann':
+				if (!isAdmin) return reply(ind.ownerb())
+				bnnd = body.slice(7)
+				ban.splice(`${bnnd}@s.whatsapp.net`, 1)
+				fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
+				reply(`Nomor wa.me/${bnnd} telah di unban!`)
 				break
                 case 'ban':
 				if (!isOwner) return reply(ind.ownerb())
@@ -1008,10 +1047,38 @@ client.on('group-participants-update', async (anu) => {
 					await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga limit* : ${koinpremPerlimit}/limit\n*Sisa uang mu* : ${checkATMuser(sender)}\n\nProses berhasil dengan nomer pembayaran\n${createSerial(20)}`)
 				} 
 				break
-					
 		case 'giftlimit': 
 				if (!isRegistered) return reply(ind.noregis())
 				if (!isOwner) return reply(ind.ownerb())
+				const nomerr = args[0].replace('@','')
+                		const jmla = args[1]
+                		if (jmla <= 1) return reply(`minimal gift limit adalah 1`)
+                		if (isNaN(jmla)) return reply(`limit harus berupa angka`)
+                		if (!nomerr) return reply(`maaf format salah\nmasukan parameter yang benar\ncontoh : ${prefix}giftlimit @62895710074883 20`)
+                		const cysz = nomerr + '@s.whatsapp.net'
+                		var found = false
+                        			Object.keys(_limit).forEach((i) => {
+                            			if(_limit[i].id === cysz){
+                                			found = i
+                            			}
+                        		})
+                        	if (found !== false) {
+                            	_limit[found].limit -= jmla
+                            	const updated = _limit[found]
+                            	const result = `Gift kuota limit sukses dengan NS: ${createSerial(20)} pada ${moment().format('DD/MM/YY HH:mm:ss')}
+							*「 GIFT KUOTA LIMIT 」*
+							• User : @${updated.id.replace('@s.whatsapp.net','')}
+							• Limit: ${limitawal-updated.limit}`
+                            	console.log(_limit[found])
+                            	fs.writeFileSync('./database/user/limit.json',JSON.stringify(_limit));
+                            	reply(result)
+                        	} else {
+                                reply(`Maaf, nomor ${nomerr} tidak terdaftar di database!`)
+                        	}
+               			break
+		case 'giftlimit2': 
+				if (!isRegistered) return reply(ind.noregis())
+				if (!isAdmin) return reply(ind.ownerb())
 				const nomerr = args[0].replace('@','')
                 		const jmla = args[1]
                 		if (jmla <= 1) return reply(`minimal gift limit adalah 1`)
@@ -1857,6 +1924,15 @@ client.on('group-participants-update', async (anu) => {
 					await client.updateProfilePicture(botNumber, media)
 					reply('Makasih profil barunya😗')
 					break 
+		case 'setppbot2':
+					if (!isAdmin) return reply(ind.ownerb())
+					client.updatePresence(from, Presence.composing) 
+					if (!isQuotedImage) return reply(`Kirim gambar dengan caption ${prefix}setbotpp atau tag gambar yang sudah dikirim`)
+					enmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					media = await client.downloadAndSaveMediaMessage(enmedia)
+					await client.updateProfilePicture(botNumber, media)
+					reply('Makasih profil barunya😗')
+					break 
 		case 'brainly':
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -2029,6 +2105,14 @@ client.on('group-participants-update', async (anu) => {
 					reply(`reply berhasil di ubah menjadi : ${cr}`)
 					await limitAdd(sender)
 					break 
+		case 'setreply2':
+					if (!isAdmin) return reply(ind.ownerb())
+					client.updatePresence(from, Presence.composing) 
+					if (args.length < 1) return
+					cr = body.slice(10)
+					reply(`reply berhasil di ubah menjadi : ${cr}`)
+					await limitAdd(sender)
+					break 
 		case 'grouplist':
 					if (!isRegistered) return reply(ind.noregis())
 					client.updatePresence(from, Presence.composing) 
@@ -2079,10 +2163,10 @@ client.on('group-participants-update', async (anu) => {
 					if (isLimit(sender)) return reply(ind.limitend(pushname))
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
 					if (!isEventon) return reply(`Maaf ${pushname} event mining tidak di aktifkan oleh owner`)
-					if (isOwner | isPacar | isPremium) {
+					if (isOwner | isAdmin | isPremium) {
 					const one = Math.ceil(Math.random() * 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)
 					addLevelingXp(sender, one)
-					await reply(`Kamu adalah developer, aku akan berikan sebanyak *${one}Xp* untuk anda`)
+					await reply(`Kamu bagian dari prabayar, aku akan berikan sebanyak *${one}Xp* untuk anda`)
                  					     }else{
 					const mining = Math.ceil(Math.random() * 1000000000000000000000000)
 					addLevelingXp(sender, mining)
@@ -2309,6 +2393,8 @@ client.on('group-participants-update', async (anu) => {
                          				contextInfo: {mentionedJid: [nomor]},
                      			}
 					client.sendMessage('62895330379186@s.whatsapp.net', options, text, {quoted: mek})
+					client.sendMessage('6281315113882@s.whatsapp.net', options, text, {quoted: mek})
+					client.sendMessage('6282148618789@s.whatsapp.net', options, text, {quoted: mek})
 					reply('REQUEST ANDA TELAH SAMPAI KE OWNER AINEBOT, Requests palsu atau main² tidak akan ditanggapi.')
 					break
 		case 'blocklist': 
@@ -3053,9 +3139,23 @@ client.on('group-participants-update', async (anu) => {
 					limitawal = args[0]
 					reply(`*Limit berhasil di ubah menjadi* : ${limitawal}`)
 					break 
+		case 'setlimit2':
+		case 'addlimit2':
+					if (args.length < 1) return
+					if (!isAdmin) return reply(ind.ownerb())
+					limitawal = args[0]
+					reply(`*Limit berhasil di ubah menjadi* : ${limitawal}`)
+					break 
 		case 'setmemlimit':
 					if (args.length < 1) return
 					if (!isOwner) return reply(ind.ownerb())
+					if (isNaN(args[0])) return reply('Limit harus angka')
+					memberlimit = args[0]
+					reply(`Change Member limit To ${memberlimit} SUCCESS!`)
+					break 
+		case 'setmemlimit2':
+					if (args.length < 1) return
+					if (!isAdmin) return reply(ind.ownerb())
 					if (isNaN(args[0])) return reply('Limit harus angka')
 					memberlimit = args[0]
 					reply(`Change Member limit To ${memberlimit} SUCCESS!`)
@@ -3168,6 +3268,20 @@ client.on('group-participants-update', async (anu) => {
 					}
 					reply(ind.clears())
 					break
+		case 'block2':
+				 client.updatePresence(from, Presence.composing) 
+				 client.chatRead (from)
+					if (!isGroup) return reply(ind.groupo())
+					if (!isAdmin) return reply(ind.ownerb())
+					client.blockUser (`${body.slice(7)}@c.us`, "add")
+					client.sendMessage(from, `*Perintah Diterima, Memblokir* ${body.slice(7)}@c.us`, text)
+					break
+		case 'unblock2':
+					if (!isGroup) return reply(ind.groupo())
+					if (!isAdmin) return reply(ind.ownerb())
+				    client.blockUser (`${body.slice(9)}@c.us`, "remove")
+					client.sendMessage(from, `*Perintah Diterima, Membuka Blockir* ${body.slice(9)}@c.us`, text)
+					break
 		case 'block':
 				 client.updatePresence(from, Presence.composing) 
 				 client.chatRead (from)
@@ -3196,6 +3310,24 @@ client.on('group-participants-update', async (anu) => {
 					break
 		case 'bc': 
 					if (!isOwner) return reply(ind.ownerb()) 
+					if (args.length < 1) return reply('.......')
+					anu = await client.chats.all()
+					if (isMedia && !mek.message.videoMessage || isQuotedImage) {
+						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+						buff = await client.downloadMediaMessage(encmedia)
+						for (let _ of anu) {
+							client.sendMessage(_.jid, buff, image, {caption: `*「 PESAN BROADCAST 」*\n\n${body.slice(4)}`})
+						}
+						reply('*Suksess broadcast* ')
+					} else {
+						for (let _ of anu) {
+							sendMess(_.jid, `*「 BROADCAST AINEBOT 」*\n\n${body.slice(4)}`)
+						}
+						reply('*Suksess broadcast* ')
+					}
+					break
+		case 'bc2': 
+					if (!isAdmin) return reply(ind.ownerb()) 
 					if (args.length < 1) return reply('.......')
 					anu = await client.chats.all()
 					if (isMedia && !mek.message.videoMessage || isQuotedImage) {
@@ -3449,6 +3581,23 @@ client.on('group-participants-update', async (anu) => {
                  case 'event':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isOwner) return reply(ind.ownerb())
+					if (args.length < 1) return reply('Mengaktifkan tekan 1, Menonaktif tekan 0')
+					if (Number(args[0]) === 1) {
+						if (isEventon) return reply('*Fitur event sudah aktif sebelum nya*')
+						event.push(from)
+						fs.writeFileSync('./database/bot/event.json', JSON.stringify(event))
+						reply('❬ SUCCSESS ❭ mengaktifkan fitur event di group ini')
+					} else if (Number(args[0]) === 0) {
+						event.splice(from, 1)
+						fs.writeFileSync('./database/bot/event.json', JSON.stringify(event))
+						reply('❬ SUCCSESS ❭ menonaktifkan fitur event di group ini')
+					} else {
+						reply(ind.satukos())
+					}
+					break
+                 case 'event2':
+					if (!isGroup) return reply(ind.groupo())
+					if (!isAdmin) return reply(ind.ownerb())
 					if (args.length < 1) return reply('Mengaktifkan tekan 1, Menonaktif tekan 0')
 					if (Number(args[0]) === 1) {
 						if (isEventon) return reply('*Fitur event sudah aktif sebelum nya*')
