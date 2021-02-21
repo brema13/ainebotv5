@@ -354,7 +354,6 @@ client.on('group-participants-update', async (anu) => {
 			const isAntilink = isGroup ? antilink.includes(from) : false
 			const isOwner = ownerNumber.includes(sender)
 			const isPacar = pacarNumber.includes(sender)
-			const isKozet = kozetNumber.includes(sender)
 			const isBanned = ban.includes(sender)
 			const isPremium= prem.includes(sender)
 			const isAdmin = adm.includes(sender)
